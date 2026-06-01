@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sky Jewel Products — Discover Our Collection</title>
+<meta name="description" content="Browse Sky Jewel's premium corporate gifts, branding products, packaging, uniforms, and more. Order directly via WhatsApp." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+<style>
+/* ===== Products Page Styles ===== */
+.products-hero{position:relative;padding:140px var(--pad-x) 60px;background:var(--cream);overflow:hidden}
+.products-hero::before{content:"";position:absolute;inset:0;z-index:0;background-image:url("assets/gallery-craft.jpg");background-size:cover;background-position:center;opacity:.25;filter:saturate(.8)}
+.products-hero .container{position:relative;z-index:1;max-width:var(--container);margin:0 auto}
+.products-hero .kicker{color:var(--teal)}
+.products-hero .h2{margin-top:10px}
+
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:28px;max-width:var(--container);margin:0 auto;padding:0 var(--pad-x) 80px}
+.product-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;display:flex;flex-direction:column;transition:transform .4s var(--ease),box-shadow .4s;box-shadow:var(--shadow-sm)}
+.product-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.product-card__media{position:relative;border-bottom:1px solid var(--line)}
+.product-card__img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:opacity .3s}
+.product-card__img.is-fading{opacity:.4}
+.product-card__thumbs{display:flex;gap:6px;padding:8px 12px;background:#fafafa;overflow-x:auto;scrollbar-width:thin}
+.product-card__thumb{width:48px;height:48px;flex-shrink:0;border-radius:8px;overflow:hidden;border:2px solid transparent;cursor:pointer;background:#eee;transition:border-color .2s,transform .2s}
+.product-card__thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.product-card__thumb:hover{transform:translateY(-2px)}
+.product-card__thumb.is-active{border-color:var(--teal)}
+.product-card__body{padding:22px;display:flex;flex-direction:column;gap:14px;flex:1}
+.product-card__title{font-size:18px;font-weight:700;color:var(--ink)}
+.product-card__desc{font-size:14px;color:rgba(13,20,20,.65);line-height:1.65}
+
+.product-card__options{display:flex;flex-direction:column;gap:14px;margin-top:4px}
+.product-card__row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.product-card__row label{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(13,20,20,.55);min-width:70px}
+
+.color-picker{display:flex;gap:8px;flex-wrap:wrap}
+.color-swatch{width:28px;height:28px;border-radius:50%;cursor:pointer;border:2px solid transparent;position:relative;transition:transform .2s,border-color .2s;flex-shrink:0}
+.color-swatch:hover{transform:scale(1.1)}
+.color-swatch.is-selected{border-color:var(--ink);transform:scale(1.15)}
+.color-swatch.is-selected::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1px solid var(--ink);opacity:.35}
+
+.qty-stepper{display:inline-flex;align-items:center;gap:0;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.qty-stepper button{width:36px;height:36px;border:none;background:transparent;cursor:pointer;font-size:18px;color:var(--ink);display:flex;align-items:center;justify-content:center;transition:background .2s}
+.qty-stepper button:hover{background:var(--teal-soft)}
+.qty-stepper button:disabled{opacity:.35;cursor:not-allowed}
+.qty-stepper input{width:44px;height:36px;border:none;text-align:center;font-weight:700;font-size:14px;color:var(--ink);background:transparent;-moz-appearance:textfield;appearance:textfield}
+.qty-stepper input::-webkit-outer-spin-button,.qty-stepper input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+
+.product-card__actions{margin-top:auto;padding-top:18px;display:flex;gap:12px}
+.btn-whatsapp{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 22px;border-radius:999px;font-weight:700;font-size:14px;letter-spacing:.04em;background:#25D366;color:#fff;border:none;cursor:pointer;transition:transform .35s var(--ease),background .3s,box-shadow .3s;text-decoration:none}
+.btn-whatsapp:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,.35)}
+.btn-whatsapp svg{width:18px;height:18px;flex-shrink:0}
+
+@media (max-width:760px){
+  .products-grid{grid-template-columns:1fr;padding-bottom:60px}
+  .product-card__actions{flex-direction:column}
+  .products-hero{padding-top:120px}
+}
+html[lang="ar"] .product-card__row{flex-direction:row-reverse}
+html[lang="ar"] .qty-stepper button:first-child{border-radius:0 999px 999px 0}
+html[lang="ar"] .qty-stepper button:last-child{border-radius:999px 0 0 999px}
+</style>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<header class="nav" id="nav">
+  <a href="index.html" class="nav__brand" aria-label="Sky Jewel home">
+    <img src="assets/logo.svg" alt="Sky Jewel" class="nav__logo" />
+  </a>
+  <nav class="nav__links" aria-label="Primary">
+    <a href="index.html#about" data-en="About" data-ar="عن الشركة">About</a>
+    <a href="index.html#services" data-en="Services" data-ar="الخدمات">Services</a>
+    <a href="index.html#contact" data-en="Contact" data-ar="تواصل">Contact</a>
+  </nav>
+  <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+    <span class="lang-toggle__en">EN</span><span class="lang-toggle__sep">/</span><span class="lang-toggle__ar">ع</span>
+  </button>
+</header>
+
+<section class="products-hero">
+  <div class="container">
+    <span class="kicker reveal" id="heroKicker" data-en="Our Collection" data-ar="مجموعتنا">Our Collection</span>
+    <h1 class="h2 h2--xl reveal" id="heroTitle" data-en="Premium products crafted for your brand." data-ar="منتجات متميزة مصممة لعلامتك.">Premium products crafted for your brand.</h1>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="products-grid" id="productsGrid"></div>
+</section>
+
+<footer class="footer" style="border-top:1px solid var(--line)">
+  <div class="container footer__inner">
+    <img src="assets/logo.svg" alt="Sky Jewel" class="footer__logo" />
+    <span class="footer__copy" data-en="© Sky Jewel. All rights reserved." data-ar="© سكاي جول. جميع الحقوق محفوظة.">© Sky Jewel. All rights reserved.</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+/* ===== Products data (fallback if products.json fails to load) ===== */
+const productsFallback = [
+  {
+    id: 1, en: "Executive Gift Set", ar: "طقم هدايا تنفيذي",
+    descEn: "Premium leather notebook, pen, and cardholder in a branded box.",
+    descAr: "دفتر جلد فاخر، قلم، وحامل بطاقات في علبة مخصصة.",
+    img: "images/corporate-gifts.png",
+    colors: [
+      {name:"Navy", ar:"كحلي", hex:"#1a2b4c"},
+      {name:"Charcoal", ar:"رمادي داكن", hex:"#3d3d3d"},
+      {name:"Brown", ar:"بني", hex:"#8B4513"}
+    ]
+  },
+  {
+    id: 2, en: "Branded Event Kit", ar: "طقم فعاليات مخصص",
+    descEn: "Custom lanyards, badges, wristbands, and welcome packs for conferences.",
+    descAr: "بطاقات معلقة، شارات، أساور، وحقائب ترحيب للمؤتمرات.",
+    img: "images/events.png",
+    colors: [
+      {name:"Teal", ar:"أخضر مزرق", hex:"#38adad"},
+      {name:"Orange", ar:"برتقالي", hex:"#FE582A"},
+      {name:"Indigo", ar:"نيلي", hex:"#3F33D3"}
+    ]
+  },
+  {
+    id: 3, en: "Brand Identity Package", ar: "باقة الهوية البصرية",
+    descEn: "Logo guidelines, business cards, letterheads, and brand book.",
+    descAr: "إرشادات الشعار، بطاقات العمل، أوراق المراسلة، ودليل العلامة.",
+    img: "images/branding.png",
+    colors: [
+      {name:"Gold", ar:"ذهبي", hex:"#C5A059"},
+      {name:"Black", ar:"أسود", hex:"#1a1a1a"},
+      {name:"White", ar:"أبيض", hex:"#fff"}
+    ]
+  },
+  {
+    id: 4, en: "Premium Printing Bundle", ar: "باقة الطباعة المتميزة",
+    descEn: "Flyers, brochures, catalogs, and posters with premium finishes.",
+    descAr: "منشورات، كتيبات، كتالوجات، وملصقات بلمسات فاخرة.",
+    img: "images/printing.png",
+    colors: [
+      {name:"Full Color", ar:"ألوان كاملة", hex:"linear-gradient(135deg,#38adad,#FE582A,#3F33D3)"},
+      {name:"Black & White", ar:"أسود وأبيض", hex:"#1a1a1a"}
+    ]
+  },
+  {
+    id: 5, en: "Luxury Packaging Box", ar: "صندوق تغليف فاخر",
+    descEn: "Rigid boxes with foil stamping, embossing, and custom inserts.",
+    descAr: "صناديق صلبة بطباعة فويل، تطريز بارز، وحوامل مخصصة.",
+    img: "images/packaging.png",
+    colors: [
+      {name:"Black Gold", ar:"أسود وذهبي", hex:"#1a1a1a"},
+      {name:"White Silver", ar:"أبيض وفضي", hex:"#fff"},
+      {name:"Teal", ar:"أخضر مزرق", hex:"#38adad"}
+    ]
+  },
+  {
+    id: 6, en: "Corporate Uniform Set", ar: "طقم زي موحد",
+    descEn: "Tailored shirts, polo tees, and caps with embroidered logo.",
+    descAr: "قمصان مصممة، بولو، وقبعات مطرزة بالشعار.",
+    img: "images/uniforms.png",
+    colors: [
+      {name:"Navy", ar:"كحلي", hex:"#1a2b4c"},
+      {name:"White", ar:"أبيض", hex:"#fff"},
+      {name:"Grey", ar:"رمادي", hex:"#8899a6"}
+    ]
+  }
+];
+
+const grid = document.getElementById('productsGrid');
+const isAr = () => document.documentElement.lang === 'ar';
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const WHATSAPP_SVG = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.689 9.689 0 01-4.951-1.362L2.638 21.22l.678-1.975a9.632 9.632 0 01-1.596-5.367c0-5.335 4.339-9.675 9.675-9.675 5.335 0 9.674 4.34 9.674 9.675 0 5.335-4.339 9.675-9.674 9.675m8.253-12.478A11.62 11.62 0 0011.396.001C5.076 0 0 5.076 0 11.396c0 2.013.525 3.977 1.518 5.711L.052 24l7.02-1.842a11.58 11.58 0 005.324 1.296h.004c6.32 0 11.396-5.076 11.396-11.396 0-3.045-1.186-5.91-3.343-8.067z"/></svg>';
+
+function renderProducts(data){
+  // Hero text
+  if (data.hero){
+    const k = document.getElementById('heroKicker');
+    const t = document.getElementById('heroTitle');
+    if (data.hero.kicker){ k.dataset.en = data.hero.kicker.en; k.dataset.ar = data.hero.kicker.ar; k.textContent = isAr() ? data.hero.kicker.ar : data.hero.kicker.en; }
+    if (data.hero.title){ t.dataset.en = data.hero.title.en; t.dataset.ar = data.hero.title.ar; t.textContent = isAr() ? data.hero.title.ar : data.hero.title.en; }
+  }
+  const phone = data.whatsappPhone || '966583801179';
+  const products = data.products || [];
+  grid.innerHTML = '';
+  const slug = (s) => String(s||'').toLowerCase().trim().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'') || 'c';
+  products.forEach((p) => {
+    // Backward compat: derive images[] from legacy `image` field
+    let images = Array.isArray(p.images) ? p.images.slice() : [];
+    if (!images.length && p.image) images = [{ url: p.image }];
+    // Normalize colors: ensure each has an id
+    const colors = (p.colors || []).map((c) => ({
+      id: c.id || slug(c.name?.en),
+      name: c.name || { en: '', ar: '' },
+      hex: c.hex || '#ccc'
+    }));
+    const card = document.createElement('article');
+    card.className = 'product-card reveal is-visible';
+    card.dataset.name = p.name.en;
+    card.dataset.nameAr = p.name.ar;
+    const mainSrc = images[0]?.url || '';
+    const thumbsHTML = images.length > 1 ? `<div class="product-card__thumbs">${
+      images.map((im, i) => `<button type="button" class="product-card__thumb${i===0?' is-active':''}" data-idx="${i}" data-color-id="${esc(im.colorId||'')}"><img src="${esc(im.url)}" alt="" onerror="this.parentElement.style.display='none'" /></button>`).join('')
+    }</div>` : '';
+    const swatches = colors.map((c, i) => {
+      const isLight = /^#?(f|e)/i.test(c.hex.replace('#',''));
+      const border = isLight ? 'border:1px solid #ddd;' : '';
+      return `<span class="color-swatch ${i===0?'is-selected':''}" style="background:${esc(c.hex)};${border}" data-color="${esc(c.name.en)}" data-color-ar="${esc(c.name.ar)}" data-color-id="${esc(c.id)}" title="${esc(c.name.en)}"></span>`;
+    }).join('');
+    card.innerHTML = `
+      <div class="product-card__media">
+        <img src="${esc(mainSrc)}" alt="${esc(p.name.en)}" class="product-card__img js-main-img" loading="lazy" onerror="this.style.background='var(--teal-soft)';this.removeAttribute('src');" />
+        ${thumbsHTML}
+      </div>
+      <div class="product-card__body">
+        <h3 class="product-card__title" data-en="${esc(p.name.en)}" data-ar="${esc(p.name.ar)}">${esc(p.name.en)}</h3>
+        <p class="product-card__desc" data-en="${esc(p.description.en)}" data-ar="${esc(p.description.ar)}">${esc(p.description.en)}</p>
+        <div class="product-card__options">
+          ${swatches ? `<div class="product-card__row">
+            <label data-en="Color" data-ar="اللون">Color</label>
+            <div class="color-picker" data-selected="${esc(colors[0]?.name?.en || '')}">${swatches}</div>
+          </div>` : ''}
+          <div class="product-card__row">
+            <label data-en="Qty" data-ar="الكمية">Qty</label>
+            <div class="qty-stepper">
+              <button type="button" class="js-qty-minus" aria-label="Decrease">−</button>
+              <input type="number" class="js-qty-input" value="1" min="1" max="99" readonly />
+              <button type="button" class="js-qty-plus" aria-label="Increase">+</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-card__actions">
+          <a href="#" class="btn-whatsapp js-order-btn" data-phone="${esc(phone)}">
+            ${WHATSAPP_SVG}
+            <span data-en="Order on WhatsApp" data-ar="اطلب عبر واتساب">Order on WhatsApp</span>
+          </a>
+        </div>
+      </div>`;
+    // Stash images on card for interactions
+    card._images = images;
+    grid.appendChild(card);
+  });
+  // Re-apply current language
+  const lang = document.documentElement.getAttribute('lang') || 'en';
+  document.querySelectorAll('[data-en],[data-ar]').forEach(el => {
+    const v = el.getAttribute(lang === 'ar' ? 'data-ar' : 'data-en');
+    if (v != null) el.textContent = v;
+  });
+}
+
+// Try fetch products.json; fall back to embedded data if it fails (e.g., file:// or 404)
+fetch('products.json', { cache: 'no-store' })
+  .then(r => r.ok ? r.json() : Promise.reject())
+  .then(data => renderProducts(data))
+  .catch(() => {
+    // Convert fallback array to new schema
+    const data = {
+      hero: null,
+      whatsappPhone: '966583801179',
+      products: productsFallback.map(p => ({
+        id: 'p'+p.id,
+        name: { en: p.en, ar: p.ar },
+        description: { en: p.descEn, ar: p.descAr },
+        image: p.img,
+        colors: p.colors.map(c => ({ name: { en: c.name, ar: c.ar }, hex: c.hex }))
+      }))
+    };
+    renderProducts(data);
+  });
+
+/* ===== Interactions ===== */
+function swapMainImage(card, idx){
+  const imgs = card._images || [];
+  if (!imgs[idx]) return;
+  const main = card.querySelector('.js-main-img');
+  if (!main) return;
+  main.classList.add('is-fading');
+  setTimeout(() => {
+    main.src = imgs[idx].url;
+    main.classList.remove('is-fading');
+  }, 150);
+  // Update active thumbnail
+  card.querySelectorAll('.product-card__thumb').forEach((t, i) => t.classList.toggle('is-active', i === idx));
+}
+
+grid.addEventListener('click', (e) => {
+  const sw = e.target.closest('.color-swatch');
+  if (sw) {
+    const picker = sw.closest('.color-picker');
+    picker.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('is-selected'));
+    sw.classList.add('is-selected');
+    picker.dataset.selected = sw.dataset.color;
+    // Swap main image if any image is bound to this color
+    const card = sw.closest('.product-card');
+    const cid = sw.dataset.colorId;
+    if (cid && card._images){
+      const idx = card._images.findIndex(im => im.colorId === cid);
+      if (idx >= 0) swapMainImage(card, idx);
+    }
+  }
+  const thumb = e.target.closest('.product-card__thumb');
+  if (thumb){
+    const card = thumb.closest('.product-card');
+    swapMainImage(card, +thumb.dataset.idx);
+    // If this thumbnail is bound to a color, also select that swatch
+    const cid = thumb.dataset.colorId;
+    if (cid){
+      const swatch = card.querySelector(`.color-swatch[data-color-id="${cid}"]`);
+      if (swatch){
+        card.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('is-selected'));
+        swatch.classList.add('is-selected');
+        const picker = swatch.closest('.color-picker');
+        if (picker) picker.dataset.selected = swatch.dataset.color;
+      }
+    }
+  }
+
+  const btn = e.target.closest('.js-qty-minus, .js-qty-plus');
+  if (btn) {
+    const wrap = btn.closest('.qty-stepper');
+    const inp = wrap.querySelector('.js-qty-input');
+    let v = parseInt(inp.value, 10) || 1;
+    if (btn.classList.contains('js-qty-minus')) v = Math.max(1, v - 1);
+    else v = Math.min(99, v + 1);
+    inp.value = v;
+  }
+
+  const order = e.target.closest('.js-order-btn');
+  if (order) {
+    e.preventDefault();
+    const card = order.closest('.product-card');
+    const name = isAr() ? card.dataset.nameAr : card.dataset.name;
+    const color = card.querySelector('.color-picker .is-selected');
+    const colorName = isAr() ? color.dataset.colorAr : color.dataset.color;
+    const qty = card.querySelector('.js-qty-input').value;
+    const phone = order.dataset.phone;
+    const msg = isAr()
+      ? `مرحبا سكاي جول، أرغب بطلب: ${name}\nاللون: ${colorName}\nالكمية: ${qty}\nشكراً`
+      : `Hello Sky Jewel, I'd like to order: ${name}\nColor: ${colorName}\nQuantity: ${qty}\nThank you`;
+    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+  }
+});
+</script>
+</body>
+</html>

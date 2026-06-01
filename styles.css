@@ -656,6 +656,40 @@ html[lang="ar"] .contact__row:hover .contact__row-arrow{transform:scaleX(-1) tra
 @media (max-width:600px){.footer__logo{height:72px}}
 .footer__copy{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:rgba(252,247,245,.55)}
 
+/* ===== Discover Products Floating Button ===== */
+.discover-btn{
+  position:fixed;right:24px;bottom:90px;z-index:119;
+  display:inline-flex;align-items:center;gap:10px;
+  padding:16px 28px;border-radius:999px;
+  background:var(--teal);color:#fff;
+  font-weight:700;font-size:14px;letter-spacing:.04em;text-transform:uppercase;
+  box-shadow:var(--shadow-md);
+  transition:transform .35s var(--ease),background .3s,color .3s,box-shadow .3s;
+  text-decoration:none;
+}
+.discover-btn:hover{background:var(--teal-deep);transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+.discover-btn svg{width:18px;height:18px;flex-shrink:0}
+html[lang="ar"] .discover-btn{right:auto;left:24px}
+
+@media (max-width:760px){
+  .discover-btn{
+    right:0;bottom:50%;transform:translateY(50%) translateX(40%);
+    writing-mode:vertical-rl;text-orientation:mixed;
+    padding:18px 10px;border-radius:14px 0 0 14px;
+    font-size:12px;letter-spacing:.08em;gap:8px;
+    box-shadow:-4px 0 18px rgba(13,20,20,.12);
+  }
+  .discover-btn svg{transform:rotate(-90deg);width:16px;height:16px}
+  .discover-btn:hover{transform:translateY(50%) translateX(0)}
+  html[lang="ar"] .discover-btn{
+    right:auto;left:0;border-radius:0 14px 14px 0;
+    transform:translateY(50%) translateX(-40%);
+    box-shadow:4px 0 18px rgba(13,20,20,.12);
+    writing-mode:vertical-lr;
+  }
+  html[lang="ar"] .discover-btn:hover{transform:translateY(50%) translateX(0)}
+}
+
 /* ===== Back to top ===== */
 .to-top{
   position:fixed;right:24px;bottom:24px;z-index:120;

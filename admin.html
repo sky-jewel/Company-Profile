@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sky Jewel — Admin Panel</title>
+<meta name="robots" content="noindex,nofollow" />
+<style>
+  :root{
+    --teal:#38adad; --teal-deep:#1f7d7d; --teal-soft:#cfeaea;
+    --orange:#FE582A; --ink:#0d1414; --cream:#fcf7f5;
+    --line:rgba(13,20,20,.10); --danger:#e53935;
+    --shadow-sm:0 4px 18px rgba(13,20,20,.06);
+    --shadow-md:0 18px 50px rgba(13,20,20,.10);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:#f5f5f5;color:var(--ink);line-height:1.5}
+
+  .gate{position:fixed;inset:0;background:var(--cream);display:flex;align-items:center;justify-content:center;z-index:1000;padding:20px}
+  .gate__card{background:#fff;border-radius:18px;padding:40px;box-shadow:var(--shadow-md);max-width:380px;width:100%;text-align:center}
+  .gate__card h1{font-size:24px;margin-bottom:8px}
+  .gate__card p{font-size:14px;color:rgba(13,20,20,.6);margin-bottom:24px}
+  .gate__card input{width:100%;padding:12px 16px;border:1px solid var(--line);border-radius:10px;font-size:14px;margin-bottom:14px}
+  .gate__card button{width:100%;padding:12px;border-radius:10px;background:var(--ink);color:#fff;border:none;font-weight:700;cursor:pointer;font-size:14px;text-transform:uppercase;letter-spacing:.05em}
+  .gate__card button:hover{background:var(--teal)}
+  .gate__err{color:var(--danger);font-size:13px;margin-top:-8px;margin-bottom:14px;display:none}
+
+  .topbar{background:var(--ink);color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;position:sticky;top:0;z-index:50;box-shadow:var(--shadow-sm)}
+  .topbar h1{font-size:18px;letter-spacing:.05em;text-transform:uppercase}
+  .topbar .actions{display:flex;gap:8px;flex-wrap:wrap}
+  .btn{padding:10px 18px;border:none;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;text-transform:uppercase;letter-spacing:.04em;display:inline-flex;align-items:center;gap:6px;transition:transform .2s,background .2s}
+  .btn:hover{transform:translateY(-1px)}
+  .btn--primary{background:var(--teal);color:#fff}
+  .btn--primary:hover{background:var(--teal-deep)}
+  .btn--ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3)}
+  .btn--ghost:hover{background:rgba(255,255,255,.1)}
+  .btn--danger{background:var(--danger);color:#fff}
+  .btn--add{background:var(--teal-soft);color:var(--teal-deep)}
+  .btn--ai{background:linear-gradient(135deg,#7c3aed,#3b82f6);color:#fff}
+  .btn--small{padding:6px 12px;font-size:11px}
+  .btn[disabled]{opacity:.5;cursor:not-allowed}
+
+  .container{max-width:1200px;margin:0 auto;padding:24px}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media (max-width:760px){.grid-2{grid-template-columns:1fr}}
+
+  .card{background:#fff;border-radius:14px;padding:22px;box-shadow:var(--shadow-sm);margin-bottom:18px}
+  .card h2{font-size:16px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px;color:var(--teal-deep);display:flex;align-items:center;gap:8px}
+  .card h2 .badge{background:var(--teal);color:#fff;font-size:11px;padding:2px 8px;border-radius:99px;letter-spacing:.05em}
+  label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:rgba(13,20,20,.55);margin-bottom:6px}
+  input[type=text],input[type=tel],input[type=password],textarea,select{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:8px;font-size:14px;font-family:inherit;background:#fafafa}
+  input:focus,textarea:focus,select:focus{outline:none;border-color:var(--teal);background:#fff}
+  textarea{resize:vertical;min-height:60px}
+
+  .prod{background:#fff;border:1px solid var(--line);border-radius:14px;margin-bottom:14px;overflow:hidden;box-shadow:var(--shadow-sm)}
+  .prod__head{padding:14px 18px;background:#fafafa;display:flex;align-items:center;justify-content:space-between;cursor:pointer;border-bottom:1px solid var(--line);gap:12px;flex-wrap:wrap}
+  .prod__head h3{font-size:15px;display:flex;align-items:center;gap:10px;flex:1;min-width:0}
+  .prod__head h3 span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .prod__head .thumb{width:40px;height:40px;border-radius:8px;object-fit:cover;background:var(--teal-soft);border:1px solid var(--line);flex-shrink:0}
+  .prod__head .arrow{transition:transform .2s;font-size:14px;color:rgba(13,20,20,.5)}
+  .prod.is-open .prod__head .arrow{transform:rotate(90deg)}
+  .prod__body{display:none;padding:20px}
+  .prod.is-open .prod__body{display:block}
+  .prod__actions{display:flex;gap:6px;align-items:center;flex-shrink:0}
+
+  .section-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:rgba(13,20,20,.55);margin:18px 0 10px;display:flex;align-items:center;justify-content:space-between}
+
+  /* Images grid */
+  .imgs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px}
+  .img-tile{border:1px solid var(--line);border-radius:10px;background:#fafafa;overflow:hidden;display:flex;flex-direction:column}
+  .img-tile__preview{aspect-ratio:4/3;background:var(--teal-soft);display:flex;align-items:center;justify-content:center;color:var(--teal-deep);font-size:11px;text-align:center;overflow:hidden}
+  .img-tile__preview img{width:100%;height:100%;object-fit:cover}
+  .img-tile__body{padding:8px;display:flex;flex-direction:column;gap:6px}
+  .img-tile__body input,.img-tile__body select{padding:6px 8px;font-size:12px;border-radius:6px}
+  .img-tile__actions{display:flex;gap:4px;justify-content:space-between;align-items:center}
+  .img-tile__del{background:rgba(229,57,53,.1);color:var(--danger);border:none;width:28px;height:28px;border-radius:6px;cursor:pointer;font-size:14px}
+  .img-tile__del:hover{background:var(--danger);color:#fff}
+  .add-img{display:flex;align-items:center;justify-content:center;border:2px dashed var(--line);border-radius:10px;aspect-ratio:4/3;cursor:pointer;color:rgba(13,20,20,.4);font-size:13px;transition:border-color .2s,color .2s}
+  .add-img:hover{border-color:var(--teal);color:var(--teal-deep)}
+
+  /* Colors */
+  .colors-list{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+  .color-chip{display:flex;align-items:center;gap:8px;padding:6px 8px 6px 12px;background:#fafafa;border:1px solid var(--line);border-radius:99px;font-size:13px}
+  .color-chip__dot{width:18px;height:18px;border-radius:50%;border:1px solid var(--line)}
+  .color-chip__remove{background:rgba(229,57,53,.1);color:var(--danger);border:none;width:22px;height:22px;border-radius:50%;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center}
+  .color-chip__remove:hover{background:var(--danger);color:#fff}
+  .color-add-row{display:grid;grid-template-columns:auto 1fr 1fr auto;gap:8px;align-items:center}
+  @media (max-width:600px){.color-add-row{grid-template-columns:auto 1fr;gap:6px}.color-add-row input[type=text]{grid-column:span 1}}
+  .color-add-row input[type=color]{width:40px;height:40px;border:1px solid var(--line);border-radius:8px;cursor:pointer;padding:2px;background:#fff}
+
+  .footer-bar{position:sticky;bottom:0;background:#fff;border-top:1px solid var(--line);padding:14px 24px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;box-shadow:0 -4px 18px rgba(13,20,20,.06);z-index:40}
+  .status{font-size:12px;color:rgba(13,20,20,.55)}
+  .status.is-saved{color:var(--teal-deep)}
+  .status.is-dirty{color:var(--orange);font-weight:700}
+
+  .toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:14px 22px;border-radius:99px;font-size:13px;box-shadow:var(--shadow-md);z-index:200;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;max-width:90vw}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(-8px)}
+
+  .pending-images{margin-top:12px;padding:12px;background:#fff8e1;border-left:3px solid var(--orange);border-radius:8px;font-size:13px}
+  .pending-images h4{font-size:12px;text-transform:uppercase;color:var(--orange);margin-bottom:6px;letter-spacing:.05em}
+  .pending-images ul{list-style:none;padding:0}
+  .pending-images li{padding:4px 0;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+  .pending-images li code{background:rgba(0,0,0,.06);padding:2px 6px;border-radius:4px;font-size:12px}
+  .pending-images .btn{padding:5px 10px;font-size:11px}
+
+  /* AI Modal */
+  .modal{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:300;padding:20px}
+  .modal.show{display:flex}
+  .modal__card{background:#fff;border-radius:14px;padding:24px;max-width:500px;width:100%;box-shadow:var(--shadow-md)}
+  .modal__card h3{font-size:18px;margin-bottom:6px}
+  .modal__card p{font-size:13px;color:rgba(13,20,20,.6);margin-bottom:14px}
+  .modal__actions{display:flex;gap:8px;justify-content:flex-end;margin-top:14px}
+
+  .hint{font-size:12px;color:rgba(13,20,20,.55);line-height:1.5;margin-top:6px}
+</style>
+</head>
+<body>
+
+<div class="gate" id="gate">
+  <div class="gate__card">
+    <h1>Sky Jewel Admin</h1>
+    <p>Enter password to continue</p>
+    <input type="password" id="gatePass" placeholder="Password" autocomplete="off" />
+    <div class="gate__err" id="gateErr">Incorrect password</div>
+    <button id="gateBtn">Unlock</button>
+  </div>
+</div>
+
+<header class="topbar">
+  <h1>Sky Jewel — Products Admin</h1>
+  <div class="actions">
+    <a href="products.html" target="_blank" class="btn btn--ghost">Preview</a>
+    <button id="btnImport" class="btn btn--ghost">Import JSON</button>
+    <input type="file" id="fileImport" accept="application/json" style="display:none" />
+    <button id="btnExport" class="btn btn--primary">Export products.json</button>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- AI Settings -->
+  <div class="card">
+    <h2>✨ AI Settings <span class="badge" id="aiStatus">Not configured</span></h2>
+    <div class="grid-2">
+      <div>
+        <label>Provider</label>
+        <select id="aiProvider">
+          <option value="groq">Groq (free tier — recommended)</option>
+          <option value="openai">OpenAI</option>
+          <option value="custom">Custom OpenAI-compatible</option>
+        </select>
+      </div>
+      <div>
+        <label>Model</label>
+        <input type="text" id="aiModel" placeholder="llama-3.3-70b-versatile" />
+      </div>
+      <div style="grid-column:1/-1">
+        <label>API Key</label>
+        <input type="password" id="aiKey" placeholder="Paste your API key" autocomplete="off" />
+        <p class="hint">Stored only in this browser (localStorage). Get a free Groq key at <a href="https://console.groq.com/keys" target="_blank" style="color:var(--teal-deep)">console.groq.com/keys</a>.</p>
+      </div>
+      <div id="aiCustomEndpointWrap" style="display:none;grid-column:1/-1">
+        <label>Custom endpoint URL</label>
+        <input type="text" id="aiEndpoint" placeholder="https://api.example.com/v1/chat/completions" />
+      </div>
+    </div>
+  </div>
+
+  <!-- General -->
+  <div class="card">
+    <h2>General Settings</h2>
+    <div class="grid-2">
+      <div><label>Hero Kicker (English)</label><input type="text" id="heroKickerEn" /></div>
+      <div><label>Hero Kicker (Arabic)</label><input type="text" id="heroKickerAr" dir="rtl" /></div>
+      <div><label>Hero Title (English)</label><input type="text" id="heroTitleEn" /></div>
+      <div><label>Hero Title (Arabic)</label><input type="text" id="heroTitleAr" dir="rtl" /></div>
+      <div><label>WhatsApp Phone (digits + country code)</label><input type="tel" id="waPhone" placeholder="966583801179" /></div>
+    </div>
+  </div>
+
+  <!-- Products -->
+  <div class="card">
+    <h2>Products <span class="badge" id="prodCount">0</span></h2>
+    <div id="productsList"></div>
+    <button class="btn btn--add" id="btnAddProduct">+ Add Product</button>
+  </div>
+
+  <div class="card" id="pendingCard" style="display:none">
+    <h2>Pending Image Files</h2>
+    <p style="font-size:13px;color:rgba(13,20,20,.6);margin-bottom:10px">
+      You uploaded these images. Click <strong>Download</strong> for each, then place them inside the
+      <code>images/</code> folder of your project before pushing to GitHub.
+    </p>
+    <div class="pending-images"><ul id="pendingList"></ul></div>
+  </div>
+
+</div>
+
+<div class="footer-bar">
+  <span class="status" id="status">Loading…</span>
+  <div class="actions">
+    <button id="btnReset" class="btn btn--danger">Reset to Saved</button>
+    <button id="btnExport2" class="btn btn--primary">Export products.json</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- AI Modal -->
+<div class="modal" id="aiModal">
+  <div class="modal__card">
+    <h3>✨ Generate with AI</h3>
+    <p>Describe the product briefly. AI will fill in name (EN+AR), description (EN+AR), and suggest colors.</p>
+    <textarea id="aiPrompt" rows="3" placeholder="e.g. Premium ceramic mug 350ml with custom logo, gift box included"></textarea>
+    <p class="hint" style="margin-top:8px">Existing fields will be overwritten. Existing colors and images are kept.</p>
+    <div class="modal__actions">
+      <button class="btn btn--ghost" id="aiCancel" style="background:#eee;color:var(--ink);border:none">Cancel</button>
+      <button class="btn btn--ai" id="aiGenerate">Generate</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ============ Config ============ */
+const ADMIN_PASSWORD = "skyjewel2026";   // change to your own; client-side only
+const DEFAULT_MODELS = {
+  groq: "llama-3.3-70b-versatile",
+  openai: "gpt-4o-mini",
+  custom: ""
+};
+const ENDPOINTS = {
+  groq: "https://api.groq.com/openai/v1/chat/completions",
+  openai: "https://api.openai.com/v1/chat/completions",
+  custom: ""  // user-provided
+};
+
+/* ============ Gate ============ */
+const $ = id => document.getElementById(id);
+const gate = $('gate'), gatePass = $('gatePass'), gateBtn = $('gateBtn'), gateErr = $('gateErr');
+function unlock(){ gate.style.display='none'; sessionStorage.setItem('sj_admin','1'); }
+function tryLogin(){ if (gatePass.value === ADMIN_PASSWORD) unlock(); else { gateErr.style.display='block'; gatePass.value=''; gatePass.focus(); } }
+gateBtn.addEventListener('click', tryLogin);
+gatePass.addEventListener('keydown', e => { if (e.key==='Enter') tryLogin(); });
+if (sessionStorage.getItem('sj_admin')==='1') unlock(); else gatePass.focus();
+
+/* ============ State ============ */
+let state = null;
+let savedJSON = null;
+const pendingImages = new Map();   // safeName -> dataUrl
+let aiTargetIdx = -1;
+
+const toast = (msg, ms=2400) => { const t=$('toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(toast._t); toast._t=setTimeout(()=>t.classList.remove('show'), ms); };
+const setStatus = (txt, cls='') => { const s=$('status'); s.textContent=txt; s.className='status '+cls; };
+const markDirty = () => setStatus('● Unsaved changes — export to apply', 'is-dirty');
+const markClean = () => setStatus('All changes saved', 'is-saved');
+
+const escapeHtml = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const escapeAttr = s => escapeHtml(s);
+const slug = s => String(s||'').toLowerCase().trim().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'') || 'c';
+const newId = () => 'p' + Math.random().toString(36).slice(2,8);
+
+const DEFAULT = {
+  hero: { kicker: { en: "Our Collection", ar: "مجموعتنا" }, title: { en: "Premium products crafted for your brand.", ar: "منتجات متميزة مصممة لعلامتك." } },
+  whatsappPhone: "966583801179",
+  products: []
+};
+
+function migrateProduct(p){
+  // Ensure new schema: images[], colors[].id
+  if (!Array.isArray(p.images)){
+    p.images = p.image ? [{ url: p.image }] : [];
+    delete p.image;
+  }
+  (p.colors||[]).forEach(c => { if (!c.id) c.id = slug(c.name?.en); });
+  return p;
+}
+
+/* ============ Load ============ */
+async function loadInitial(){
+  const cached = localStorage.getItem('sj_admin_state');
+  if (cached){
+    try { state = JSON.parse(cached); (state.products||[]).forEach(migrateProduct); render(); markDirty(); return; } catch(e){}
+  }
+  try {
+    const r = await fetch('products.json', {cache:'no-store'});
+    if (!r.ok) throw new Error();
+    state = await r.json();
+  } catch {
+    state = JSON.parse(JSON.stringify(DEFAULT));
+  }
+  (state.products||[]).forEach(migrateProduct);
+  savedJSON = JSON.stringify(stripPrivate(state));
+  render(); markClean();
+  loadAISettings();
+}
+
+/* ============ Render ============ */
+function render(){
+  $('heroKickerEn').value = state.hero?.kicker?.en || '';
+  $('heroKickerAr').value = state.hero?.kicker?.ar || '';
+  $('heroTitleEn').value  = state.hero?.title?.en  || '';
+  $('heroTitleAr').value  = state.hero?.title?.ar  || '';
+  $('waPhone').value      = state.whatsappPhone     || '';
+  renderProducts();
+  renderPending();
+  cacheState();
+}
+
+function renderProducts(){
+  const list = $('productsList');
+  list.innerHTML = '';
+  $('prodCount').textContent = state.products.length;
+  state.products.forEach((p, idx) => {
+    const firstImg = (p.images && p.images[0])?.url || '';
+    const thumb = pendingImages.get((firstImg||'').replace(/^images\//,'')) || firstImg;
+    const el = document.createElement('div');
+    el.className = 'prod' + (p._open ? ' is-open' : '');
+    el.dataset.idx = idx;
+    el.innerHTML = `
+      <div class="prod__head">
+        <h3>
+          ${thumb ? `<img src="${escapeAttr(thumb)}" class="thumb" alt="" onerror="this.style.display='none'" />` : `<span class="thumb"></span>`}
+          <span>${escapeHtml(p.name?.en || 'Untitled')}<span style="color:rgba(13,20,20,.4);font-weight:400"> — ${escapeHtml(p.name?.ar || '')}</span></span>
+        </h3>
+        <div class="prod__actions">
+          <button class="btn btn--ai btn--small" data-act="ai" title="AI fill">✨ AI</button>
+          <button class="btn btn--small" data-act="up" title="Move up" style="background:#eee;color:var(--ink)">↑</button>
+          <button class="btn btn--small" data-act="down" title="Move down" style="background:#eee;color:var(--ink)">↓</button>
+          <button class="btn btn--danger btn--small" data-act="del">Delete</button>
+          <span class="arrow">▶</span>
+        </div>
+      </div>
+      <div class="prod__body">
+        <div class="grid-2">
+          <div><label>Name (English)</label><input type="text" data-field="name.en" value="${escapeAttr(p.name?.en || '')}" /></div>
+          <div><label>Name (Arabic)</label><input type="text" data-field="name.ar" value="${escapeAttr(p.name?.ar || '')}" dir="rtl" /></div>
+          <div><label>Description (English)</label><textarea data-field="description.en">${escapeHtml(p.description?.en || '')}</textarea></div>
+          <div><label>Description (Arabic)</label><textarea data-field="description.ar" dir="rtl">${escapeHtml(p.description?.ar || '')}</textarea></div>
+        </div>
+
+        <div class="section-title">Images <span style="color:rgba(13,20,20,.4);font-weight:400;text-transform:none;letter-spacing:0">${(p.images||[]).length} total</span></div>
+        <div class="imgs-grid">
+          ${(p.images||[]).map((im, ii) => renderImageTile(p, im, ii)).join('')}
+          <label class="add-img" data-add-img>
+            + Add image
+            <input type="file" accept="image/*" multiple class="js-add-imgs" style="display:none" />
+          </label>
+        </div>
+
+        <div class="section-title">Available Colors <span style="color:rgba(13,20,20,.4);font-weight:400;text-transform:none;letter-spacing:0">${(p.colors||[]).length} total</span></div>
+        <div class="colors-list">
+          ${(p.colors||[]).map((c,ci) => `
+            <div class="color-chip">
+              <span class="color-chip__dot" style="background:${escapeAttr(c.hex)}"></span>
+              <span>${escapeHtml(c.name?.en || '')}</span>
+              <span style="color:rgba(13,20,20,.4)">/ ${escapeHtml(c.name?.ar || '')}</span>
+              <button class="color-chip__remove" data-color-del="${ci}" title="Remove">×</button>
+            </div>
+          `).join('') || '<span style="font-size:13px;color:rgba(13,20,20,.5)">No colors yet</span>'}
+        </div>
+        <div class="color-add-row">
+          <input type="color" class="js-color-hex" value="#38adad" />
+          <input type="text" class="js-color-en" placeholder="Color name (EN)" />
+          <input type="text" class="js-color-ar" placeholder="Color name (AR)" dir="rtl" />
+          <button class="btn btn--add" data-act="add-color">+ Add</button>
+        </div>
+      </div>
+    `;
+    list.appendChild(el);
+  });
+}
+
+function renderImageTile(product, image, ii){
+  const url = image.url || '';
+  const preview = pendingImages.get(url.replace(/^images\//,'')) || url;
+  const colorOptions = (product.colors||[]).map(c =>
+    `<option value="${escapeAttr(c.id)}" ${image.colorId===c.id?'selected':''}>${escapeHtml(c.name?.en || c.id)}</option>`
+  ).join('');
+  return `
+    <div class="img-tile" data-img-idx="${ii}">
+      <div class="img-tile__preview">
+        ${preview ? `<img src="${escapeAttr(preview)}" alt="" onerror="this.parentElement.textContent='Missing file'" />` : 'No image'}
+      </div>
+      <div class="img-tile__body">
+        <input type="text" data-img-field="url" value="${escapeAttr(url)}" placeholder="images/file.png" />
+        <select data-img-field="colorId">
+          <option value="">— Not linked to a color —</option>
+          ${colorOptions}
+        </select>
+        <div class="img-tile__actions">
+          <label class="btn btn--small btn--add" style="margin:0">
+            Replace
+            <input type="file" accept="image/*" class="js-replace-img" style="display:none" />
+          </label>
+          <button class="img-tile__del" data-img-del="${ii}" title="Remove">×</button>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderPending(){
+  const card = $('pendingCard'), list = $('pendingList');
+  if (pendingImages.size === 0){ card.style.display='none'; return; }
+  card.style.display='block';
+  list.innerHTML = '';
+  for (const [filename] of pendingImages.entries()){
+    const li = document.createElement('li');
+    li.innerHTML = `<span><code>images/${escapeHtml(filename)}</code></span><button class="btn btn--primary" data-download="${escapeAttr(filename)}">Download</button>`;
+    list.appendChild(li);
+  }
+}
+
+/* ============ Helpers ============ */
+function setNested(obj, path, value){
+  const parts = path.split('.'); let o = obj;
+  for (let i=0;i<parts.length-1;i++){ if (!o[parts[i]]) o[parts[i]] = {}; o = o[parts[i]]; }
+  o[parts[parts.length-1]] = value;
+}
+function cacheState(){ try { localStorage.setItem('sj_admin_state', JSON.stringify(state)); } catch(e){} }
+function checkDirty(){ if (JSON.stringify(stripPrivate(state)) !== savedJSON) markDirty(); else markClean(); }
+function stripPrivate(obj){ const c = JSON.parse(JSON.stringify(obj)); (c.products||[]).forEach(p => delete p._open); return c; }
+function safeFilename(name){ return name.toLowerCase().replace(/[^a-z0-9.-]+/g,'-').replace(/-+/g,'-'); }
+function readFileAsDataURL(file){ return new Promise((res, rej) => { const r = new FileReader(); r.onload = e => res(e.target.result); r.onerror = rej; r.readAsDataURL(file); }); }
+
+async function attachImageToProduct(idx, file){
+  const safeName = safeFilename(file.name);
+  const dataUrl = await readFileAsDataURL(file);
+  pendingImages.set(safeName, dataUrl);
+  if (!state.products[idx].images) state.products[idx].images = [];
+  state.products[idx].images.push({ url: 'images/' + safeName });
+  state.products[idx]._open = true;
+}
+
+/* ============ General inputs ============ */
+['heroKickerEn','heroKickerAr','heroTitleEn','heroTitleAr','waPhone'].forEach(id => {
+  $(id).addEventListener('input', () => {
+    if (!state.hero) state.hero = { kicker:{}, title:{} };
+    if (!state.hero.kicker) state.hero.kicker = {};
+    if (!state.hero.title) state.hero.title = {};
+    state.hero.kicker.en = $('heroKickerEn').value;
+    state.hero.kicker.ar = $('heroKickerAr').value;
+    state.hero.title.en  = $('heroTitleEn').value;
+    state.hero.title.ar  = $('heroTitleAr').value;
+    state.whatsappPhone  = $('waPhone').value;
+    cacheState(); checkDirty();
+  });
+});
+
+/* ============ Product list events ============ */
+$('productsList').addEventListener('click', async (e) => {
+  const prod = e.target.closest('.prod'); if (!prod) return;
+  const idx = +prod.dataset.idx;
+  const act = e.target.closest('[data-act]')?.dataset.act;
+  const colorDel = e.target.closest('[data-color-del]');
+  const imgDel = e.target.closest('[data-img-del]');
+
+  // Header click toggles open (ignore when clicking action buttons)
+  if (e.target.closest('.prod__head') && !e.target.closest('[data-act]')){
+    state.products[idx]._open = !state.products[idx]._open;
+    renderProducts(); return;
+  }
+  if (act === 'del'){ if (confirm('Delete this product?')){ state.products.splice(idx,1); renderProducts(); checkDirty(); cacheState(); } return; }
+  if (act === 'up' && idx > 0){ [state.products[idx-1], state.products[idx]] = [state.products[idx], state.products[idx-1]]; renderProducts(); checkDirty(); cacheState(); return; }
+  if (act === 'down' && idx < state.products.length-1){ [state.products[idx+1], state.products[idx]] = [state.products[idx], state.products[idx+1]]; renderProducts(); checkDirty(); cacheState(); return; }
+  if (act === 'ai'){ openAI(idx); return; }
+  if (act === 'add-color'){
+    const hex = prod.querySelector('.js-color-hex').value;
+    const en = prod.querySelector('.js-color-en').value.trim();
+    const ar = prod.querySelector('.js-color-ar').value.trim();
+    if (!en){ toast('Color name (EN) is required'); return; }
+    if (!state.products[idx].colors) state.products[idx].colors = [];
+    state.products[idx].colors.push({ id: slug(en), name:{en, ar: ar||en}, hex });
+    state.products[idx]._open = true;
+    renderProducts(); checkDirty(); cacheState(); return;
+  }
+  if (colorDel){
+    const ci = +colorDel.dataset.colorDel;
+    const removedId = state.products[idx].colors[ci]?.id;
+    state.products[idx].colors.splice(ci,1);
+    // Unbind any images that referenced this color
+    (state.products[idx].images||[]).forEach(im => { if (im.colorId === removedId) delete im.colorId; });
+    renderProducts(); checkDirty(); cacheState(); return;
+  }
+  if (imgDel){
+    const ii = +imgDel.dataset.imgDel;
+    state.products[idx].images.splice(ii, 1);
+    renderProducts(); checkDirty(); cacheState(); return;
+  }
+});
+
+/* Inline field edits */
+$('productsList').addEventListener('input', e => {
+  const prod = e.target.closest('.prod'); if (!prod) return;
+  const idx = +prod.dataset.idx;
+
+  // Image tile fields
+  const tile = e.target.closest('[data-img-idx]');
+  if (tile){
+    const ii = +tile.dataset.imgIdx;
+    const f = e.target.dataset.imgField;
+    if (f) state.products[idx].images[ii][f] = e.target.value;
+    cacheState(); checkDirty(); return;
+  }
+
+  const field = e.target.dataset.field;
+  if (!field) return;
+  if (field.includes('.')) setNested(state.products[idx], field, e.target.value);
+  else state.products[idx][field] = e.target.value;
+  cacheState(); checkDirty();
+});
+
+/* Image uploads (multi add + replace) */
+$('productsList').addEventListener('change', async (e) => {
+  const prod = e.target.closest('.prod'); if (!prod) return;
+  const idx = +prod.dataset.idx;
+
+  // Replace single image
+  if (e.target.classList.contains('js-replace-img') && e.target.files[0]){
+    const tile = e.target.closest('[data-img-idx]');
+    const ii = +tile.dataset.imgIdx;
+    const file = e.target.files[0];
+    const safeName = safeFilename(file.name);
+    pendingImages.set(safeName, await readFileAsDataURL(file));
+    state.products[idx].images[ii].url = 'images/' + safeName;
+    state.products[idx]._open = true;
+    renderProducts(); renderPending(); checkDirty(); cacheState();
+    toast('Image replaced');
+    return;
+  }
+  // Add multiple
+  if (e.target.classList.contains('js-add-imgs') && e.target.files.length){
+    for (const file of e.target.files) await attachImageToProduct(idx, file);
+    renderProducts(); renderPending(); checkDirty(); cacheState();
+    toast('Image(s) added — remember to download before push');
+  }
+});
+
+/* Click on add-img tile triggers file picker */
+$('productsList').addEventListener('click', e => {
+  const lab = e.target.closest('[data-add-img]');
+  if (lab){ const inp = lab.querySelector('.js-add-imgs'); if (inp && e.target !== inp) inp.click(); }
+});
+
+/* Pending downloads */
+$('pendingList').addEventListener('click', e => {
+  const btn = e.target.closest('[data-download]'); if (!btn) return;
+  const filename = btn.dataset.download;
+  const dataUrl = pendingImages.get(filename); if (!dataUrl) return;
+  const a = document.createElement('a'); a.href = dataUrl; a.download = filename;
+  document.body.appendChild(a); a.click(); a.remove();
+});
+
+/* Add product */
+$('btnAddProduct').addEventListener('click', () => {
+  state.products.push({
+    id: newId(),
+    name: { en: 'New Product', ar: 'منتج جديد' },
+    description: { en: '', ar: '' },
+    images: [],
+    colors: [],
+    _open: true
+  });
+  renderProducts(); checkDirty(); cacheState();
+  $('productsList').lastElementChild?.scrollIntoView({behavior:'smooth', block:'center'});
+});
+
+/* Export / Import / Reset */
+function doExport(){
+  const data = stripPrivate(state);
+  const json = JSON.stringify(data, null, 2);
+  const blob = new Blob([json], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href = url; a.download = 'products.json';
+  document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+  savedJSON = json; markClean();
+  toast('products.json downloaded. Replace it in your repo and push.');
+}
+$('btnExport').addEventListener('click', doExport);
+$('btnExport2').addEventListener('click', doExport);
+
+$('btnImport').addEventListener('click', () => $('fileImport').click());
+$('fileImport').addEventListener('change', e => {
+  const f = e.target.files[0]; if (!f) return;
+  const r = new FileReader();
+  r.onload = ev => {
+    try {
+      const data = JSON.parse(ev.target.result);
+      if (!data.products) throw new Error('Missing "products" array');
+      state = data; (state.products||[]).forEach(migrateProduct);
+      render(); checkDirty();
+      toast('Imported successfully');
+    } catch(err){ alert('Invalid JSON: ' + err.message); }
+  };
+  r.readAsText(f); e.target.value = '';
+});
+
+$('btnReset').addEventListener('click', async () => {
+  if (!confirm('Discard all unsaved changes and reload from products.json?')) return;
+  localStorage.removeItem('sj_admin_state');
+  pendingImages.clear();
+  await loadInitial(); toast('Reset complete');
+});
+
+window.addEventListener('beforeunload', e => {
+  if (JSON.stringify(stripPrivate(state)) !== savedJSON){ e.preventDefault(); e.returnValue=''; }
+});
+
+/* ============ AI Settings ============ */
+function loadAISettings(){
+  const saved = JSON.parse(localStorage.getItem('sj_ai') || '{}');
+  $('aiProvider').value = saved.provider || 'groq';
+  $('aiModel').value    = saved.model || DEFAULT_MODELS[$('aiProvider').value];
+  $('aiKey').value      = saved.key || '';
+  $('aiEndpoint').value = saved.endpoint || '';
+  toggleCustomEndpoint();
+  updateAIStatus();
+}
+function saveAISettings(){
+  const settings = {
+    provider: $('aiProvider').value,
+    model: $('aiModel').value.trim(),
+    key: $('aiKey').value.trim(),
+    endpoint: $('aiEndpoint').value.trim()
+  };
+  localStorage.setItem('sj_ai', JSON.stringify(settings));
+  updateAIStatus();
+}
+function updateAIStatus(){
+  const s = JSON.parse(localStorage.getItem('sj_ai') || '{}');
+  // Auto-fill model if user pasted a key but model is empty
+  if (s.key && !s.model){
+    const def = DEFAULT_MODELS[s.provider || 'groq'];
+    if (def){ $('aiModel').value = def; s.model = def; localStorage.setItem('sj_ai', JSON.stringify(s)); }
+  }
+  const ok = !!s.key;
+  const badge = $('aiStatus');
+  badge.textContent = ok ? 'Ready' : 'Not configured';
+  badge.style.background = ok ? 'var(--teal)' : 'var(--orange)';
+}
+function toggleCustomEndpoint(){
+  const isCustom = $('aiProvider').value === 'custom';
+  $('aiCustomEndpointWrap').style.display = isCustom ? '' : 'none';
+}
+$('aiProvider').addEventListener('change', () => {
+  // Auto-fill model when switching providers
+  if (!$('aiModel').value || Object.values(DEFAULT_MODELS).includes($('aiModel').value)){
+    $('aiModel').value = DEFAULT_MODELS[$('aiProvider').value] || '';
+  }
+  toggleCustomEndpoint(); saveAISettings();
+});
+['aiModel','aiKey','aiEndpoint'].forEach(id => $(id).addEventListener('input', saveAISettings));
+
+/* ============ AI Modal ============ */
+function openAI(idx){
+  const s = JSON.parse(localStorage.getItem('sj_ai') || '{}');
+  if (!s.key){ toast('Configure AI settings first (add API key above)', 4000); window.scrollTo({top:0,behavior:'smooth'}); return; }
+  aiTargetIdx = idx;
+  $('aiPrompt').value = state.products[idx].name?.en && state.products[idx].name.en !== 'New Product' ? state.products[idx].name.en : '';
+  $('aiModal').classList.add('show');
+  setTimeout(() => $('aiPrompt').focus(), 50);
+}
+$('aiCancel').addEventListener('click', () => $('aiModal').classList.remove('show'));
+$('aiModal').addEventListener('click', e => { if (e.target === $('aiModal')) $('aiModal').classList.remove('show'); });
+
+$('aiGenerate').addEventListener('click', async () => {
+  const hint = $('aiPrompt').value.trim();
+  if (!hint){ toast('Please describe the product first'); return; }
+  const btn = $('aiGenerate'); btn.disabled = true; btn.textContent = 'Generating…';
+  try {
+    const result = await callAI(hint);
+    const p = state.products[aiTargetIdx];
+    p.name = { en: result.name?.en || p.name.en, ar: result.name?.ar || p.name.ar };
+    p.description = { en: result.description?.en || p.description.en, ar: result.description?.ar || p.description.ar };
+    // Add suggested colors only if we have none
+    if (Array.isArray(result.colors) && result.colors.length && (!p.colors || !p.colors.length)){
+      p.colors = result.colors.map(c => ({ id: slug(c.name?.en), name: { en: c.name?.en || '', ar: c.name?.ar || c.name?.en || '' }, hex: c.hex || '#888' }));
+    }
+    p._open = true;
+    renderProducts(); checkDirty(); cacheState();
+    $('aiModal').classList.remove('show');
+    toast('AI fill complete');
+  } catch(err){
+    alert('AI error: ' + err.message);
+  } finally {
+    btn.disabled = false; btn.textContent = 'Generate';
+  }
+});
+
+async function callAI(hint){
+  const s = JSON.parse(localStorage.getItem('sj_ai') || '{}');
+  const endpoint = s.provider === 'custom' ? s.endpoint : ENDPOINTS[s.provider];
+  if (!endpoint) throw new Error('No endpoint configured');
+  const sys = `You are an assistant that returns JSON for a corporate gifts/branding catalog (Sky Jewel, Saudi Arabia).
+Output ONLY valid JSON, no markdown fences, with this exact shape:
+{"name":{"en":"...","ar":"..."},"description":{"en":"short 1-2 sentence sales pitch","ar":"الترجمة"},"colors":[{"name":{"en":"Color","ar":"اللون"},"hex":"#RRGGBB"}]}
+Provide 3-4 plausible color options unless the user explicitly states colors. Keep descriptions concise (max 25 words).`;
+  const body = {
+    model: s.model,
+    messages: [
+      { role: 'system', content: sys },
+      { role: 'user',   content: 'Product brief: ' + hint }
+    ],
+    temperature: 0.6
+  };
+  // OpenAI/Groq support response_format JSON for some models
+  if (s.provider === 'groq' || s.provider === 'openai') body.response_format = { type: 'json_object' };
+
+  const res = await fetch(endpoint, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + s.key },
+    body: JSON.stringify(body)
+  });
+  if (!res.ok){ const t = await res.text(); throw new Error(`${res.status} ${t.slice(0,200)}`); }
+  const data = await res.json();
+  const content = data.choices?.[0]?.message?.content || '';
+  let parsed;
+  try { parsed = JSON.parse(content); }
+  catch { // strip code fences if any
+    const m = content.match(/\{[\s\S]*\}/); if (!m) throw new Error('AI did not return JSON');
+    parsed = JSON.parse(m[0]);
+  }
+  return parsed;
+}
+
+/* ============ Boot ============ */
+loadInitial();
+</script>
+</body>
+</html>

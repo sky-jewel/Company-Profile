@@ -1,0 +1,66 @@
+{
+  "hero": {
+    "kicker": {
+      "en": "Our Collection",
+      "ar": "مجموعتنا"
+    },
+    "title": {
+      "en": "Premium products crafted for your brand.",
+      "ar": "منتجات متميزة مصممة لعلامتك."
+    }
+  },
+  "whatsappPhone": "966583801179",
+  "products": [
+    {
+      "id": "p9xttyp",
+      "name": {
+        "en": "Thermal Bottle",
+        "ar": "زجاجة حرارية"
+      },
+      "description": {
+        "en": "Keep drinks hot or cold",
+        "ar": "احتفظ بالمشروبات ساخنة أو باردة"
+      },
+      "colors": [
+        {
+          "name": {
+            "en": "White",
+            "ar": "أبيض"
+          },
+          "hex": "#ffffff",
+          "id": "white"
+        },
+        {
+          "id": "navyblue",
+          "name": {
+            "en": "Navyblue",
+            "ar": "كحلي"
+          },
+          "hex": "#001f7a"
+        },
+        {
+          "id": "black",
+          "name": {
+            "en": "Black",
+            "ar": "أسود"
+          },
+          "hex": "#000000"
+        }
+      ],
+      "images": [
+        {
+          "url": "images/chatgpt-image-jun-1-2026-11-39-42-am.png",
+          "colorId": "white"
+        },
+        {
+          "url": "images/chatgpt-image-jun-1-2026-11-38-34-am-1-.png",
+          "colorId": "black"
+        },
+        {
+          "url": "images/chatgpt-image-jun-1-2026-12-00-55-pm.png",
+          "colorId": "navyblue"
+        }
+      ]
+    }
+  ]
+}
