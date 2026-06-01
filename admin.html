@@ -88,6 +88,15 @@
   @media (max-width:600px){.color-add-row{grid-template-columns:auto 1fr;gap:6px}.color-add-row input[type=text]{grid-column:span 1}}
   .color-add-row input[type=color]{width:40px;height:40px;border:1px solid var(--line);border-radius:8px;cursor:pointer;padding:2px;background:#fff}
 
+  /* Master colors grid */
+  .master-colors{display:flex;flex-wrap:wrap;gap:8px}
+  .mc-chip{display:flex;align-items:center;gap:8px;padding:6px 12px 6px 8px;background:#fafafa;border:1px solid var(--line);border-radius:99px;cursor:pointer;user-select:none;transition:background .15s,border-color .15s}
+  .mc-chip:hover{background:#f0f0f0}
+  .mc-chip.is-on{background:var(--teal-soft);border-color:var(--teal)}
+  .mc-chip__dot{width:18px;height:18px;border-radius:50%;border:1px solid var(--line);flex-shrink:0}
+  .mc-chip__name{font-size:13px;color:var(--ink)}
+  .mc-chip input{display:none}
+
   .footer-bar{position:sticky;bottom:0;background:#fff;border-top:1px solid var(--line);padding:14px 24px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;box-shadow:0 -4px 18px rgba(13,20,20,.06);z-index:40}
   .status{font-size:12px;color:rgba(13,20,20,.55)}
   .status.is-saved{color:var(--teal-deep)}
@@ -159,6 +168,10 @@
         <input type="password" id="aiKey" placeholder="Paste your API key" autocomplete="off" />
         <p class="hint">Stored only in this browser (localStorage). Get a free Groq key at <a href="https://console.groq.com/keys" target="_blank" style="color:var(--teal-deep)">console.groq.com/keys</a>.</p>
       </div>
+      <div>
+        <label>Vision Model (used when product has images)</label>
+        <input type="text" id="aiVisionModel" placeholder="meta-llama/llama-4-scout-17b-16e-instruct" />
+      </div>
       <div id="aiCustomEndpointWrap" style="display:none;grid-column:1/-1">
         <label>Custom endpoint URL</label>
         <input type="text" id="aiEndpoint" placeholder="https://api.example.com/v1/chat/completions" />
@@ -211,8 +224,9 @@
   <div class="modal__card">
     <h3>✨ Generate with AI</h3>
     <p>Describe the product briefly. AI will fill in name (EN+AR), description (EN+AR), and suggest colors.</p>
-    <textarea id="aiPrompt" rows="3" placeholder="e.g. Premium ceramic mug 350ml with custom logo, gift box included"></textarea>
-    <p class="hint" style="margin-top:8px">Existing fields will be overwritten. Existing colors and images are kept.</p>
+    <textarea id="aiPrompt" rows="3" placeholder="e.g. Premium ceramic mug 350ml with custom logo (or leave blank if you uploaded an image)"></textarea>
+    <p class="hint" id="aiVisionHint" style="margin-top:8px"></p>
+    <p class="hint" style="margin-top:4px">Existing fields will be overwritten. Existing colors and images are kept.</p>
     <div class="modal__actions">
       <button class="btn btn--ghost" id="aiCancel" style="background:#eee;color:var(--ink);border:none">Cancel</button>
       <button class="btn btn--ai" id="aiGenerate">Generate</button>
@@ -225,6 +239,11 @@
 const ADMIN_PASSWORD = "skyjewel2026";   // change to your own; client-side only
 const DEFAULT_MODELS = {
   groq: "llama-3.3-70b-versatile",
+  openai: "gpt-4o-mini",
+  custom: ""
+};
+const DEFAULT_VISION_MODELS = {
+  groq: "meta-llama/llama-4-scout-17b-16e-instruct",
   openai: "gpt-4o-mini",
   custom: ""
 };
@@ -260,34 +279,65 @@ const slug = s => String(s||'').toLowerCase().trim().replace(/[^a-z0-9]+/g,'-').
 const newId = () => 'p' + Math.random().toString(36).slice(2,8);
 
 const DEFAULT = {
+  config: { colors: [], sections: [], types: [] },
   hero: { kicker: { en: "Our Collection", ar: "مجموعتنا" }, title: { en: "Premium products crafted for your brand.", ar: "منتجات متميزة مصممة لعلامتك." } },
   whatsappPhone: "966583801179",
   products: []
 };
 
 function migrateProduct(p){
-  // Ensure new schema: images[], colors[].id
   if (!Array.isArray(p.images)){
     p.images = p.image ? [{ url: p.image }] : [];
     delete p.image;
   }
-  (p.colors||[]).forEach(c => { if (!c.id) c.id = slug(c.name?.en); });
+  // Migrate legacy embedded colors -> colorIds (drop embedded)
+  if (!Array.isArray(p.colorIds)){
+    if (Array.isArray(p.colors) && p.colors.length){
+      p.colorIds = p.colors.map(c => c.id || slug(c.name?.en));
+    } else {
+      p.colorIds = [];
+    }
+  }
+  delete p.colors;
+  if (typeof p.sectionId !== 'string') p.sectionId = '';
+  if (typeof p.typeId !== 'string') p.typeId = '';
+  if (typeof p.subtypeId !== 'string') p.subtypeId = '';
   return p;
+}
+
+function ensureConfig(){
+  if (!state.config) state.config = { colors: [], sections: [], types: [], subtypes: [] };
+  state.config.colors   = state.config.colors   || [];
+  state.config.sections = state.config.sections || [];
+  state.config.types    = state.config.types    || [];
+  state.config.subtypes = state.config.subtypes || [];
 }
 
 /* ============ Load ============ */
 async function loadInitial(){
-  const cached = localStorage.getItem('sj_admin_state');
-  if (cached){
-    try { state = JSON.parse(cached); (state.products||[]).forEach(migrateProduct); render(); markDirty(); return; } catch(e){}
-  }
+  // Always try to fetch latest products.json for master config
+  let fileData = null;
   try {
     const r = await fetch('products.json', {cache:'no-store'});
-    if (!r.ok) throw new Error();
-    state = await r.json();
-  } catch {
-    state = JSON.parse(JSON.stringify(DEFAULT));
+    if (r.ok) fileData = await r.json();
+  } catch {}
+
+  const cached = localStorage.getItem('sj_admin_state');
+  if (cached){
+    try {
+      state = JSON.parse(cached);
+      // Always override config from file (master lists are source of truth)
+      if (fileData?.config) state.config = fileData.config;
+      ensureConfig();
+      (state.products||[]).forEach(migrateProduct);
+      savedJSON = JSON.stringify(stripPrivate(fileData || state));
+      render(); markDirty(); loadAISettings();
+      return;
+    } catch(e){}
   }
+
+  state = fileData || JSON.parse(JSON.stringify(DEFAULT));
+  ensureConfig();
   (state.products||[]).forEach(migrateProduct);
   savedJSON = JSON.stringify(stripPrivate(state));
   render(); markClean();
@@ -309,6 +359,10 @@ function render(){
 function renderProducts(){
   const list = $('productsList');
   list.innerHTML = '';
+  // Datalist of all existing image URLs for autocomplete
+  let dl = document.getElementById('existing-images');
+  if (!dl){ dl = document.createElement('datalist'); dl.id = 'existing-images'; document.body.appendChild(dl); }
+  dl.innerHTML = getAllImageUrls().map(u => `<option value="${escapeAttr(u)}"></option>`).join('');
   $('prodCount').textContent = state.products.length;
   state.products.forEach((p, idx) => {
     const firstImg = (p.images && p.images[0])?.url || '';
@@ -323,7 +377,8 @@ function renderProducts(){
           <span>${escapeHtml(p.name?.en || 'Untitled')}<span style="color:rgba(13,20,20,.4);font-weight:400"> — ${escapeHtml(p.name?.ar || '')}</span></span>
         </h3>
         <div class="prod__actions">
-          <button class="btn btn--ai btn--small" data-act="ai" title="AI fill">✨ AI</button>
+          <button class="btn btn--ai btn--small" data-act="ai" title="AI fill from text or image">✨ AI</button>
+          <button class="btn btn--ai btn--small" data-act="detect-colors" title="Detect colors from images">🎨 Colors</button>
           <button class="btn btn--small" data-act="up" title="Move up" style="background:#eee;color:var(--ink)">↑</button>
           <button class="btn btn--small" data-act="down" title="Move down" style="background:#eee;color:var(--ink)">↓</button>
           <button class="btn btn--danger btn--small" data-act="del">Delete</button>
@@ -336,6 +391,9 @@ function renderProducts(){
           <div><label>Name (Arabic)</label><input type="text" data-field="name.ar" value="${escapeAttr(p.name?.ar || '')}" dir="rtl" /></div>
           <div><label>Description (English)</label><textarea data-field="description.en">${escapeHtml(p.description?.en || '')}</textarea></div>
           <div><label>Description (Arabic)</label><textarea data-field="description.ar" dir="rtl">${escapeHtml(p.description?.ar || '')}</textarea></div>
+          <div><label>Section</label>${renderSectionSelect(p)}</div>
+          <div><label>Type</label>${renderTypeSelect(p)}</div>
+          <div><label>SubType</label>${renderSubtypeSelect(p)}</div>
         </div>
 
         <div class="section-title">Images <span style="color:rgba(13,20,20,.4);font-weight:400;text-transform:none;letter-spacing:0">${(p.images||[]).length} total</span></div>
@@ -347,22 +405,9 @@ function renderProducts(){
           </label>
         </div>
 
-        <div class="section-title">Available Colors <span style="color:rgba(13,20,20,.4);font-weight:400;text-transform:none;letter-spacing:0">${(p.colors||[]).length} total</span></div>
-        <div class="colors-list">
-          ${(p.colors||[]).map((c,ci) => `
-            <div class="color-chip">
-              <span class="color-chip__dot" style="background:${escapeAttr(c.hex)}"></span>
-              <span>${escapeHtml(c.name?.en || '')}</span>
-              <span style="color:rgba(13,20,20,.4)">/ ${escapeHtml(c.name?.ar || '')}</span>
-              <button class="color-chip__remove" data-color-del="${ci}" title="Remove">×</button>
-            </div>
-          `).join('') || '<span style="font-size:13px;color:rgba(13,20,20,.5)">No colors yet</span>'}
-        </div>
-        <div class="color-add-row">
-          <input type="color" class="js-color-hex" value="#38adad" />
-          <input type="text" class="js-color-en" placeholder="Color name (EN)" />
-          <input type="text" class="js-color-ar" placeholder="Color name (AR)" dir="rtl" />
-          <button class="btn btn--add" data-act="add-color">+ Add</button>
+        <div class="section-title">Available Colors <span style="color:rgba(13,20,20,.4);font-weight:400;text-transform:none;letter-spacing:0">${(p.colorIds||[]).length} selected</span></div>
+        <div class="master-colors">
+          ${renderMasterColors(p)}
         </div>
       </div>
     `;
@@ -370,10 +415,18 @@ function renderProducts(){
   });
 }
 
+function getAllImageUrls(){
+  const set = new Set();
+  (state.products||[]).forEach(p => (p.images||[]).forEach(im => { if (im.url) set.add(im.url); }));
+  return Array.from(set).sort();
+}
+
 function renderImageTile(product, image, ii){
   const url = image.url || '';
   const preview = pendingImages.get(url.replace(/^images\//,'')) || url;
-  const colorOptions = (product.colors||[]).map(c =>
+  // Only show product-selected colors in the dropdown
+  const productColors = (product.colorIds||[]).map(id => (state.config.colors||[]).find(c=>c.id===id)).filter(Boolean);
+  const colorOptions = productColors.map(c =>
     `<option value="${escapeAttr(c.id)}" ${image.colorId===c.id?'selected':''}>${escapeHtml(c.name?.en || c.id)}</option>`
   ).join('');
   return `
@@ -382,7 +435,7 @@ function renderImageTile(product, image, ii){
         ${preview ? `<img src="${escapeAttr(preview)}" alt="" onerror="this.parentElement.textContent='Missing file'" />` : 'No image'}
       </div>
       <div class="img-tile__body">
-        <input type="text" data-img-field="url" value="${escapeAttr(url)}" placeholder="images/file.png" />
+        <input type="text" data-img-field="url" value="${escapeAttr(url)}" placeholder="images/file.png or https://..." list="existing-images" />
         <select data-img-field="colorId">
           <option value="">— Not linked to a color —</option>
           ${colorOptions}
@@ -409,6 +462,42 @@ function renderPending(){
     li.innerHTML = `<span><code>images/${escapeHtml(filename)}</code></span><button class="btn btn--primary" data-download="${escapeAttr(filename)}">Download</button>`;
     list.appendChild(li);
   }
+}
+
+/* ===== Master selectors ===== */
+function renderSectionSelect(p){
+  const opts = (state.config.sections||[]).map(s =>
+    `<option value="${escapeAttr(s.id)}" ${p.sectionId===s.id?'selected':''}>${escapeHtml(s.name?.en || s.id)}</option>`
+  ).join('');
+  return `<select data-field="sectionId"><option value="">— Select section —</option>${opts}</select>`;
+}
+function renderTypeSelect(p){
+  const types = (state.config.types||[]).filter(t => !p.sectionId || t.sectionId === p.sectionId);
+  const opts = types.map(t =>
+    `<option value="${escapeAttr(t.id)}" ${p.typeId===t.id?'selected':''}>${escapeHtml(t.name?.en || t.id)}</option>`
+  ).join('');
+  return `<select data-field="typeId"${p.sectionId?'':' disabled'}><option value="">— ${p.sectionId?'Select type':'Select a section first'} —</option>${opts}</select>`;
+}
+function renderSubtypeSelect(p){
+  const subs = (state.config.subtypes||[]).filter(s => !p.typeId || s.typeId === p.typeId);
+  const hasAny = subs.length > 0;
+  const opts = subs.map(s =>
+    `<option value="${escapeAttr(s.id)}" ${p.subtypeId===s.id?'selected':''}>${escapeHtml(s.name?.en || s.id)}</option>`
+  ).join('');
+  const placeholder = !p.typeId ? 'Select a type first' : (hasAny ? 'Optional' : 'No subtypes available');
+  return `<select data-field="subtypeId"${(p.typeId && hasAny)?'':' disabled'}><option value="">— ${placeholder} —</option>${opts}</select>`;
+}
+function renderMasterColors(p){
+  const all = state.config.colors || [];
+  if (!all.length) return '<span style="font-size:13px;color:rgba(13,20,20,.5)">No master colors configured. Edit <code>products.json</code> config.colors.</span>';
+  const selected = new Set(p.colorIds || []);
+  return all.map(c => `
+    <label class="mc-chip ${selected.has(c.id)?'is-on':''}" data-toggle-color="${escapeAttr(c.id)}">
+      <span class="mc-chip__dot" style="background:${escapeAttr(c.hex)}"></span>
+      <span class="mc-chip__name">${escapeHtml(c.name?.en || c.id)}</span>
+      <input type="checkbox" ${selected.has(c.id)?'checked':''} />
+    </label>
+  `).join('');
 }
 
 /* ============ Helpers ============ */
@@ -464,22 +553,23 @@ $('productsList').addEventListener('click', async (e) => {
   if (act === 'up' && idx > 0){ [state.products[idx-1], state.products[idx]] = [state.products[idx], state.products[idx-1]]; renderProducts(); checkDirty(); cacheState(); return; }
   if (act === 'down' && idx < state.products.length-1){ [state.products[idx+1], state.products[idx]] = [state.products[idx], state.products[idx+1]]; renderProducts(); checkDirty(); cacheState(); return; }
   if (act === 'ai'){ openAI(idx); return; }
-  if (act === 'add-color'){
-    const hex = prod.querySelector('.js-color-hex').value;
-    const en = prod.querySelector('.js-color-en').value.trim();
-    const ar = prod.querySelector('.js-color-ar').value.trim();
-    if (!en){ toast('Color name (EN) is required'); return; }
-    if (!state.products[idx].colors) state.products[idx].colors = [];
-    state.products[idx].colors.push({ id: slug(en), name:{en, ar: ar||en}, hex });
-    state.products[idx]._open = true;
-    renderProducts(); checkDirty(); cacheState(); return;
-  }
-  if (colorDel){
-    const ci = +colorDel.dataset.colorDel;
-    const removedId = state.products[idx].colors[ci]?.id;
-    state.products[idx].colors.splice(ci,1);
-    // Unbind any images that referenced this color
-    (state.products[idx].images||[]).forEach(im => { if (im.colorId === removedId) delete im.colorId; });
+  if (act === 'detect-colors'){ await detectColors(idx); return; }
+  // Toggle master color membership
+  const colorChip = e.target.closest('[data-toggle-color]');
+  if (colorChip){
+    e.preventDefault();
+    const cid = colorChip.dataset.toggleColor;
+    const p = state.products[idx];
+    p.colorIds = p.colorIds || [];
+    const i = p.colorIds.indexOf(cid);
+    if (i >= 0){
+      p.colorIds.splice(i,1);
+      // Unbind images that referenced this color
+      (p.images||[]).forEach(im => { if (im.colorId === cid) delete im.colorId; });
+    } else {
+      p.colorIds.push(cid);
+    }
+    p._open = true;
     renderProducts(); checkDirty(); cacheState(); return;
   }
   if (imgDel){
@@ -507,7 +597,29 @@ $('productsList').addEventListener('input', e => {
   if (!field) return;
   if (field.includes('.')) setNested(state.products[idx], field, e.target.value);
   else state.products[idx][field] = e.target.value;
+  // When section changes, clear typeId if no longer valid; re-render to refresh type list
+  if (field === 'sectionId'){
+    const p = state.products[idx];
+    const valid = (state.config.types||[]).some(t => t.id === p.typeId && t.sectionId === p.sectionId);
+    if (!valid){ p.typeId = ''; p.subtypeId = ''; }
+    p._open = true;
+    renderProducts();
+  }
+  if (field === 'typeId'){
+    const p = state.products[idx];
+    const valid = (state.config.subtypes||[]).some(s => s.id === p.subtypeId && s.typeId === p.typeId);
+    if (!valid) p.subtypeId = '';
+    p._open = true;
+    renderProducts();
+  }
   cacheState(); checkDirty();
+});
+
+/* Select change events also need to trigger re-render for section dropdown */
+$('productsList').addEventListener('change', e => {
+  if (e.target.tagName === 'SELECT' && e.target.dataset.field === 'sectionId'){
+    // input event handler above takes care of it
+  }
 });
 
 /* Image uploads (multi add + replace) */
@@ -536,11 +648,7 @@ $('productsList').addEventListener('change', async (e) => {
   }
 });
 
-/* Click on add-img tile triggers file picker */
-$('productsList').addEventListener('click', e => {
-  const lab = e.target.closest('[data-add-img]');
-  if (lab){ const inp = lab.querySelector('.js-add-imgs'); if (inp && e.target !== inp) inp.click(); }
-});
+/* Native <label> wraps the file input, so clicking opens picker automatically — no JS needed */
 
 /* Pending downloads */
 $('pendingList').addEventListener('click', e => {
@@ -555,10 +663,13 @@ $('pendingList').addEventListener('click', e => {
 $('btnAddProduct').addEventListener('click', () => {
   state.products.push({
     id: newId(),
+    sectionId: '',
+    typeId: '',
+    subtypeId: '',
     name: { en: 'New Product', ar: 'منتج جديد' },
     description: { en: '', ar: '' },
+    colorIds: [],
     images: [],
-    colors: [],
     _open: true
   });
   renderProducts(); checkDirty(); cacheState();
@@ -609,10 +720,11 @@ window.addEventListener('beforeunload', e => {
 /* ============ AI Settings ============ */
 function loadAISettings(){
   const saved = JSON.parse(localStorage.getItem('sj_ai') || '{}');
-  $('aiProvider').value = saved.provider || 'groq';
-  $('aiModel').value    = saved.model || DEFAULT_MODELS[$('aiProvider').value];
-  $('aiKey').value      = saved.key || '';
-  $('aiEndpoint').value = saved.endpoint || '';
+  $('aiProvider').value     = saved.provider || 'groq';
+  $('aiModel').value        = saved.model || DEFAULT_MODELS[$('aiProvider').value];
+  $('aiVisionModel').value  = saved.visionModel || DEFAULT_VISION_MODELS[$('aiProvider').value];
+  $('aiKey').value          = saved.key || '';
+  $('aiEndpoint').value     = saved.endpoint || '';
   toggleCustomEndpoint();
   updateAIStatus();
 }
@@ -620,6 +732,7 @@ function saveAISettings(){
   const settings = {
     provider: $('aiProvider').value,
     model: $('aiModel').value.trim(),
+    visionModel: $('aiVisionModel').value.trim(),
     key: $('aiKey').value.trim(),
     endpoint: $('aiEndpoint').value.trim()
   };
@@ -643,20 +756,29 @@ function toggleCustomEndpoint(){
   $('aiCustomEndpointWrap').style.display = isCustom ? '' : 'none';
 }
 $('aiProvider').addEventListener('change', () => {
-  // Auto-fill model when switching providers
   if (!$('aiModel').value || Object.values(DEFAULT_MODELS).includes($('aiModel').value)){
     $('aiModel').value = DEFAULT_MODELS[$('aiProvider').value] || '';
   }
+  if (!$('aiVisionModel').value || Object.values(DEFAULT_VISION_MODELS).includes($('aiVisionModel').value)){
+    $('aiVisionModel').value = DEFAULT_VISION_MODELS[$('aiProvider').value] || '';
+  }
   toggleCustomEndpoint(); saveAISettings();
 });
-['aiModel','aiKey','aiEndpoint'].forEach(id => $(id).addEventListener('input', saveAISettings));
+['aiModel','aiVisionModel','aiKey','aiEndpoint'].forEach(id => $(id).addEventListener('input', saveAISettings));
 
 /* ============ AI Modal ============ */
 function openAI(idx){
   const s = JSON.parse(localStorage.getItem('sj_ai') || '{}');
   if (!s.key){ toast('Configure AI settings first (add API key above)', 4000); window.scrollTo({top:0,behavior:'smooth'}); return; }
   aiTargetIdx = idx;
-  $('aiPrompt').value = state.products[idx].name?.en && state.products[idx].name.en !== 'New Product' ? state.products[idx].name.en : '';
+  const p = state.products[idx];
+  $('aiPrompt').value = p.name?.en && p.name.en !== 'New Product' ? p.name.en : '';
+  // Show whether AI will use vision
+  const hasImage = (p.images||[]).some(im => im.url);
+  $('aiVisionHint').textContent = hasImage
+    ? '✨ AI will look at the first image to generate details.'
+    : 'Tip: Add an image first — AI can then read the product from the photo.';
+  $('aiVisionHint').style.color = hasImage ? 'var(--teal-deep)' : 'rgba(13,20,20,.55)';
   $('aiModal').classList.add('show');
   setTimeout(() => $('aiPrompt').focus(), 50);
 }
@@ -665,16 +787,48 @@ $('aiModal').addEventListener('click', e => { if (e.target === $('aiModal')) $('
 
 $('aiGenerate').addEventListener('click', async () => {
   const hint = $('aiPrompt').value.trim();
-  if (!hint){ toast('Please describe the product first'); return; }
+  const p = state.products[aiTargetIdx];
+  const hasImage = (p.images||[]).some(im => im.url);
+  if (!hint && !hasImage){ toast('Add an image or describe the product first'); return; }
   const btn = $('aiGenerate'); btn.disabled = true; btn.textContent = 'Generating…';
   try {
-    const result = await callAI(hint);
-    const p = state.products[aiTargetIdx];
+    // Resolve first image to a usable form for the AI
+    const firstImg = (p.images||[]).find(im => im.url);
+    let imageData = null;
+    if (firstImg){
+      const filename = (firstImg.url || '').replace(/^images\//,'');
+      if (pendingImages.has(filename)){
+        imageData = pendingImages.get(filename);  // base64 data URL
+      } else if (/^https?:\/\//i.test(firstImg.url)){
+        imageData = firstImg.url;  // public URL
+      } else {
+        // local relative path - try to fetch and convert to base64 so the API can see it
+        try {
+          const r = await fetch(firstImg.url);
+          if (r.ok){
+            const blob = await r.blob();
+            imageData = await new Promise(res => { const fr = new FileReader(); fr.onload = e => res(e.target.result); fr.readAsDataURL(blob); });
+          }
+        } catch {}
+      }
+    }
+    const result = await callAI(hint, imageData);
     p.name = { en: result.name?.en || p.name.en, ar: result.name?.ar || p.name.ar };
     p.description = { en: result.description?.en || p.description.en, ar: result.description?.ar || p.description.ar };
-    // Add suggested colors only if we have none
-    if (Array.isArray(result.colors) && result.colors.length && (!p.colors || !p.colors.length)){
-      p.colors = result.colors.map(c => ({ id: slug(c.name?.en), name: { en: c.name?.en || '', ar: c.name?.ar || c.name?.en || '' }, hex: c.hex || '#888' }));
+    // Map AI-suggested colorIds to master list (only valid IDs)
+    if (Array.isArray(result.colorIds) && result.colorIds.length && (!p.colorIds || !p.colorIds.length)){
+      const validIds = new Set((state.config.colors||[]).map(c => c.id));
+      p.colorIds = result.colorIds.filter(id => validIds.has(id));
+    }
+    // Apply suggested section/type/subtype if valid
+    if (result.sectionId && (state.config.sections||[]).some(s => s.id === result.sectionId)){
+      p.sectionId = result.sectionId;
+      if (result.typeId && (state.config.types||[]).some(t => t.id === result.typeId && t.sectionId === result.sectionId)){
+        p.typeId = result.typeId;
+        if (result.subtypeId && (state.config.subtypes||[]).some(s => s.id === result.subtypeId && s.typeId === result.typeId)){
+          p.subtypeId = result.subtypeId;
+        }
+      }
     }
     p._open = true;
     renderProducts(); checkDirty(); cacheState();
@@ -687,24 +841,132 @@ $('aiGenerate').addEventListener('click', async () => {
   }
 });
 
-async function callAI(hint){
+/* ===== Resolve an image URL to data the AI can read (base64 or public URL) ===== */
+async function resolveImageForAI(url){
+  if (!url) return null;
+  const filename = url.replace(/^images\//,'');
+  if (pendingImages.has(filename)) return pendingImages.get(filename);
+  if (/^https?:\/\//i.test(url)) return url;
+  try {
+    const r = await fetch(url);
+    if (!r.ok) return null;
+    const blob = await r.blob();
+    return await new Promise(res => { const fr = new FileReader(); fr.onload = e => res(e.target.result); fr.readAsDataURL(blob); });
+  } catch { return null; }
+}
+
+/* ===== Detect colors from images using vision AI ===== */
+async function detectColors(idx){
+  const s = JSON.parse(localStorage.getItem('sj_ai') || '{}');
+  if (!s.key){ toast('Configure AI settings first'); window.scrollTo({top:0,behavior:'smooth'}); return; }
+  const p = state.products[idx];
+  const imgs = (p.images||[]).filter(im => im.url);
+  if (!imgs.length){ toast('Add at least one image first'); return; }
+  if (!(state.config.colors||[]).length){ toast('No master colors configured'); return; }
+
+  toast('Analyzing images…', 4000);
+
+  // Resolve up to 5 images (model limit for vision)
+  const slice = imgs.slice(0, 5);
+  const resolved = [];
+  for (let i = 0; i < slice.length; i++){
+    const data = await resolveImageForAI(slice[i].url);
+    if (data) resolved.push({ origIdx: (p.images||[]).indexOf(slice[i]), data });
+  }
+  if (!resolved.length){ alert('Could not load any images for analysis'); return; }
+
+  const colorList = state.config.colors.map(c => `${c.id} (${c.name.en}, hex ${c.hex})`).join(', ');
+  const sys = `You analyze product photos and identify the dominant product color (ignoring the background).
+For EACH image in order, choose the BEST matching color id from this master list (must be an exact id from the list):
+${colorList}
+Reply with ONLY valid JSON, exact shape:
+{"matches":[{"imageIndex":0,"colorId":"<id>"},{"imageIndex":1,"colorId":"<id>"}]}
+The imageIndex must correspond to the order images are shown (0-based). Use only colorIds from the list above.`;
+
+  const userContent = [{ type: 'text', text: `Analyze these ${resolved.length} product images and return the JSON.` }];
+  resolved.forEach(r => userContent.push({ type: 'image_url', image_url: { url: r.data } }));
+
+  const endpoint = s.provider === 'custom' ? s.endpoint : ENDPOINTS[s.provider];
+  const body = {
+    model: s.visionModel || DEFAULT_VISION_MODELS[s.provider],
+    messages: [{ role: 'system', content: sys }, { role: 'user', content: userContent }],
+    temperature: 0.2
+  };
+
+  try {
+    const res = await fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + s.key },
+      body: JSON.stringify(body)
+    });
+    if (!res.ok){ const t = await res.text(); throw new Error(`${res.status} ${t.slice(0,200)}`); }
+    const data = await res.json();
+    let content = data.choices?.[0]?.message?.content || '';
+    const m = content.match(/\{[\s\S]*\}/);
+    if (!m) throw new Error('AI did not return JSON');
+    const parsed = JSON.parse(m[0]);
+    const matches = parsed.matches || [];
+    const validIds = new Set(state.config.colors.map(c => c.id));
+    const newColorIds = new Set(p.colorIds || []);
+    let applied = 0;
+    matches.forEach(({ imageIndex, colorId }) => {
+      if (!validIds.has(colorId)) return;
+      const r = resolved[imageIndex];
+      if (!r) return;
+      p.images[r.origIdx].colorId = colorId;
+      newColorIds.add(colorId);
+      applied++;
+    });
+    p.colorIds = Array.from(newColorIds);
+    p._open = true;
+    renderProducts(); checkDirty(); cacheState();
+    toast(`Detected colors for ${applied}/${resolved.length} image(s)`);
+  } catch (err){
+    alert('Color detection failed: ' + err.message);
+  }
+}
+
+async function callAI(hint, imageData){
   const s = JSON.parse(localStorage.getItem('sj_ai') || '{}');
   const endpoint = s.provider === 'custom' ? s.endpoint : ENDPOINTS[s.provider];
   if (!endpoint) throw new Error('No endpoint configured');
-  const sys = `You are an assistant that returns JSON for a corporate gifts/branding catalog (Sky Jewel, Saudi Arabia).
-Output ONLY valid JSON, no markdown fences, with this exact shape:
-{"name":{"en":"...","ar":"..."},"description":{"en":"short 1-2 sentence sales pitch","ar":"الترجمة"},"colors":[{"name":{"en":"Color","ar":"اللون"},"hex":"#RRGGBB"}]}
-Provide 3-4 plausible color options unless the user explicitly states colors. Keep descriptions concise (max 25 words).`;
+  const colorList = (state.config.colors||[]).map(c => `${c.id} (${c.name?.en})`).join(', ');
+  const sectionList = (state.config.sections||[]).map(s => `${s.id} (${s.name?.en})`).join(', ');
+  const typeList = (state.config.types||[]).map(t => `${t.id} (${t.name?.en}, parent=${t.sectionId})`).join('; ');
+  const subtypeList = (state.config.subtypes||[]).map(s => `${s.id} (${s.name?.en}, parent=${s.typeId})`).join('; ');
+  const visionNote = imageData ? '\nThe product image is attached. Identify the object precisely from the image and fill all fields based on what you see.' : '';
+  const sys = `You are an assistant that fills product details for a corporate gifts/branding catalog (Sky Jewel, Saudi Arabia).${visionNote}
+Reply with ONLY valid JSON (no markdown), exact shape:
+{"name":{"en":"...","ar":"..."},"description":{"en":"short 1-2 sentence sales pitch (max 25 words)","ar":"الترجمة العربية"},"sectionId":"<one id from list>","typeId":"<one id from list whose parent matches sectionId>","subtypeId":"<one id from subtype list whose parent matches typeId, or empty string>","colorIds":["<ids from color list>"]}
+Use ONLY these IDs (do not invent). Pick subtypeId only if a fitting one exists.
+Sections: ${sectionList}
+Types: ${typeList}
+Subtypes: ${subtypeList}
+Colors: ${colorList}
+Pick 3-4 plausible colorIds. Translate Arabic naturally.`;
+
+  // Build user message content (text-only or text+image)
+  let userContent;
+  if (imageData){
+    const userText = hint ? `Product brief: ${hint}` : 'Identify this product from the image and fill the JSON.';
+    userContent = [
+      { type: 'text', text: userText },
+      { type: 'image_url', image_url: { url: imageData } }
+    ];
+  } else {
+    userContent = 'Product brief: ' + hint;
+  }
+
   const body = {
-    model: s.model,
+    model: imageData ? (s.visionModel || DEFAULT_VISION_MODELS[s.provider]) : s.model,
     messages: [
       { role: 'system', content: sys },
-      { role: 'user',   content: 'Product brief: ' + hint }
+      { role: 'user',   content: userContent }
     ],
     temperature: 0.6
   };
-  // OpenAI/Groq support response_format JSON for some models
-  if (s.provider === 'groq' || s.provider === 'openai') body.response_format = { type: 'json_object' };
+  // Some vision models don't support response_format; only set for text-only requests
+  if (!imageData && (s.provider === 'groq' || s.provider === 'openai')) body.response_format = { type: 'json_object' };
 
   const res = await fetch(endpoint, {
     method: 'POST',

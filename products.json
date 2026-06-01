@@ -12,40 +12,22 @@
   "whatsappPhone": "966583801179",
   "products": [
     {
-      "id": "p9xttyp",
+      "id": "pmn7tr0",
+      "sectionId": "corporate-gifts",
+      "typeId": "customized-gifts",
+      "subtypeId": "st-mugs-bottles",
       "name": {
-        "en": "Thermal Bottle",
-        "ar": "زجاجة حرارية"
+        "en": "Water Bottle",
+        "ar": "زجاجة مياه"
       },
       "description": {
-        "en": "Keep drinks hot or cold",
-        "ar": "احتفظ بالمشروبات ساخنة أو باردة"
+        "en": "Reusable water bottle, 1L capacity, BPA-free",
+        "ar": "زجاجة مياه قابلة لإعادة الاستخدام، سعة 1 لتر، خالية من BPA"
       },
-      "colors": [
-        {
-          "name": {
-            "en": "White",
-            "ar": "أبيض"
-          },
-          "hex": "#ffffff",
-          "id": "white"
-        },
-        {
-          "id": "navyblue",
-          "name": {
-            "en": "Navyblue",
-            "ar": "كحلي"
-          },
-          "hex": "#001f7a"
-        },
-        {
-          "id": "black",
-          "name": {
-            "en": "Black",
-            "ar": "أسود"
-          },
-          "hex": "#000000"
-        }
+      "colorIds": [
+        "white",
+        "black",
+        "navy-blue"
       ],
       "images": [
         {
@@ -53,14 +35,1484 @@
           "colorId": "white"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-11-38-34-am-1-.png",
-          "colorId": "black"
+          "url": "images/chatgpt-image-jun-1-2026-12-00-55-pm.png",
+          "colorId": "navy-blue"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-12-00-55-pm.png",
-          "colorId": "navyblue"
+          "url": "images/chatgpt-image-jun-1-2026-11-38-34-am-1-.png",
+          "colorId": "black"
+        }
+      ]
+    },
+    {
+      "id": "penmsko",
+      "sectionId": "corporate-gifts",
+      "typeId": "customized-gifts",
+      "subtypeId": "st-mugs-bottles",
+      "name": {
+        "en": "Smart Temperature Flask",
+        "ar": "قارورة حرارية ذكية"
+      },
+      "description": {
+        "en": "Temperature control smart flask",
+        "ar": "قارورة ذكية للتحكم في درجة الحرارة"
+      },
+      "colorIds": [
+        "navy-blue",
+        "black",
+        "white",
+        "royal-blue",
+        "red",
+        "green"
+      ],
+      "images": [
+        {
+          "url": "images/chatgpt-image-feb-25-2026-07-04-07-am.png",
+          "colorId": "navy-blue"
+        },
+        {
+          "url": "images/chatgpt-image-feb-25-2026-06-36-13-am.png",
+          "colorId": "red"
+        },
+        {
+          "url": "images/chatgpt-image-feb-25-2026-06-27-40-am.png",
+          "colorId": "royal-blue"
+        },
+        {
+          "url": "images/chatgpt-image-feb-25-2026-05-23-32-am.png",
+          "colorId": "white"
+        },
+        {
+          "url": "images/chatgpt-image-feb-25-2026-05-22-24-am.png",
+          "colorId": "green"
+        },
+        {
+          "url": "images/chatgpt-image-feb-25-2026-06-26-10-am.png",
+          "colorId": "black"
         }
       ]
     }
-  ]
+  ],
+  "config": {
+    "colors": [
+      {
+        "id": "black",
+        "name": {
+          "en": "Black",
+          "ar": "أسود"
+        },
+        "hex": "#000000"
+      },
+      {
+        "id": "white",
+        "name": {
+          "en": "White",
+          "ar": "أبيض"
+        },
+        "hex": "#ffffff"
+      },
+      {
+        "id": "navy-blue",
+        "name": {
+          "en": "Navy Blue",
+          "ar": "كحلي"
+        },
+        "hex": "#001f7a"
+      },
+      {
+        "id": "royal-blue",
+        "name": {
+          "en": "Royal Blue",
+          "ar": "أزرق ملكي"
+        },
+        "hex": "#1e40af"
+      },
+      {
+        "id": "red",
+        "name": {
+          "en": "Red",
+          "ar": "أحمر"
+        },
+        "hex": "#dc2626"
+      },
+      {
+        "id": "green",
+        "name": {
+          "en": "Green",
+          "ar": "أخضر"
+        },
+        "hex": "#16a34a"
+      },
+      {
+        "id": "gray",
+        "name": {
+          "en": "Gray",
+          "ar": "رمادي"
+        },
+        "hex": "#6b7280"
+      },
+      {
+        "id": "gold",
+        "name": {
+          "en": "Gold",
+          "ar": "ذهبي"
+        },
+        "hex": "#C5A059"
+      },
+      {
+        "id": "purple",
+        "name": {
+          "en": "Purple",
+          "ar": "بنفسجي"
+        },
+        "hex": "#7c3aed"
+      },
+      {
+        "id": "orange",
+        "name": {
+          "en": "Orange",
+          "ar": "برتقالي"
+        },
+        "hex": "#FE582A"
+      }
+    ],
+    "sections": [
+      {
+        "id": "corporate-gifts",
+        "name": {
+          "en": "Corporate Gifts",
+          "ar": "الهدايا المؤسسية"
+        }
+      },
+      {
+        "id": "events-materials",
+        "name": {
+          "en": "Events Materials",
+          "ar": "مواد الفعاليات"
+        }
+      },
+      {
+        "id": "branding-digital",
+        "name": {
+          "en": "Branding & Digital Marketing",
+          "ar": "الهوية البصرية والتسويق الإلكتروني"
+        }
+      },
+      {
+        "id": "printing-services",
+        "name": {
+          "en": "Printing Services",
+          "ar": "خدمات الطباعة"
+        }
+      }
+    ],
+    "types": [
+      {
+        "id": "customized-gifts",
+        "sectionId": "corporate-gifts",
+        "name": {
+          "en": "Customized Gifts",
+          "ar": "هدايا مخصصة"
+        }
+      },
+      {
+        "id": "luxury-gifts",
+        "sectionId": "corporate-gifts",
+        "name": {
+          "en": "Luxury Gifts",
+          "ar": "هدايا فاخرة"
+        }
+      },
+      {
+        "id": "promotional-giveaways",
+        "sectionId": "corporate-gifts",
+        "name": {
+          "en": "Promotional Giveaways",
+          "ar": "هدايا دعائية"
+        }
+      },
+      {
+        "id": "seasonal-gifts",
+        "sectionId": "corporate-gifts",
+        "name": {
+          "en": "Seasonal Gifts",
+          "ar": "هدايا المناسبات"
+        }
+      },
+      {
+        "id": "welcome-kits",
+        "sectionId": "corporate-gifts",
+        "name": {
+          "en": "Welcome Kits",
+          "ar": "باقات الترحيب"
+        }
+      },
+      {
+        "id": "employee-gifts",
+        "sectionId": "corporate-gifts",
+        "name": {
+          "en": "Employee Gifts",
+          "ar": "هدايا الموظفين"
+        }
+      },
+      {
+        "id": "client-gifts",
+        "sectionId": "corporate-gifts",
+        "name": {
+          "en": "Client Gifts",
+          "ar": "هدايا العملاء"
+        }
+      },
+      {
+        "id": "gift-boxes-packaging",
+        "sectionId": "corporate-gifts",
+        "name": {
+          "en": "Gift Boxes & Packaging",
+          "ar": "صناديق وتغليف الهدايا"
+        }
+      },
+      {
+        "id": "trophies-awards",
+        "sectionId": "corporate-gifts",
+        "name": {
+          "en": "Trophies & Awards",
+          "ar": "الدروع والتكريمات"
+        }
+      },
+      {
+        "id": "event-booths-stands",
+        "sectionId": "events-materials",
+        "name": {
+          "en": "Event Booths & Stands",
+          "ar": "أجنحة ومنصات المعارض"
+        }
+      },
+      {
+        "id": "rollups-banners",
+        "sectionId": "events-materials",
+        "name": {
+          "en": "Roll-ups & Banners",
+          "ar": "رول أب وبنرات"
+        }
+      },
+      {
+        "id": "badges-lanyards",
+        "sectionId": "events-materials",
+        "name": {
+          "en": "Badges & Lanyards",
+          "ar": "بطاقات تعريفية وحبال تعليق"
+        }
+      },
+      {
+        "id": "table-display-materials",
+        "sectionId": "events-materials",
+        "name": {
+          "en": "Table & Display Materials",
+          "ar": "مواد الطاولات والعرض"
+        }
+      },
+      {
+        "id": "printed-materials",
+        "sectionId": "events-materials",
+        "name": {
+          "en": "Printed Materials",
+          "ar": "المطبوعات"
+        }
+      },
+      {
+        "id": "giveaways-events",
+        "sectionId": "events-materials",
+        "name": {
+          "en": "Giveaways for Events",
+          "ar": "هدايا الفعاليات"
+        }
+      },
+      {
+        "id": "signage-wayfinding",
+        "sectionId": "events-materials",
+        "name": {
+          "en": "Signage & Wayfinding",
+          "ar": "اللوحات والإرشادات"
+        }
+      },
+      {
+        "id": "event-packaging",
+        "sectionId": "events-materials",
+        "name": {
+          "en": "Event Packaging",
+          "ar": "تغليف الفعاليات"
+        }
+      },
+      {
+        "id": "brand-identity-design",
+        "sectionId": "branding-digital",
+        "name": {
+          "en": "Brand Identity Design",
+          "ar": "تصميم الهوية البصرية"
+        }
+      },
+      {
+        "id": "logo-design",
+        "sectionId": "branding-digital",
+        "name": {
+          "en": "Logo Design",
+          "ar": "تصميم الشعار"
+        }
+      },
+      {
+        "id": "brand-guidelines",
+        "sectionId": "branding-digital",
+        "name": {
+          "en": "Brand Guidelines",
+          "ar": "دليل الهوية"
+        }
+      },
+      {
+        "id": "social-media-design",
+        "sectionId": "branding-digital",
+        "name": {
+          "en": "Social Media Design",
+          "ar": "تصاميم السوشال ميديا"
+        }
+      },
+      {
+        "id": "content-writing",
+        "sectionId": "branding-digital",
+        "name": {
+          "en": "Content Writing",
+          "ar": "كتابة المحتوى"
+        }
+      },
+      {
+        "id": "digital-campaigns",
+        "sectionId": "branding-digital",
+        "name": {
+          "en": "Digital Campaigns",
+          "ar": "الحملات الإعلانية الرقمية"
+        }
+      },
+      {
+        "id": "website-design",
+        "sectionId": "branding-digital",
+        "name": {
+          "en": "Website Design",
+          "ar": "تصميم المواقع"
+        }
+      },
+      {
+        "id": "marketing-strategy",
+        "sectionId": "branding-digital",
+        "name": {
+          "en": "Marketing Strategy",
+          "ar": "الاستراتيجية التسويقية"
+        }
+      },
+      {
+        "id": "print-business-cards",
+        "sectionId": "printing-services",
+        "name": {
+          "en": "Business Cards",
+          "ar": "بطاقات عمل"
+        }
+      },
+      {
+        "id": "print-stickers-labels",
+        "sectionId": "printing-services",
+        "name": {
+          "en": "Stickers & Labels",
+          "ar": "استكرات وليبلات"
+        }
+      },
+      {
+        "id": "print-brochures-catalogs",
+        "sectionId": "printing-services",
+        "name": {
+          "en": "Brochures & Catalogs",
+          "ar": "بروشورات وكتالوجات"
+        }
+      },
+      {
+        "id": "print-packaging",
+        "sectionId": "printing-services",
+        "name": {
+          "en": "Packaging Printing",
+          "ar": "طباعة التغليف"
+        }
+      },
+      {
+        "id": "print-large-format",
+        "sectionId": "printing-services",
+        "name": {
+          "en": "Large Format Printing",
+          "ar": "طباعة مقاسات كبيرة"
+        }
+      }
+    ],
+    "subtypes": [
+      {
+        "id": "st-pens",
+        "typeId": "customized-gifts",
+        "name": {
+          "en": "Pens",
+          "ar": "أقلام"
+        }
+      },
+      {
+        "id": "st-mugs-bottles",
+        "typeId": "customized-gifts",
+        "name": {
+          "en": "Mugs & Bottles",
+          "ar": "أكواب وعبوات"
+        }
+      },
+      {
+        "id": "st-notebooks",
+        "typeId": "customized-gifts",
+        "name": {
+          "en": "Notebooks",
+          "ar": "دفاتر"
+        }
+      },
+      {
+        "id": "st-keychains",
+        "typeId": "customized-gifts",
+        "name": {
+          "en": "Keychains",
+          "ar": "ميداليات"
+        }
+      },
+      {
+        "id": "st-tech-gifts",
+        "typeId": "customized-gifts",
+        "name": {
+          "en": "Tech Gifts",
+          "ar": "هدايا تقنية"
+        }
+      },
+      {
+        "id": "st-desk-items",
+        "typeId": "customized-gifts",
+        "name": {
+          "en": "Desk Items",
+          "ar": "مستلزمات مكتبية"
+        }
+      },
+      {
+        "id": "st-apparel-gifts",
+        "typeId": "customized-gifts",
+        "name": {
+          "en": "Apparel Gifts",
+          "ar": "هدايا ملبوسات"
+        }
+      },
+      {
+        "id": "st-executive-sets",
+        "typeId": "luxury-gifts",
+        "name": {
+          "en": "Executive Sets",
+          "ar": "أطقم تنفيذية"
+        }
+      },
+      {
+        "id": "st-leather-gifts",
+        "typeId": "luxury-gifts",
+        "name": {
+          "en": "Leather Gifts",
+          "ar": "هدايا جلدية"
+        }
+      },
+      {
+        "id": "st-premium-boxes",
+        "typeId": "luxury-gifts",
+        "name": {
+          "en": "Premium Boxes",
+          "ar": "بوكسات فاخرة"
+        }
+      },
+      {
+        "id": "st-vip-gift-sets",
+        "typeId": "luxury-gifts",
+        "name": {
+          "en": "VIP Gift Sets",
+          "ar": "أطقم VIP"
+        }
+      },
+      {
+        "id": "st-low-cost-giveaways",
+        "typeId": "promotional-giveaways",
+        "name": {
+          "en": "Low-Cost Giveaways",
+          "ar": "هدايا اقتصادية"
+        }
+      },
+      {
+        "id": "st-seasonal-giveaways",
+        "typeId": "promotional-giveaways",
+        "name": {
+          "en": "Seasonal Giveaways",
+          "ar": "هدايا موسمية"
+        }
+      },
+      {
+        "id": "st-eco-giveaways",
+        "typeId": "promotional-giveaways",
+        "name": {
+          "en": "Eco-Friendly Giveaways",
+          "ar": "هدايا صديقة للبيئة"
+        }
+      },
+      {
+        "id": "st-branded-merch",
+        "typeId": "promotional-giveaways",
+        "name": {
+          "en": "Branded Merchandise",
+          "ar": "منتجات دعائية بالهوية"
+        }
+      },
+      {
+        "id": "st-eid-gifts",
+        "typeId": "seasonal-gifts",
+        "name": {
+          "en": "Eid Gifts",
+          "ar": "هدايا العيد"
+        }
+      },
+      {
+        "id": "st-ramadan-gifts",
+        "typeId": "seasonal-gifts",
+        "name": {
+          "en": "Ramadan Gifts",
+          "ar": "هدايا رمضان"
+        }
+      },
+      {
+        "id": "st-national-day",
+        "typeId": "seasonal-gifts",
+        "name": {
+          "en": "National Day Gifts",
+          "ar": "هدايا اليوم الوطني"
+        }
+      },
+      {
+        "id": "st-new-year-gifts",
+        "typeId": "seasonal-gifts",
+        "name": {
+          "en": "New Year Gifts",
+          "ar": "هدايا رأس السنة"
+        }
+      },
+      {
+        "id": "st-graduation-gifts",
+        "typeId": "seasonal-gifts",
+        "name": {
+          "en": "Graduation Gifts",
+          "ar": "هدايا التخرج"
+        }
+      },
+      {
+        "id": "st-emp-welcome",
+        "typeId": "welcome-kits",
+        "name": {
+          "en": "Employee Welcome Kits",
+          "ar": "باقات ترحيب الموظفين"
+        }
+      },
+      {
+        "id": "st-client-welcome",
+        "typeId": "welcome-kits",
+        "name": {
+          "en": "Client Welcome Kits",
+          "ar": "باقات ترحيب العملاء"
+        }
+      },
+      {
+        "id": "st-student-welcome",
+        "typeId": "welcome-kits",
+        "name": {
+          "en": "Student Welcome Kits",
+          "ar": "باقات ترحيب الطلاب"
+        }
+      },
+      {
+        "id": "st-custom-box-kits",
+        "typeId": "welcome-kits",
+        "name": {
+          "en": "Custom Box Kits",
+          "ar": "باقات بصناديق مخصصة"
+        }
+      },
+      {
+        "id": "st-onboarding-gifts",
+        "typeId": "employee-gifts",
+        "name": {
+          "en": "Onboarding Gifts",
+          "ar": "هدايا الانضمام"
+        }
+      },
+      {
+        "id": "st-appreciation-gifts",
+        "typeId": "employee-gifts",
+        "name": {
+          "en": "Appreciation Gifts",
+          "ar": "هدايا التقدير"
+        }
+      },
+      {
+        "id": "st-anniversary-gifts",
+        "typeId": "employee-gifts",
+        "name": {
+          "en": "Anniversary Gifts",
+          "ar": "هدايا ذكرى العمل"
+        }
+      },
+      {
+        "id": "st-holiday-gifts",
+        "typeId": "employee-gifts",
+        "name": {
+          "en": "Holiday Gifts",
+          "ar": "هدايا المناسبات"
+        }
+      },
+      {
+        "id": "st-wellness-gifts",
+        "typeId": "employee-gifts",
+        "name": {
+          "en": "Wellness Gifts",
+          "ar": "هدايا العناية والراحة"
+        }
+      },
+      {
+        "id": "st-vip-client-gifts",
+        "typeId": "client-gifts",
+        "name": {
+          "en": "VIP Client Gifts",
+          "ar": "هدايا كبار العملاء"
+        }
+      },
+      {
+        "id": "st-corporate-hampers",
+        "typeId": "client-gifts",
+        "name": {
+          "en": "Corporate Hampers",
+          "ar": "سلال وباقات الشركات"
+        }
+      },
+      {
+        "id": "st-thank-you-gifts",
+        "typeId": "client-gifts",
+        "name": {
+          "en": "Thank You Gifts",
+          "ar": "هدايا الشكر"
+        }
+      },
+      {
+        "id": "st-seasonal-client",
+        "typeId": "client-gifts",
+        "name": {
+          "en": "Seasonal Client Gifts",
+          "ar": "هدايا موسمية للعملاء"
+        }
+      },
+      {
+        "id": "st-rigid-boxes",
+        "typeId": "gift-boxes-packaging",
+        "name": {
+          "en": "Rigid Boxes",
+          "ar": "علب فاخرة صلبة"
+        }
+      },
+      {
+        "id": "st-magnetic-boxes",
+        "typeId": "gift-boxes-packaging",
+        "name": {
+          "en": "Magnetic Boxes",
+          "ar": "علب مغناطيسية"
+        }
+      },
+      {
+        "id": "st-paper-bags",
+        "typeId": "gift-boxes-packaging",
+        "name": {
+          "en": "Paper Bags",
+          "ar": "أكياس ورقية"
+        }
+      },
+      {
+        "id": "st-non-woven-bags",
+        "typeId": "gift-boxes-packaging",
+        "name": {
+          "en": "Non-Woven Bags",
+          "ar": "أكياس نون ووفن"
+        }
+      },
+      {
+        "id": "st-sleeves-wraps",
+        "typeId": "gift-boxes-packaging",
+        "name": {
+          "en": "Sleeves & Wraps",
+          "ar": "أغلفة وسليف"
+        }
+      },
+      {
+        "id": "st-tags-stickers",
+        "typeId": "gift-boxes-packaging",
+        "name": {
+          "en": "Tags & Stickers",
+          "ar": "تعليقات واستكرات"
+        }
+      },
+      {
+        "id": "st-acrylic-awards",
+        "typeId": "trophies-awards",
+        "name": {
+          "en": "Acrylic Awards",
+          "ar": "دروع أكريليك"
+        }
+      },
+      {
+        "id": "st-crystal-awards",
+        "typeId": "trophies-awards",
+        "name": {
+          "en": "Crystal Awards",
+          "ar": "دروع كريستال"
+        }
+      },
+      {
+        "id": "st-wooden-awards",
+        "typeId": "trophies-awards",
+        "name": {
+          "en": "Wooden Awards",
+          "ar": "دروع خشبية"
+        }
+      },
+      {
+        "id": "st-metal-awards",
+        "typeId": "trophies-awards",
+        "name": {
+          "en": "Metal Awards",
+          "ar": "دروع معدنية"
+        }
+      },
+      {
+        "id": "st-medals",
+        "typeId": "trophies-awards",
+        "name": {
+          "en": "Medals",
+          "ar": "ميداليات تكريم"
+        }
+      },
+      {
+        "id": "st-plaques",
+        "typeId": "trophies-awards",
+        "name": {
+          "en": "Plaques",
+          "ar": "لوحات تكريم"
+        }
+      },
+      {
+        "id": "st-exhibition-booths",
+        "typeId": "event-booths-stands",
+        "name": {
+          "en": "Exhibition Booths",
+          "ar": "أجنحة معارض"
+        }
+      },
+      {
+        "id": "st-portable-stands",
+        "typeId": "event-booths-stands",
+        "name": {
+          "en": "Portable Stands",
+          "ar": "استاندات متنقلة"
+        }
+      },
+      {
+        "id": "st-product-display",
+        "typeId": "event-booths-stands",
+        "name": {
+          "en": "Product Display Stands",
+          "ar": "استاندات عرض المنتجات"
+        }
+      },
+      {
+        "id": "st-counter-booths",
+        "typeId": "event-booths-stands",
+        "name": {
+          "en": "Counter Booths",
+          "ar": "كاونترات عرض"
+        }
+      },
+      {
+        "id": "st-backdrop-stands",
+        "typeId": "event-booths-stands",
+        "name": {
+          "en": "Backdrop Stands",
+          "ar": "خلفيات الفعاليات"
+        }
+      },
+      {
+        "id": "st-rollup-banners",
+        "typeId": "rollups-banners",
+        "name": {
+          "en": "Roll-up Banners",
+          "ar": "رول أب"
+        }
+      },
+      {
+        "id": "st-popup-banners",
+        "typeId": "rollups-banners",
+        "name": {
+          "en": "Pop-up Banners",
+          "ar": "بوب أب"
+        }
+      },
+      {
+        "id": "st-hanging-banners",
+        "typeId": "rollups-banners",
+        "name": {
+          "en": "Hanging Banners",
+          "ar": "بنرات معلّقة"
+        }
+      },
+      {
+        "id": "st-outdoor-banners",
+        "typeId": "rollups-banners",
+        "name": {
+          "en": "Outdoor Banners",
+          "ar": "بنرات خارجية"
+        }
+      },
+      {
+        "id": "st-fabric-banners",
+        "typeId": "rollups-banners",
+        "name": {
+          "en": "Fabric Banners",
+          "ar": "بنرات قماشية"
+        }
+      },
+      {
+        "id": "st-id-badges",
+        "typeId": "badges-lanyards",
+        "name": {
+          "en": "ID Badges",
+          "ar": "بطاقات تعريف"
+        }
+      },
+      {
+        "id": "st-name-tags",
+        "typeId": "badges-lanyards",
+        "name": {
+          "en": "Name Tags",
+          "ar": "بطاقات أسماء"
+        }
+      },
+      {
+        "id": "st-lanyards",
+        "typeId": "badges-lanyards",
+        "name": {
+          "en": "Lanyards",
+          "ar": "حبال تعليق"
+        }
+      },
+      {
+        "id": "st-badge-holders",
+        "typeId": "badges-lanyards",
+        "name": {
+          "en": "Badge Holders",
+          "ar": "حوامل بطاقات"
+        }
+      },
+      {
+        "id": "st-wristbands",
+        "typeId": "badges-lanyards",
+        "name": {
+          "en": "Wristbands",
+          "ar": "أساور دخول"
+        }
+      },
+      {
+        "id": "st-table-covers",
+        "typeId": "table-display-materials",
+        "name": {
+          "en": "Table Covers",
+          "ar": "أغطية طاولات"
+        }
+      },
+      {
+        "id": "st-table-tents",
+        "typeId": "table-display-materials",
+        "name": {
+          "en": "Table Tents",
+          "ar": "بطاقات طاولة"
+        }
+      },
+      {
+        "id": "st-display-cards",
+        "typeId": "table-display-materials",
+        "name": {
+          "en": "Display Cards",
+          "ar": "بطاقات عرض"
+        }
+      },
+      {
+        "id": "st-menu-holders",
+        "typeId": "table-display-materials",
+        "name": {
+          "en": "Menu Holders",
+          "ar": "حوامل قوائم"
+        }
+      },
+      {
+        "id": "st-brochure-holders",
+        "typeId": "table-display-materials",
+        "name": {
+          "en": "Brochure Holders",
+          "ar": "حوامل بروشورات"
+        }
+      },
+      {
+        "id": "st-brochures",
+        "typeId": "printed-materials",
+        "name": {
+          "en": "Brochures",
+          "ar": "بروشورات"
+        }
+      },
+      {
+        "id": "st-flyers",
+        "typeId": "printed-materials",
+        "name": {
+          "en": "Flyers",
+          "ar": "فلايرات"
+        }
+      },
+      {
+        "id": "st-catalogs",
+        "typeId": "printed-materials",
+        "name": {
+          "en": "Catalogs",
+          "ar": "كتالوجات"
+        }
+      },
+      {
+        "id": "st-business-cards-pm",
+        "typeId": "printed-materials",
+        "name": {
+          "en": "Business Cards",
+          "ar": "بطاقات عمل"
+        }
+      },
+      {
+        "id": "st-invitation-cards",
+        "typeId": "printed-materials",
+        "name": {
+          "en": "Invitation Cards",
+          "ar": "بطاقات دعوة"
+        }
+      },
+      {
+        "id": "st-posters",
+        "typeId": "printed-materials",
+        "name": {
+          "en": "Posters",
+          "ar": "بوسترات"
+        }
+      },
+      {
+        "id": "st-visitor-giveaways",
+        "typeId": "giveaways-events",
+        "name": {
+          "en": "Visitor Giveaways",
+          "ar": "هدايا الزوار"
+        }
+      },
+      {
+        "id": "st-conference-kits",
+        "typeId": "giveaways-events",
+        "name": {
+          "en": "Conference Kits",
+          "ar": "باقات المؤتمرات"
+        }
+      },
+      {
+        "id": "st-branded-bags",
+        "typeId": "giveaways-events",
+        "name": {
+          "en": "Branded Bags",
+          "ar": "أكياس بالهوية"
+        }
+      },
+      {
+        "id": "st-stationery-kits",
+        "typeId": "giveaways-events",
+        "name": {
+          "en": "Stationery Kits",
+          "ar": "باقات قرطاسية"
+        }
+      },
+      {
+        "id": "st-qr-nfc-gifts",
+        "typeId": "giveaways-events",
+        "name": {
+          "en": "QR & NFC Gifts",
+          "ar": "هدايا QR و NFC"
+        }
+      },
+      {
+        "id": "st-directional-signs",
+        "typeId": "signage-wayfinding",
+        "name": {
+          "en": "Directional Signs",
+          "ar": "لوحات إرشادية"
+        }
+      },
+      {
+        "id": "st-entrance-signs",
+        "typeId": "signage-wayfinding",
+        "name": {
+          "en": "Entrance Signs",
+          "ar": "لوحات مداخل"
+        }
+      },
+      {
+        "id": "st-floor-stickers",
+        "typeId": "signage-wayfinding",
+        "name": {
+          "en": "Floor Stickers",
+          "ar": "استكرات أرضية"
+        }
+      },
+      {
+        "id": "st-wall-stickers",
+        "typeId": "signage-wayfinding",
+        "name": {
+          "en": "Wall Stickers",
+          "ar": "استكرات جدارية"
+        }
+      },
+      {
+        "id": "st-hanging-signs",
+        "typeId": "signage-wayfinding",
+        "name": {
+          "en": "Hanging Signs",
+          "ar": "لوحات معلّقة"
+        }
+      },
+      {
+        "id": "st-event-gift-boxes",
+        "typeId": "event-packaging",
+        "name": {
+          "en": "Event Gift Boxes",
+          "ar": "علب هدايا للفعاليات"
+        }
+      },
+      {
+        "id": "st-custom-tags",
+        "typeId": "event-packaging",
+        "name": {
+          "en": "Custom Tags",
+          "ar": "تعليقات مخصصة"
+        }
+      },
+      {
+        "id": "st-stickers-labels-ep",
+        "typeId": "event-packaging",
+        "name": {
+          "en": "Stickers & Labels",
+          "ar": "استكرات وليبلات"
+        }
+      },
+      {
+        "id": "st-tissue-paper",
+        "typeId": "event-packaging",
+        "name": {
+          "en": "Tissue Paper",
+          "ar": "ورق تغليف داخلي"
+        }
+      },
+      {
+        "id": "st-logo-system",
+        "typeId": "brand-identity-design",
+        "name": {
+          "en": "Logo System",
+          "ar": "نظام الشعار"
+        }
+      },
+      {
+        "id": "st-color-palette",
+        "typeId": "brand-identity-design",
+        "name": {
+          "en": "Color Palette",
+          "ar": "لوحة الألوان"
+        }
+      },
+      {
+        "id": "st-typography",
+        "typeId": "brand-identity-design",
+        "name": {
+          "en": "Typography",
+          "ar": "الخطوط"
+        }
+      },
+      {
+        "id": "st-brand-pattern",
+        "typeId": "brand-identity-design",
+        "name": {
+          "en": "Brand Pattern",
+          "ar": "النمط البصري"
+        }
+      },
+      {
+        "id": "st-visual-direction",
+        "typeId": "brand-identity-design",
+        "name": {
+          "en": "Visual Direction",
+          "ar": "التوجه البصري"
+        }
+      },
+      {
+        "id": "st-stationery-design",
+        "typeId": "brand-identity-design",
+        "name": {
+          "en": "Stationery Design",
+          "ar": "تصاميم القرطاسية"
+        }
+      },
+      {
+        "id": "st-primary-logo",
+        "typeId": "logo-design",
+        "name": {
+          "en": "Primary Logo",
+          "ar": "الشعار الأساسي"
+        }
+      },
+      {
+        "id": "st-secondary-logo",
+        "typeId": "logo-design",
+        "name": {
+          "en": "Secondary Logo",
+          "ar": "الشعار الثانوي"
+        }
+      },
+      {
+        "id": "st-icon-mark",
+        "typeId": "logo-design",
+        "name": {
+          "en": "Icon Mark",
+          "ar": "الرمز"
+        }
+      },
+      {
+        "id": "st-arabic-logo",
+        "typeId": "logo-design",
+        "name": {
+          "en": "Arabic Logo",
+          "ar": "شعار عربي"
+        }
+      },
+      {
+        "id": "st-english-logo",
+        "typeId": "logo-design",
+        "name": {
+          "en": "English Logo",
+          "ar": "شعار إنجليزي"
+        }
+      },
+      {
+        "id": "st-logo-usage",
+        "typeId": "logo-design",
+        "name": {
+          "en": "Logo Usage Rules",
+          "ar": "قواعد استخدام الشعار"
+        }
+      },
+      {
+        "id": "st-bg-logo",
+        "typeId": "brand-guidelines",
+        "name": {
+          "en": "Logo Guidelines",
+          "ar": "إرشادات الشعار"
+        }
+      },
+      {
+        "id": "st-bg-color",
+        "typeId": "brand-guidelines",
+        "name": {
+          "en": "Color Guidelines",
+          "ar": "إرشادات الألوان"
+        }
+      },
+      {
+        "id": "st-bg-typography",
+        "typeId": "brand-guidelines",
+        "name": {
+          "en": "Typography Guidelines",
+          "ar": "إرشادات الخطوط"
+        }
+      },
+      {
+        "id": "st-bg-layout",
+        "typeId": "brand-guidelines",
+        "name": {
+          "en": "Layout Rules",
+          "ar": "قواعد التخطيط"
+        }
+      },
+      {
+        "id": "st-bg-applications",
+        "typeId": "brand-guidelines",
+        "name": {
+          "en": "Brand Applications",
+          "ar": "تطبيقات الهوية"
+        }
+      },
+      {
+        "id": "st-bg-dos-donts",
+        "typeId": "brand-guidelines",
+        "name": {
+          "en": "Do's & Don'ts",
+          "ar": "الاستخدامات الصحيحة والخاطئة"
+        }
+      },
+      {
+        "id": "st-ig-posts",
+        "typeId": "social-media-design",
+        "name": {
+          "en": "Instagram Posts",
+          "ar": "منشورات إنستغرام"
+        }
+      },
+      {
+        "id": "st-stories-design",
+        "typeId": "social-media-design",
+        "name": {
+          "en": "Stories Design",
+          "ar": "تصاميم الستوري"
+        }
+      },
+      {
+        "id": "st-li-posts",
+        "typeId": "social-media-design",
+        "name": {
+          "en": "LinkedIn Posts",
+          "ar": "منشورات لينكد إن"
+        }
+      },
+      {
+        "id": "st-campaign-posts",
+        "typeId": "social-media-design",
+        "name": {
+          "en": "Campaign Posts",
+          "ar": "منشورات الحملات"
+        }
+      },
+      {
+        "id": "st-reels-covers",
+        "typeId": "social-media-design",
+        "name": {
+          "en": "Reels Covers",
+          "ar": "أغلفة الريلز"
+        }
+      },
+      {
+        "id": "st-sm-templates",
+        "typeId": "social-media-design",
+        "name": {
+          "en": "Templates",
+          "ar": "قوالب جاهزة"
+        }
+      },
+      {
+        "id": "st-sm-captions",
+        "typeId": "content-writing",
+        "name": {
+          "en": "Social Media Captions",
+          "ar": "كابشنات السوشال ميديا"
+        }
+      },
+      {
+        "id": "st-website-copy",
+        "typeId": "content-writing",
+        "name": {
+          "en": "Website Copy",
+          "ar": "نصوص المواقع"
+        }
+      },
+      {
+        "id": "st-ad-copy",
+        "typeId": "content-writing",
+        "name": {
+          "en": "Advertising Copy",
+          "ar": "نصوص إعلانية"
+        }
+      },
+      {
+        "id": "st-profile-copy",
+        "typeId": "content-writing",
+        "name": {
+          "en": "Company Profile Copy",
+          "ar": "محتوى بروفايل الشركة"
+        }
+      },
+      {
+        "id": "st-email-copy",
+        "typeId": "content-writing",
+        "name": {
+          "en": "Email Copy",
+          "ar": "نصوص البريد الإلكتروني"
+        }
+      },
+      {
+        "id": "st-product-desc",
+        "typeId": "content-writing",
+        "name": {
+          "en": "Product Descriptions",
+          "ar": "أوصاف المنتجات"
+        }
+      },
+      {
+        "id": "st-meta-ads",
+        "typeId": "digital-campaigns",
+        "name": {
+          "en": "Meta Ads",
+          "ar": "إعلانات ميتا"
+        }
+      },
+      {
+        "id": "st-google-ads",
+        "typeId": "digital-campaigns",
+        "name": {
+          "en": "Google Ads",
+          "ar": "إعلانات جوجل"
+        }
+      },
+      {
+        "id": "st-li-ads",
+        "typeId": "digital-campaigns",
+        "name": {
+          "en": "LinkedIn Ads",
+          "ar": "إعلانات لينكد إن"
+        }
+      },
+      {
+        "id": "st-campaign-strategy",
+        "typeId": "digital-campaigns",
+        "name": {
+          "en": "Campaign Strategy",
+          "ar": "استراتيجية الحملة"
+        }
+      },
+      {
+        "id": "st-ad-creatives",
+        "typeId": "digital-campaigns",
+        "name": {
+          "en": "Ad Creatives",
+          "ar": "تصاميم الإعلانات"
+        }
+      },
+      {
+        "id": "st-perf-reports",
+        "typeId": "digital-campaigns",
+        "name": {
+          "en": "Performance Reports",
+          "ar": "تقارير الأداء"
+        }
+      },
+      {
+        "id": "st-landing-pages",
+        "typeId": "website-design",
+        "name": {
+          "en": "Landing Pages",
+          "ar": "صفحات هبوط"
+        }
+      },
+      {
+        "id": "st-corporate-sites",
+        "typeId": "website-design",
+        "name": {
+          "en": "Corporate Websites",
+          "ar": "مواقع شركات"
+        }
+      },
+      {
+        "id": "st-ecommerce-sites",
+        "typeId": "website-design",
+        "name": {
+          "en": "E-commerce Websites",
+          "ar": "متاجر إلكترونية"
+        }
+      },
+      {
+        "id": "st-ui-design",
+        "typeId": "website-design",
+        "name": {
+          "en": "UI Design",
+          "ar": "تصميم واجهة المستخدم"
+        }
+      },
+      {
+        "id": "st-website-content",
+        "typeId": "website-design",
+        "name": {
+          "en": "Website Content",
+          "ar": "محتوى الموقع"
+        }
+      },
+      {
+        "id": "st-website-maintenance",
+        "typeId": "website-design",
+        "name": {
+          "en": "Website Maintenance",
+          "ar": "صيانة الموقع"
+        }
+      },
+      {
+        "id": "st-market-positioning",
+        "typeId": "marketing-strategy",
+        "name": {
+          "en": "Market Positioning",
+          "ar": "التموضع السوقي"
+        }
+      },
+      {
+        "id": "st-brand-messaging",
+        "typeId": "marketing-strategy",
+        "name": {
+          "en": "Brand Messaging",
+          "ar": "الرسائل التسويقية"
+        }
+      },
+      {
+        "id": "st-content-strategy",
+        "typeId": "marketing-strategy",
+        "name": {
+          "en": "Content Strategy",
+          "ar": "استراتيجية المحتوى"
+        }
+      },
+      {
+        "id": "st-campaign-planning",
+        "typeId": "marketing-strategy",
+        "name": {
+          "en": "Campaign Planning",
+          "ar": "تخطيط الحملات"
+        }
+      },
+      {
+        "id": "st-customer-journey",
+        "typeId": "marketing-strategy",
+        "name": {
+          "en": "Customer Journey",
+          "ar": "رحلة العميل"
+        }
+      },
+      {
+        "id": "st-growth-plan",
+        "typeId": "marketing-strategy",
+        "name": {
+          "en": "Growth Plan",
+          "ar": "خطة النمو"
+        }
+      }
+    ]
+  }
 }

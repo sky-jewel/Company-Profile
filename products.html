@@ -17,11 +17,35 @@
 .products-hero .kicker{color:var(--teal)}
 .products-hero .h2{margin-top:10px}
 
+/* Filter bar */
+.filter-bar{max-width:var(--container);margin:0 auto 20px;padding:0 var(--pad-x);display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.filter-bar__search{flex:1;min-width:220px;position:relative}
+.filter-bar__search input{width:100%;padding:12px 16px 12px 42px;border:1px solid var(--line);border-radius:999px;font-size:14px;font-family:inherit;background:#fff;outline:none;transition:border-color .2s,box-shadow .2s}
+.filter-bar__search input:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(56,173,173,.15)}
+.filter-bar__search svg{position:absolute;left:16px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:rgba(13,20,20,.4);pointer-events:none}
+html[lang="ar"] .filter-bar__search input{padding:12px 42px 12px 16px}
+html[lang="ar"] .filter-bar__search svg{left:auto;right:16px}
+.filter-bar select{padding:12px 16px;border:1px solid var(--line);border-radius:999px;font-size:14px;font-family:inherit;background:#fff;cursor:pointer;outline:none;min-width:160px}
+.filter-bar select:focus{border-color:var(--teal)}
+.filter-bar__colors{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.filter-bar__colors .fc-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(13,20,20,.55);margin-right:4px}
+.filter-bar__colors button{width:32px;height:32px;border-radius:50%;border:2px solid #fff;outline:1px solid var(--line);cursor:pointer;padding:0;transition:transform .2s,outline-color .2s,outline-width .2s}
+.filter-bar__colors button:hover{transform:scale(1.1)}
+.filter-bar__colors button.is-active{outline-width:2px;outline-color:var(--ink);transform:scale(1.1)}
+.filter-bar__clear{padding:10px 18px;border:1px solid var(--line);background:#fff;border-radius:999px;font-size:13px;font-weight:700;cursor:pointer;color:var(--ink);transition:background .2s}
+.filter-bar__clear:hover{background:#f5f5f5}
+.filter-bar__count{font-size:13px;color:rgba(13,20,20,.55);width:100%;padding:0 var(--pad-x);max-width:var(--container);margin:-8px auto 8px}
+.no-results{grid-column:1/-1;text-align:center;padding:60px 20px;color:rgba(13,20,20,.5);font-size:15px}
+@media (max-width:760px){
+  .filter-bar{flex-direction:column;align-items:stretch}
+  .filter-bar select{min-width:0}
+}
+
 .products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:28px;max-width:var(--container);margin:0 auto;padding:0 var(--pad-x) 80px}
 .product-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;display:flex;flex-direction:column;transition:transform .4s var(--ease),box-shadow .4s;box-shadow:var(--shadow-sm)}
 .product-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
-.product-card__media{position:relative;border-bottom:1px solid var(--line)}
-.product-card__img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:opacity .3s}
+.product-card__media{position:relative;border-bottom:1px solid var(--line);background:#fff}
+.product-card__img{width:100%;aspect-ratio:4/3;object-fit:contain;display:block;transition:opacity .3s;background:#fff;padding:8px}
 .product-card__img.is-fading{opacity:.4}
 .product-card__thumbs{display:flex;gap:6px;padding:8px 12px;background:#fafafa;overflow-x:auto;scrollbar-width:thin}
 .product-card__thumb{width:48px;height:48px;flex-shrink:0;border-radius:8px;overflow:hidden;border:2px solid transparent;cursor:pointer;background:#eee;transition:border-color .2s,transform .2s}
@@ -90,6 +114,18 @@ html[lang="ar"] .qty-stepper button:last-child{border-radius:999px 0 0 999px}
 </section>
 
 <section class="section" style="padding-top:0">
+  <div class="filter-bar" id="filterBar">
+    <div class="filter-bar__search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" id="searchInput" placeholder="Search products…" data-en-placeholder="Search products…" data-ar-placeholder="ابحث عن منتج…" />
+    </div>
+    <select id="filterSection"><option value="" data-en="All sections" data-ar="جميع الأقسام">All sections</option></select>
+    <select id="filterType"><option value="" data-en="All types" data-ar="جميع الأنواع">All types</option></select>
+    <select id="filterSubtype"><option value="" data-en="All subtypes" data-ar="جميع الأصناف">All subtypes</option></select>
+    <div class="filter-bar__colors" id="filterColors"></div>
+    <button class="filter-bar__clear" id="filterClear" data-en="Clear" data-ar="مسح">Clear</button>
+  </div>
+  <div class="filter-bar__count" id="filterCount"></div>
   <div class="products-grid" id="productsGrid"></div>
 </section>
 
@@ -176,7 +212,12 @@ const isAr = () => document.documentElement.lang === 'ar';
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const WHATSAPP_SVG = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.689 9.689 0 01-4.951-1.362L2.638 21.22l.678-1.975a9.632 9.632 0 01-1.596-5.367c0-5.335 4.339-9.675 9.675-9.675 5.335 0 9.674 4.34 9.674 9.675 0 5.335-4.339 9.675-9.674 9.675m8.253-12.478A11.62 11.62 0 0011.396.001C5.076 0 0 5.076 0 11.396c0 2.013.525 3.977 1.518 5.711L.052 24l7.02-1.842a11.58 11.58 0 005.324 1.296h.004c6.32 0 11.396-5.076 11.396-11.396 0-3.045-1.186-5.91-3.343-8.067z"/></svg>';
 
+let APP_DATA = null;        // entire loaded data
+let COLOR_MAP = new Map();  // colorId -> {id,name,hex}
+
 function renderProducts(data){
+  APP_DATA = data;
+  COLOR_MAP = new Map((data.config?.colors || []).map(c => [c.id, c]));
   // Hero text
   if (data.hero){
     const k = document.getElementById('heroKicker');
@@ -189,19 +230,29 @@ function renderProducts(data){
   grid.innerHTML = '';
   const slug = (s) => String(s||'').toLowerCase().trim().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'') || 'c';
   products.forEach((p) => {
-    // Backward compat: derive images[] from legacy `image` field
+    // Images: prefer images[]; fall back to legacy image field
     let images = Array.isArray(p.images) ? p.images.slice() : [];
     if (!images.length && p.image) images = [{ url: p.image }];
-    // Normalize colors: ensure each has an id
-    const colors = (p.colors || []).map((c) => ({
-      id: c.id || slug(c.name?.en),
-      name: c.name || { en: '', ar: '' },
-      hex: c.hex || '#ccc'
-    }));
+    // Resolve colors: prefer colorIds → master; else legacy embedded colors
+    let colors;
+    if (Array.isArray(p.colorIds) && p.colorIds.length){
+      colors = p.colorIds.map(id => COLOR_MAP.get(id)).filter(Boolean);
+    } else {
+      colors = (p.colors || []).map(c => ({
+        id: c.id || slug(c.name?.en),
+        name: c.name || { en:'', ar:'' },
+        hex:  c.hex  || '#ccc'
+      }));
+    }
     const card = document.createElement('article');
     card.className = 'product-card reveal is-visible';
     card.dataset.name = p.name.en;
     card.dataset.nameAr = p.name.ar;
+    card.dataset.sectionId = p.sectionId || '';
+    card.dataset.typeId = p.typeId || '';
+    card.dataset.subtypeId = p.subtypeId || '';
+    card.dataset.colorIds = colors.map(c => c.id).join(',');
+    card.dataset.search = [p.name.en, p.name.ar, p.description?.en, p.description?.ar].filter(Boolean).join(' ').toLowerCase();
     const mainSrc = images[0]?.url || '';
     const thumbsHTML = images.length > 1 ? `<div class="product-card__thumbs">${
       images.map((im, i) => `<button type="button" class="product-card__thumb${i===0?' is-active':''}" data-idx="${i}" data-color-id="${esc(im.colorId||'')}"><img src="${esc(im.url)}" alt="" onerror="this.parentElement.style.display='none'" /></button>`).join('')
@@ -228,7 +279,7 @@ function renderProducts(data){
             <label data-en="Qty" data-ar="الكمية">Qty</label>
             <div class="qty-stepper">
               <button type="button" class="js-qty-minus" aria-label="Decrease">−</button>
-              <input type="number" class="js-qty-input" value="1" min="1" max="99" readonly />
+              <input type="number" class="js-qty-input" value="1" min="1" max="99" />
               <button type="button" class="js-qty-plus" aria-label="Increase">+</button>
             </div>
           </div>
@@ -250,7 +301,120 @@ function renderProducts(data){
     const v = el.getAttribute(lang === 'ar' ? 'data-ar' : 'data-en');
     if (v != null) el.textContent = v;
   });
+  document.querySelectorAll('[data-en-placeholder]').forEach(el => {
+    el.placeholder = el.getAttribute(lang === 'ar' ? 'data-ar-placeholder' : 'data-en-placeholder') || el.placeholder;
+  });
+  initFilters();
+  applyFilters();
 }
+
+/* ===== Filters ===== */
+const filterState = { search:'', section:'', type:'', subtype:'', colors:new Set() };
+
+function initFilters(){
+  const sections = APP_DATA?.config?.sections || [];
+  const types    = APP_DATA?.config?.types    || [];
+  const colors   = APP_DATA?.config?.colors   || [];
+  const lang = isAr() ? 'ar' : 'en';
+
+  // Section dropdown
+  const selS = document.getElementById('filterSection');
+  selS.innerHTML = `<option value="" data-en="All sections" data-ar="جميع الأقسام">${isAr()?'جميع الأقسام':'All sections'}</option>` +
+    sections.map(s => `<option value="${esc(s.id)}">${esc(s.name[lang]||s.name.en)}</option>`).join('');
+  selS.value = filterState.section;
+
+  // Type and SubType dropdowns (cascading)
+  refreshTypeOptions();
+  refreshSubtypeOptions();
+
+  // Color swatches
+  const colorsWrap = document.getElementById('filterColors');
+  colorsWrap.innerHTML = `<span class="fc-label" data-en="Colors" data-ar="الألوان">${isAr()?'الألوان':'Colors'}</span>` +
+    colors.map(c => `<button type="button" data-color-id="${esc(c.id)}" style="background:${esc(c.hex)}" title="${esc(c.name[lang]||c.name.en)}" aria-label="${esc(c.name[lang]||c.name.en)}"></button>`).join('');
+  colorsWrap.querySelectorAll('button').forEach(b => {
+    if (filterState.colors.has(b.dataset.colorId)) b.classList.add('is-active');
+  });
+}
+
+function refreshTypeOptions(){
+  const types = APP_DATA?.config?.types || [];
+  const lang = isAr() ? 'ar' : 'en';
+  const selT = document.getElementById('filterType');
+  const filtered = filterState.section ? types.filter(t => t.sectionId === filterState.section) : types;
+  selT.innerHTML = `<option value="">${isAr()?'جميع الأنواع':'All types'}</option>` +
+    filtered.map(t => `<option value="${esc(t.id)}">${esc(t.name[lang]||t.name.en)}</option>`).join('');
+  if (filterState.type && !filtered.find(t => t.id === filterState.type)) filterState.type = '';
+  selT.value = filterState.type;
+}
+function refreshSubtypeOptions(){
+  const subs = APP_DATA?.config?.subtypes || [];
+  const lang = isAr() ? 'ar' : 'en';
+  const selS = document.getElementById('filterSubtype');
+  const filtered = filterState.type ? subs.filter(s => s.typeId === filterState.type) : subs;
+  selS.innerHTML = `<option value="">${isAr()?'جميع الأصناف':'All subtypes'}</option>` +
+    filtered.map(s => `<option value="${esc(s.id)}">${esc(s.name[lang]||s.name.en)}</option>`).join('');
+  if (filterState.subtype && !filtered.find(s => s.id === filterState.subtype)) filterState.subtype = '';
+  selS.value = filterState.subtype;
+  selS.disabled = !filtered.length;
+}
+
+function applyFilters(){
+  const cards = grid.querySelectorAll('.product-card');
+  const q = filterState.search.toLowerCase().trim();
+  let visible = 0;
+  cards.forEach(card => {
+    const matchesSearch = !q || (card.dataset.search || '').includes(q);
+    const matchesSection = !filterState.section || card.dataset.sectionId === filterState.section;
+    const matchesType    = !filterState.type    || card.dataset.typeId === filterState.type;
+    const matchesSubtype = !filterState.subtype || card.dataset.subtypeId === filterState.subtype;
+    const ids = (card.dataset.colorIds || '').split(',').filter(Boolean);
+    const matchesColors = !filterState.colors.size || [...filterState.colors].every(c => ids.includes(c));
+    const show = matchesSearch && matchesSection && matchesType && matchesSubtype && matchesColors;
+    card.style.display = show ? '' : 'none';
+    if (show) visible++;
+  });
+  // No results message
+  let nr = grid.querySelector('.no-results');
+  if (visible === 0){
+    if (!nr){
+      nr = document.createElement('div');
+      nr.className = 'no-results';
+      nr.innerHTML = `<span data-en="No products match your filters." data-ar="لا توجد منتجات مطابقة.">${isAr()?'لا توجد منتجات مطابقة.':'No products match your filters.'}</span>`;
+      grid.appendChild(nr);
+    }
+  } else if (nr){ nr.remove(); }
+  // Count
+  const total = cards.length;
+  const countEl = document.getElementById('filterCount');
+  countEl.textContent = isAr()
+    ? `${visible} من ${total} منتج`
+    : `Showing ${visible} of ${total} product${total===1?'':'s'}`;
+}
+
+// Wire up filter inputs
+document.getElementById('searchInput').addEventListener('input', (e) => { filterState.search = e.target.value; applyFilters(); });
+document.getElementById('filterSection').addEventListener('change', (e) => { filterState.section = e.target.value; filterState.type=''; filterState.subtype=''; refreshTypeOptions(); refreshSubtypeOptions(); applyFilters(); });
+document.getElementById('filterType').addEventListener('change', (e) => { filterState.type = e.target.value; filterState.subtype=''; refreshSubtypeOptions(); applyFilters(); });
+document.getElementById('filterSubtype').addEventListener('change', (e) => { filterState.subtype = e.target.value; applyFilters(); });
+document.getElementById('filterColors').addEventListener('click', (e) => {
+  const btn = e.target.closest('button[data-color-id]'); if (!btn) return;
+  const id = btn.dataset.colorId;
+  if (filterState.colors.has(id)){ filterState.colors.delete(id); btn.classList.remove('is-active'); }
+  else { filterState.colors.add(id); btn.classList.add('is-active'); }
+  applyFilters();
+});
+document.getElementById('filterClear').addEventListener('click', () => {
+  filterState.search=''; filterState.section=''; filterState.type=''; filterState.subtype=''; filterState.colors.clear();
+  document.getElementById('searchInput').value = '';
+  document.getElementById('filterSection').value = '';
+  refreshTypeOptions(); refreshSubtypeOptions();
+  document.querySelectorAll('#filterColors button').forEach(b => b.classList.remove('is-active'));
+  applyFilters();
+});
+
+// Re-render filter labels when language changes
+const langObserver = new MutationObserver(() => { if (APP_DATA) initFilters(); applyFilters(); });
+langObserver.observe(document.documentElement, { attributes:true, attributeFilter:['lang','dir'] });
 
 // Try fetch products.json; fall back to embedded data if it fails (e.g., file:// or 404)
 fetch('products.json', { cache: 'no-store' })
@@ -328,6 +492,18 @@ grid.addEventListener('click', (e) => {
     else v = Math.min(99, v + 1);
     inp.value = v;
   }
+});
+
+// Clamp typed quantity on blur
+grid.addEventListener('blur', (e) => {
+  if (!e.target.classList?.contains('js-qty-input')) return;
+  let v = parseInt(e.target.value, 10);
+  if (!Number.isFinite(v) || v < 1) v = 1;
+  if (v > 99) v = 99;
+  e.target.value = v;
+}, true);
+
+grid.addEventListener('click', (e) => {
 
   const order = e.target.closest('.js-order-btn');
   if (order) {
