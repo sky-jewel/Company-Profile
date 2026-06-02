@@ -54,6 +54,7 @@ html[lang="ar"] .filter-bar__search svg{left:auto;right:16px}
 .product-card__thumb.is-active{border-color:var(--teal)}
 .product-card__body{padding:22px;display:flex;flex-direction:column;gap:14px;flex:1}
 .product-card__title{font-size:18px;font-weight:700;color:var(--ink)}
+.product-card__code{font-size:12px;font-weight:700;color:var(--teal);background:var(--teal-soft);padding:3px 10px;border-radius:6px;display:inline-block;letter-spacing:.04em}
 .product-card__desc{font-size:14px;color:rgba(13,20,20,.65);line-height:1.65}
 
 .product-card__options{display:flex;flex-direction:column;gap:14px;margin-top:4px}
@@ -255,7 +256,7 @@ function renderProducts(data){
     card.dataset.search = [p.name.en, p.name.ar, p.description?.en, p.description?.ar].filter(Boolean).join(' ').toLowerCase();
     const mainSrc = images[0]?.url || '';
     const thumbsHTML = images.length > 1 ? `<div class="product-card__thumbs">${
-      images.map((im, i) => `<button type="button" class="product-card__thumb${i===0?' is-active':''}" data-idx="${i}" data-color-id="${esc(im.colorId||'')}"><img src="${esc(im.url)}" alt="" onerror="this.parentElement.style.display='none'" /></button>`).join('')
+      images.map((im, i) => `<button type="button" class="product-card__thumb${i===0?' is-active':''}" data-idx="${i}" data-color-id="${esc(im.colorId||'')}"><img src="${esc(im.url)}" alt="" loading="lazy" decoding="async" onerror="this.parentElement.style.display='none'" /></button>`).join('')
     }</div>` : '';
     const swatches = colors.map((c, i) => {
       const isLight = /^#?(f|e)/i.test(c.hex.replace('#',''));
@@ -268,7 +269,10 @@ function renderProducts(data){
         ${thumbsHTML}
       </div>
       <div class="product-card__body">
-        <h3 class="product-card__title" data-en="${esc(p.name.en)}" data-ar="${esc(p.name.ar)}">${esc(p.name.en)}</h3>
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+          <h3 class="product-card__title" data-en="${esc(p.name.en)}" data-ar="${esc(p.name.ar)}">${esc(p.name.en)}</h3>
+          ${p.itemCode ? `<span class="product-card__code">${esc(p.itemCode)}</span>` : ''}
+        </div>
         <p class="product-card__desc" data-en="${esc(p.description.en)}" data-ar="${esc(p.description.ar)}">${esc(p.description.en)}</p>
         <div class="product-card__options">
           ${swatches ? `<div class="product-card__row">
@@ -513,9 +517,11 @@ grid.addEventListener('click', (e) => {
     const colorName = isAr() ? color.dataset.colorAr : color.dataset.color;
     const qty = card.querySelector('.js-qty-input').value;
     const phone = order.dataset.phone;
+    const code = card.querySelector('.product-card__code')?.textContent || '';
+    const codeLine = code ? (isAr() ? `كود: ${code}` : `Code: ${code}`) : '';
     const msg = isAr()
-      ? `مرحبا سكاي جول، أرغب بطلب: ${name}\nاللون: ${colorName}\nالكمية: ${qty}\nشكراً`
-      : `Hello Sky Jewel, I'd like to order: ${name}\nColor: ${colorName}\nQuantity: ${qty}\nThank you`;
+      ? `مرحبا سكاي جول، أرغب بطلب: ${name}\n${codeLine}\nاللون: ${colorName}\nالكمية: ${qty}\nشكراً`
+      : `Hello Sky Jewel, I'd like to order: ${name}\n${codeLine}\nColor: ${colorName}\nQuantity: ${qty}\nThank you`;
     window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
   }
 });

@@ -47,7 +47,8 @@
           "url": "images/chatgpt-image-jun-1-2026-02-48-48-pm.png",
           "colorId": "gray"
         }
-      ]
+      ],
+      "itemCode": "SJ-001"
     },
     {
       "id": "p52fe8x",
@@ -75,7 +76,8 @@
           "url": "images/chatgpt-image-jun-1-2026-03-07-26-pm.png",
           "colorId": "dark-green"
         }
-      ]
+      ],
+      "itemCode": "SJ-002"
     },
     {
       "id": "p77u0ah",
@@ -113,7 +115,8 @@
           "url": "images/chatgpt-image-jun-1-2026-04-45-05-pm.png",
           "colorId": "royal-blue"
         }
-      ]
+      ],
+      "itemCode": "SJ-003"
     },
     {
       "id": "p9iig92",
@@ -151,7 +154,8 @@
           "url": "images/chatgpt-image-jun-1-2026-05-11-36-pm.png",
           "colorId": "gray"
         }
-      ]
+      ],
+      "itemCode": "SJ-004"
     },
     {
       "id": "pgqzibl",
@@ -189,7 +193,8 @@
           "url": "images/chatgpt-image-jun-1-2026-05-20-17-pm.png",
           "colorId": "white"
         }
-      ]
+      ],
+      "itemCode": "SJ-005"
     },
     {
       "id": "pb94ze6",
@@ -232,7 +237,8 @@
           "url": "images/chatgpt-image-jun-1-2026-05-34-51-pm.png",
           "colorId": "black"
         }
-      ]
+      ],
+      "itemCode": "SJ-006"
     },
     {
       "id": "pelcpmx",
@@ -295,7 +301,8 @@
           "url": "images/chatgpt-image-jun-1-2026-05-48-44-pm.png",
           "colorId": "orange"
         }
-      ]
+      ],
+      "itemCode": "SJ-007"
     },
     {
       "id": "p4mxic5",
@@ -348,7 +355,8 @@
           "url": "images/chatgpt-image-jun-1-2026-05-56-49-pm.png",
           "colorId": "dark-green"
         }
-      ]
+      ],
+      "itemCode": "SJ-008"
     },
     {
       "id": "py4v0bc",
@@ -381,7 +389,8 @@
           "url": "images/chatgpt-image-jun-1-2026-06-01-32-pm.png",
           "colorId": "black"
         }
-      ]
+      ],
+      "itemCode": "SJ-009"
     },
     {
       "id": "p9mjgoh",
@@ -419,7 +428,8 @@
           "url": "images/chatgpt-image-jun-1-2026-06-06-40-pm.png",
           "colorId": "black"
         }
-      ]
+      ],
+      "itemCode": "SJ-010"
     },
     {
       "id": "p9369n9",
@@ -452,7 +462,8 @@
           "url": "images/chatgpt-image-jun-1-2026-06-24-07-pm.png",
           "colorId": "dark-green"
         }
-      ]
+      ],
+      "itemCode": "SJ-011"
     },
     {
       "id": "pz0jns2",
@@ -485,7 +496,8 @@
           "url": "images/chatgpt-image-jun-1-2026-06-27-13-pm.png",
           "colorId": "white"
         }
-      ]
+      ],
+      "itemCode": "SJ-012"
     },
     {
       "id": "pabqta0",
@@ -528,7 +540,8 @@
           "url": "images/chatgpt-image-jun-1-2026-06-31-55-pm.png",
           "colorId": "white"
         }
-      ]
+      ],
+      "itemCode": "SJ-013"
     },
     {
       "id": "pd22m9s",
@@ -571,7 +584,8 @@
           "url": "images/chatgpt-image-jun-1-2026-06-40-07-pm.png",
           "colorId": "navy-blue"
         }
-      ]
+      ],
+      "itemCode": "SJ-014"
     },
     {
       "id": "pafwyqb",
@@ -609,7 +623,8 @@
           "url": "images/chatgpt-image-jun-1-2026-06-45-36-pm.png",
           "colorId": "navy-blue"
         }
-      ]
+      ],
+      "itemCode": "SJ-015"
     },
     {
       "id": "pawndmd",
@@ -673,7 +688,8 @@
           "url": "images/chatgpt-image-jun-1-2026-07-12-39-pm.png",
           "colorId": "royal-blue"
         }
-      ]
+      ],
+      "itemCode": "SJ-016"
     },
     {
       "id": "pvn0hp9",
@@ -731,7 +747,8 @@
           "url": "images/chatgpt-image-jun-1-2026-07-24-04-pm.png",
           "colorId": "orange"
         }
-      ]
+      ],
+      "itemCode": "SJ-017"
     },
     {
       "id": "pyk5don",
@@ -769,7 +786,8 @@
           "url": "images/chatgpt-image-jun-1-2026-07-35-31-pm.png",
           "colorId": "dark-green"
         }
-      ]
+      ],
+      "itemCode": "SJ-018"
     }
   ],
   "config": {
