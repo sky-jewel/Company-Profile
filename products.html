@@ -279,7 +279,7 @@ function renderProducts(data){
             <label data-en="Qty" data-ar="الكمية">Qty</label>
             <div class="qty-stepper">
               <button type="button" class="js-qty-minus" aria-label="Decrease">−</button>
-              <input type="number" class="js-qty-input" value="1" min="1" max="99" />
+              <input type="number" class="js-qty-input" value="1" min="1" />
               <button type="button" class="js-qty-plus" aria-label="Increase">+</button>
             </div>
           </div>
@@ -489,7 +489,7 @@ grid.addEventListener('click', (e) => {
     const inp = wrap.querySelector('.js-qty-input');
     let v = parseInt(inp.value, 10) || 1;
     if (btn.classList.contains('js-qty-minus')) v = Math.max(1, v - 1);
-    else v = Math.min(99, v + 1);
+    else v = v + 1;
     inp.value = v;
   }
 });
@@ -499,7 +499,6 @@ grid.addEventListener('blur', (e) => {
   if (!e.target.classList?.contains('js-qty-input')) return;
   let v = parseInt(e.target.value, 10);
   if (!Number.isFinite(v) || v < 1) v = 1;
-  if (v > 99) v = 99;
   e.target.value = v;
 }, true);
 

@@ -199,9 +199,12 @@
   </div>
 
   <div class="card" id="pendingCard" style="display:none">
-    <h2>Pending Image Files</h2>
-    <p style="font-size:13px;color:rgba(13,20,20,.6);margin-bottom:10px">
-      You uploaded these images. Click <strong>Download</strong> for each, then place them inside the
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <h2 style="margin:0">Pending Image Files</h2>
+      <button class="btn btn--add btn--small" id="btnDownloadAll" type="button">⬇ Download all</button>
+    </div>
+    <p style="font-size:13px;color:rgba(13,20,20,.6);margin:10px 0">
+      You uploaded these images. Click <strong>Download all</strong> (or each one individually), then place them inside the
       <code>images/</code> folder of your project before pushing to GitHub.
     </p>
     <div class="pending-images"><ul id="pendingList"></ul></div>
@@ -659,6 +662,56 @@ $('pendingList').addEventListener('click', e => {
   document.body.appendChild(a); a.click(); a.remove();
 });
 
+/* Download ALL pending as a single ZIP */
+function loadJSZip(){
+  return new Promise((resolve, reject) => {
+    if (window.JSZip) return resolve(window.JSZip);
+    const s = document.createElement('script');
+    s.src = 'https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js';
+    s.onload = () => resolve(window.JSZip);
+    s.onerror = () => reject(new Error('Failed to load JSZip'));
+    document.head.appendChild(s);
+  });
+}
+function dataUrlToBlob(dataUrl){
+  const [meta, b64] = dataUrl.split(',');
+  const mime = (meta.match(/data:([^;]+)/) || [,'application/octet-stream'])[1];
+  const bin = atob(b64);
+  const arr = new Uint8Array(bin.length);
+  for (let i=0;i<bin.length;i++) arr[i] = bin.charCodeAt(i);
+  return new Blob([arr], { type: mime });
+}
+$('btnDownloadAll').addEventListener('click', async () => {
+  if (pendingImages.size === 0){ toast('Nothing to download'); return; }
+  const btn = $('btnDownloadAll'); btn.disabled = true; const orig = btn.textContent; btn.textContent = 'Zipping…';
+  try {
+    const JSZip = await loadJSZip();
+    const zip = new JSZip();
+    const folder = zip.folder('images');
+    for (const [filename, dataUrl] of pendingImages.entries()){
+      folder.file(filename, dataUrlToBlob(dataUrl));
+    }
+    const blob = await zip.generateAsync({ type: 'blob' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a'); a.href = url; a.download = 'sky-jewel-images.zip';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    toast(`Downloaded ${pendingImages.size} image(s) as ZIP`);
+  } catch (err){
+    alert('Download failed: ' + err.message + '\nFalling back to individual downloads.');
+    // Fallback: trigger each one with delay
+    let i = 0;
+    for (const [filename, dataUrl] of pendingImages.entries()){
+      setTimeout(() => {
+        const a = document.createElement('a'); a.href = dataUrl; a.download = filename;
+        document.body.appendChild(a); a.click(); a.remove();
+      }, i++ * 250);
+    }
+  } finally {
+    btn.disabled = false; btn.textContent = orig;
+  }
+});
+
 /* Add product */
 $('btnAddProduct').addEventListener('click', () => {
   state.products.push({
@@ -792,26 +845,9 @@ $('aiGenerate').addEventListener('click', async () => {
   if (!hint && !hasImage){ toast('Add an image or describe the product first'); return; }
   const btn = $('aiGenerate'); btn.disabled = true; btn.textContent = 'Generating…';
   try {
-    // Resolve first image to a usable form for the AI
+    // Resolve first image (compressed) for the AI
     const firstImg = (p.images||[]).find(im => im.url);
-    let imageData = null;
-    if (firstImg){
-      const filename = (firstImg.url || '').replace(/^images\//,'');
-      if (pendingImages.has(filename)){
-        imageData = pendingImages.get(filename);  // base64 data URL
-      } else if (/^https?:\/\//i.test(firstImg.url)){
-        imageData = firstImg.url;  // public URL
-      } else {
-        // local relative path - try to fetch and convert to base64 so the API can see it
-        try {
-          const r = await fetch(firstImg.url);
-          if (r.ok){
-            const blob = await r.blob();
-            imageData = await new Promise(res => { const fr = new FileReader(); fr.onload = e => res(e.target.result); fr.readAsDataURL(blob); });
-          }
-        } catch {}
-      }
-    }
+    const imageData = firstImg ? await resolveImageForAI(firstImg.url) : null;
     const result = await callAI(hint, imageData);
     p.name = { en: result.name?.en || p.name.en, ar: result.name?.ar || p.name.ar };
     p.description = { en: result.description?.en || p.description.en, ar: result.description?.ar || p.description.ar };
@@ -845,14 +881,48 @@ $('aiGenerate').addEventListener('click', async () => {
 async function resolveImageForAI(url){
   if (!url) return null;
   const filename = url.replace(/^images\//,'');
-  if (pendingImages.has(filename)) return pendingImages.get(filename);
-  if (/^https?:\/\//i.test(url)) return url;
-  try {
-    const r = await fetch(url);
-    if (!r.ok) return null;
-    const blob = await r.blob();
-    return await new Promise(res => { const fr = new FileReader(); fr.onload = e => res(e.target.result); fr.readAsDataURL(blob); });
-  } catch { return null; }
+  let dataUrl = null;
+  if (pendingImages.has(filename)) dataUrl = pendingImages.get(filename);
+  else if (/^https?:\/\//i.test(url)){
+    // Public URL: download and convert so we can downscale it
+    try {
+      const r = await fetch(url);
+      if (!r.ok) return url;  // fallback: let API fetch it
+      const blob = await r.blob();
+      dataUrl = await new Promise(res => { const fr = new FileReader(); fr.onload = e => res(e.target.result); fr.readAsDataURL(blob); });
+    } catch { return url; }
+  } else {
+    try {
+      const r = await fetch(url);
+      if (!r.ok) return null;
+      const blob = await r.blob();
+      dataUrl = await new Promise(res => { const fr = new FileReader(); fr.onload = e => res(e.target.result); fr.readAsDataURL(blob); });
+    } catch { return null; }
+  }
+  return await compressForAI(dataUrl);
+}
+
+/* Downscale + re-encode as JPEG to fit within API request size limits */
+function compressForAI(dataUrl, maxDim = 768, quality = 0.82){
+  return new Promise(resolve => {
+    if (!dataUrl) return resolve(null);
+    const img = new Image();
+    img.onload = () => {
+      let { width: w, height: h } = img;
+      const scale = Math.min(1, maxDim / Math.max(w, h));
+      w = Math.round(w * scale); h = Math.round(h * scale);
+      const canvas = document.createElement('canvas');
+      canvas.width = w; canvas.height = h;
+      const ctx = canvas.getContext('2d');
+      // White background so transparent PNGs render correctly as JPEG
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, w, h);
+      ctx.drawImage(img, 0, 0, w, h);
+      resolve(canvas.toDataURL('image/jpeg', quality));
+    };
+    img.onerror = () => resolve(dataUrl);  // fallback to original
+    img.src = dataUrl;
+  });
 }
 
 /* ===== Detect colors from images using vision AI ===== */
@@ -875,22 +945,53 @@ async function detectColors(idx){
   }
   if (!resolved.length){ alert('Could not load any images for analysis'); return; }
 
-  const colorList = state.config.colors.map(c => `${c.id} (${c.name.en}, hex ${c.hex})`).join(', ');
-  const sys = `You analyze product photos and identify the dominant product color (ignoring the background).
-For EACH image in order, choose the BEST matching color id from this master list (must be an exact id from the list):
-${colorList}
-Reply with ONLY valid JSON, exact shape:
-{"matches":[{"imageIndex":0,"colorId":"<id>"},{"imageIndex":1,"colorId":"<id>"}]}
-The imageIndex must correspond to the order images are shown (0-based). Use only colorIds from the list above.`;
+  const colorList = state.config.colors.map(c => `- ${c.id}  |  name: ${c.name.en}  |  hex: ${c.hex}`).join('\n');
+  const sys = `You are a precise color-identification expert for product photography.
 
-  const userContent = [{ type: 'text', text: `Analyze these ${resolved.length} product images and return the JSON.` }];
+TASK
+For each image, identify the dominant BODY / BASE color of the MAIN product object and return the closest matching colorId from the master list.
+
+WHAT TO LOOK AT
+- Focus only on the largest continuous surface of the main product (the body/shell).
+- For bottles/mugs/cups: judge the main exterior body, not the lid, cap, handle, or accents.
+- For bags/apparel/boxes: judge the main fabric/material, not straps, zippers, or trims.
+
+WHAT TO IGNORE
+- The background (white studio, gradient, table, shadows, floor).
+- Printed logos, text, stickers, labels, brand marks on the product.
+- Lid, cap, handle, button, screw-top, base ring, or any small accent piece.
+- Reflections, glare, highlights, and lighting tints (do not confuse warm light with gold/orange).
+- Shadows on the product (do not confuse a shadowed white with gray).
+
+MATCHING RULES
+- You MUST pick exactly ONE id from this master list (no inventing):
+${colorList}
+- Match by comparing the true material color to each option's hex. Mentally compute perceived RGB distance to each hex and pick the closest.
+- Metallics: silver/chrome -> closest to "white" or "gray" depending on tone; gold/brass -> "gold"; rose-gold -> "gold" unless a pink option exists.
+- Off-whites, creams, ivories, light beige -> "white" (unless a closer beige exists).
+- Charcoal, dark slate, very dark gray -> "black".
+- Light/medium gray -> "gray".
+- Teal/turquoise/cyan -> closest of "green" or "royal-blue" by hue.
+- Dark blue (navy/midnight) -> "navy-blue"; medium/bright blue -> "royal-blue".
+- Maroon/burgundy/wine -> "red"; bright crimson/scarlet -> "red".
+- Mustard/amber -> "gold"; bright pumpkin/coral -> "orange".
+- If the product has TWO equally large color areas, pick the darker/more saturated one (it's usually the brand color).
+- If genuinely unsure between two options, pick the one whose hex is numerically closest.
+
+OUTPUT FORMAT
+Reply with ONLY valid JSON. No markdown, no prose, no code fences, no explanation.
+Exact shape:
+{"matches":[{"imageIndex":0,"colorId":"<id>"},{"imageIndex":1,"colorId":"<id>"}]}
+imageIndex is 0-based and matches the order images appear in the user message.`;
+
+  const userContent = [{ type: 'text', text: `Identify the dominant body color of the main product in each of the ${resolved.length} image(s). Return only the JSON.` }];
   resolved.forEach(r => userContent.push({ type: 'image_url', image_url: { url: r.data } }));
 
   const endpoint = s.provider === 'custom' ? s.endpoint : ENDPOINTS[s.provider];
   const body = {
     model: s.visionModel || DEFAULT_VISION_MODELS[s.provider],
     messages: [{ role: 'system', content: sys }, { role: 'user', content: userContent }],
-    temperature: 0.2
+    temperature: 0
   };
 
   try {
