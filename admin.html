@@ -971,11 +971,11 @@ async function detectColors(idx){
   const imgs = (p.images||[]).filter(im => im.url);
   if (!imgs.length){ toast('Add at least one image first'); return; }
   if (!(state.config.colors||[]).length){ toast('No master colors configured'); return; }
+  if (imgs.length > 5){ toast(`Analyzing first 5 of ${imgs.length} images (model limit)`, 4000); }
+  else { toast('Analyzing images…', 4000); }
 
-  toast('Analyzing images…', 4000);
-
-  // Resolve up to 20 images for vision analysis
-  const slice = imgs.slice(0, 20);
+  // Vision model limit: 5 images per request
+  const slice = imgs.slice(0, 5);
   const resolved = [];
   for (let i = 0; i < slice.length; i++){
     const data = await resolveImageForAI(slice[i].url);

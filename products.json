@@ -12,246 +12,57 @@
   "whatsappPhone": "966583801179",
   "products": [
     {
-      "id": "pampw64",
-      "sectionId": "corporate-gifts",
-      "typeId": "customized-gifts",
-      "subtypeId": "st-notebooks",
-      "name": {
-        "en": "Smart Notebook",
-        "ar": "دفتر ملاحظات ذكي"
-      },
-      "description": {
-        "en": "A modern smart notebook for efficient note-taking.",
-        "ar": "دفتر ملاحظات ذكي حديث لأخذ الملاحظات بكفاءة"
-      },
-      "colorIds": [
-        "navy-blue",
-        "dark-green",
-        "black",
-        "gray"
-      ],
-      "images": [
-        {
-          "url": "images/chatgpt-image-jun-1-2026-02-46-39-pm.png",
-          "colorId": "navy-blue"
-        },
-        {
-          "url": "images/chatgpt-image-jun-1-2026-02-47-03-pm.png",
-          "colorId": "dark-green"
-        },
-        {
-          "url": "images/chatgpt-image-jun-1-2026-02-47-07-pm.png",
-          "colorId": "black"
-        },
-        {
-          "url": "images/chatgpt-image-jun-1-2026-02-48-48-pm.png",
-          "colorId": "gray"
-        }
-      ],
-      "itemCode": "SJ-001"
-    },
-    {
-      "id": "p52fe8x",
-      "sectionId": "corporate-gifts",
-      "typeId": "customized-gifts",
-      "subtypeId": "st-notebooks",
-      "name": {
-        "en": "Smart Notebook with USB",
-        "ar": "دفتر ملاحظات ذكي مع USB"
-      },
-      "description": {
-        "en": "High-tech notebook with USB ",
-        "ar": "دفتر ملاحظات ذكي مع فلاش ميموري"
-      },
-      "colorIds": [
-        "black",
-        "dark-green"
-      ],
-      "images": [
-        {
-          "url": "images/chatgpt-image-jun-1-2026-03-06-46-pm.png",
-          "colorId": "black"
-        },
-        {
-          "url": "images/chatgpt-image-jun-1-2026-03-07-26-pm.png",
-          "colorId": "dark-green"
-        }
-      ],
-      "itemCode": "SJ-002"
-    },
-    {
-      "id": "p77u0ah",
-      "sectionId": "corporate-gifts",
-      "typeId": "customized-gifts",
-      "subtypeId": "st-notebooks",
-      "name": {
-        "en": "Smart Notebook with Light-up Logo",
-        "ar": "دفتر ذكي بشعار مضيء"
-      },
-      "description": {
-        "en": "Elevate your note-taking with a wireless charging notebook",
-        "ar": "ارفع مستوى كتابة الملاحظات الخاصة بك بدفتر شحن لاسلكي"
-      },
-      "colorIds": [
-        "gray",
-        "dark-green",
-        "royal-blue",
-        "black"
-      ],
-      "images": [
-        {
-          "url": "images/chatgpt-image-jun-1-2026-04-28-07-pm.png",
-          "colorId": "gray"
-        },
-        {
-          "url": "images/chatgpt-image-jun-1-2026-04-28-09-pm.png",
-          "colorId": "black"
-        },
-        {
-          "url": "images/chatgpt-image-jun-1-2026-04-28-10-pm.png",
-          "colorId": "dark-green"
-        },
-        {
-          "url": "images/chatgpt-image-jun-1-2026-04-45-05-pm.png",
-          "colorId": "royal-blue"
-        }
-      ],
-      "itemCode": "SJ-003"
-    },
-    {
-      "id": "p9iig92",
-      "sectionId": "corporate-gifts",
-      "typeId": "customized-gifts",
-      "subtypeId": "st-notebooks",
-      "name": {
-        "en": "Smart Notebook",
-        "ar": "دفتر ملاحظات ذكي"
-      },
-      "description": {
-        "en": "Elevate your note-taking with our smart notebook, featuring a sleek design and wireless charging capabilities.",
-        "ar": "ارفع مستوى تدوين ملاحظاتك مع دفتر الملاحظات الذكي الخاص بنا، المصمم بتصميم أنيق وقدرات شحن لاسلكي."
-      },
-      "colorIds": [
-        "navy-blue",
-        "dark-green",
-        "black",
-        "gray"
-      ],
-      "images": [
-        {
-          "url": "images/chatgpt-image-jun-1-2026-05-05-58-pm.png",
-          "colorId": "navy-blue"
-        },
-        {
-          "url": "images/chatgpt-image-jun-1-2026-05-08-29-pm.png",
-          "colorId": "dark-green"
-        },
-        {
-          "url": "images/chatgpt-image-jun-1-2026-05-10-32-pm.png",
-          "colorId": "black"
-        },
-        {
-          "url": "images/chatgpt-image-jun-1-2026-05-11-36-pm.png",
-          "colorId": "gray"
-        }
-      ],
-      "itemCode": "SJ-004"
-    },
-    {
-      "id": "pgqzibl",
+      "id": "p5pzdh5",
+      "itemCode": "SJ-001",
       "sectionId": "corporate-gifts",
       "typeId": "luxury-gifts",
       "subtypeId": "st-executive-sets",
       "name": {
         "en": "Executive Gift Set",
-        "ar": "طقم هدايا تنفيذية"
+        "ar": "مجموعة هدايا تنفيذية"
       },
       "description": {
-        "en": "Elevate your corporate gifts with our premium executive set, featuring a stylish notebook, pen, and tumbler.",
-        "ar": "ارفع هداياك التجارية مع مجموعتنا التنفيذية المميزة، التي تشمل دفتر ملاحظات أنيق وقلم وكوب."
+        "en": "High-quality green leather executive gift set with pen",
+        "ar": "مجموعة هدايا تنفيذية عالية الجودة من الجلد مع قلم "
       },
       "colorIds": [
-        "white",
-        "navy-blue",
         "green",
-        "royal-blue"
-      ],
-      "images": [
-        {
-          "url": "images/chatgpt-image-jun-1-2026-05-16-16-pm.png",
-          "colorId": "royal-blue"
-        },
-        {
-          "url": "images/chatgpt-image-jun-1-2026-05-17-32-pm.png",
-          "colorId": "navy-blue"
-        },
-        {
-          "url": "images/chatgpt-image-jun-1-2026-05-19-26-pm.png",
-          "colorId": "green"
-        },
-        {
-          "url": "images/chatgpt-image-jun-1-2026-05-20-17-pm.png",
-          "colorId": "white"
-        }
-      ],
-      "itemCode": "SJ-005"
-    },
-    {
-      "id": "pb94ze6",
-      "sectionId": "corporate-gifts",
-      "typeId": "luxury-gifts",
-      "subtypeId": "st-executive-sets",
-      "name": {
-        "en": "Gift Set",
-        "ar": "طقم هدايا"
-      },
-      "description": {
-        "en": "Elevate your corporate gifts with our sleek executive set, featuring a premium notebook and pen.",
-        "ar": "ارفع هداياك التجارية مع مجموعتنا التنفيذية الأنيقة، التي تضم دفترًا فاخرًا وقلم."
-      },
-      "colorIds": [
-        "white",
-        "dark-green",
         "gray",
         "royal-blue",
         "black"
       ],
       "images": [
         {
-          "url": "images/chatgpt-image-jun-1-2026-05-22-02-pm.png",
-          "colorId": "white"
+          "url": "images/chatgpt-image-jun-1-2026-05-24-21-pm.jpg",
+          "colorId": "green"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-05-24-21-pm.png",
-          "colorId": "dark-green"
-        },
-        {
-          "url": "images/chatgpt-image-jun-1-2026-05-25-56-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-05-25-56-pm.jpg",
           "colorId": "gray"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-05-28-21-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-05-28-21-pm.jpg",
           "colorId": "royal-blue"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-05-34-51-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-05-34-51-pm.jpg",
           "colorId": "black"
         }
-      ],
-      "itemCode": "SJ-006"
+      ]
     },
     {
-      "id": "pelcpmx",
+      "id": "pjmuyrl",
+      "itemCode": "SJ-002",
       "sectionId": "corporate-gifts",
       "typeId": "customized-gifts",
       "subtypeId": "st-notebooks",
       "name": {
-        "en": "Leather Notebook",
-        "ar": "دفتر جلد"
+        "en": "Notebook",
+        "ar": "دفتر"
       },
       "description": {
-        "en": "High-quality leather notebook with elastic closure",
-        "ar": "دفتر جلد عالي الجودة مع غطاء مرن"
+        "en": "High-quality notebook for writing and note-taking",
+        "ar": "دفتر عالي الجودة للكتابة و تدوين الملاحظات"
       },
       "colorIds": [
         "black",
@@ -259,53 +70,54 @@
         "navy-blue",
         "royal-blue",
         "red",
-        "orange",
-        "purple",
+        "green",
         "dark-green",
-        "green"
+        "gray",
+        "orange",
+        "purple"
       ],
       "images": [
         {
-          "url": "images/chatgpt-image-jun-1-2026-05-40-36-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-05-40-36-pm.jpg",
           "colorId": "black"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-05-41-49-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-05-41-49-pm.jpg",
           "colorId": "white"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-05-42-51-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-05-42-51-pm.jpg",
           "colorId": "navy-blue"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-05-43-45-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-05-43-45-pm.jpg",
           "colorId": "royal-blue"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-05-44-37-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-05-44-37-pm.jpg",
           "colorId": "red"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-05-45-23-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-05-45-23-pm.jpg",
           "colorId": "green"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-05-46-17-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-05-46-17-pm.jpg",
           "colorId": "dark-green"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-05-47-43-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-05-47-43-pm.jpg",
           "colorId": "purple"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-05-48-44-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-05-48-44-pm.jpg",
           "colorId": "orange"
         }
-      ],
-      "itemCode": "SJ-007"
+      ]
     },
     {
-      "id": "p4mxic5",
+      "id": "pl3twtz",
+      "itemCode": "SJ-003",
       "sectionId": "corporate-gifts",
       "typeId": "customized-gifts",
       "subtypeId": "st-notebooks",
@@ -314,8 +126,8 @@
         "ar": "دفتر "
       },
       "description": {
-        "en": "A stylish and functional notebook",
-        "ar": "دفتر أنيق وعملي"
+        "en": "High-quality purple notebook with elastic closure",
+        "ar": "دفتر عالي الجودة مع غطاء مرن"
       },
       "colorIds": [
         "purple",
@@ -323,53 +135,53 @@
         "black",
         "white",
         "royal-blue",
-        "navy-blue",
-        "dark-green"
+        "dark-green",
+        "navy-blue"
       ],
       "images": [
         {
-          "url": "images/chatgpt-image-jun-1-2026-05-50-19-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-05-50-19-pm.jpg",
           "colorId": "purple"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-05-51-35-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-05-51-35-pm.jpg",
           "colorId": "gray"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-05-52-37-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-05-52-37-pm.jpg",
           "colorId": "black"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-05-53-35-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-05-53-35-pm.jpg",
           "colorId": "white"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-05-54-54-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-05-54-54-pm.jpg",
           "colorId": "royal-blue"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-05-55-53-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-05-55-53-pm.jpg",
           "colorId": "navy-blue"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-05-56-49-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-05-56-49-pm.jpg",
           "colorId": "dark-green"
         }
-      ],
-      "itemCode": "SJ-008"
+      ]
     },
     {
-      "id": "py4v0bc",
+      "id": "pzd6f0z",
+      "itemCode": "SJ-004",
       "sectionId": "corporate-gifts",
       "typeId": "customized-gifts",
       "subtypeId": "st-notebooks",
       "name": {
-        "en": "Premium Leather Notebook",
-        "ar": "دفتر جلد فاخر"
+        "en": "Leather Notebook",
+        "ar": "دفتر جلد "
       },
       "description": {
-        "en": "Elevate your notes with our premium leather notebook",
-        "ar": "ارفع مذكراتك مع دفترنا الجلدي الفاخر"
+        "en": "High-quality leather notebook with elastic closure",
+        "ar": "دفتر جلد عالي الجودة مع غطاء مرن"
       },
       "colorIds": [
         "navy-blue",
@@ -378,32 +190,32 @@
       ],
       "images": [
         {
-          "url": "images/chatgpt-image-jun-1-2026-05-59-06-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-05-59-06-pm.jpg",
           "colorId": "navy-blue"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-06-00-36-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-06-00-36-pm.jpg",
           "colorId": "white"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-06-01-32-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-06-01-32-pm.jpg",
           "colorId": "black"
         }
-      ],
-      "itemCode": "SJ-009"
+      ]
     },
     {
-      "id": "p9mjgoh",
+      "id": "pv8mazu",
+      "itemCode": "SJ-005",
       "sectionId": "corporate-gifts",
       "typeId": "customized-gifts",
       "subtypeId": "st-notebooks",
       "name": {
-        "en": "Leather Notebook",
-        "ar": "دفتر جلد"
+        "en": "Leather Notebook ",
+        "ar": "دفتر جلدي"
       },
       "description": {
-        "en": "High-quality leather notebook",
-        "ar": "دفتر عالي الجودة جلد"
+        "en": "Premium leather notebooks",
+        "ar": "دفتر فاخر من الجلد"
       },
       "colorIds": [
         "navy-blue",
@@ -413,26 +225,26 @@
       ],
       "images": [
         {
-          "url": "images/chatgpt-image-jun-1-2026-06-03-10-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-06-03-10-pm.jpg",
           "colorId": "navy-blue"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-06-04-23-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-06-04-23-pm.jpg",
           "colorId": "gray"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-06-05-44-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-06-05-44-pm.jpg",
           "colorId": "white"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-06-06-40-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-06-06-40-pm.jpg",
           "colorId": "black"
         }
-      ],
-      "itemCode": "SJ-010"
+      ]
     },
     {
-      "id": "p9369n9",
+      "id": "pbg3aiz",
+      "itemCode": "SJ-006",
       "sectionId": "corporate-gifts",
       "typeId": "customized-gifts",
       "subtypeId": "st-notebooks",
@@ -441,8 +253,8 @@
         "ar": "دفتر جلد جلدي"
       },
       "description": {
-        "en": "A luxurious leather journal, perfect for writing and note-taking.",
-        "ar": "دفتر جلدي فاخر ، مثالي للكتابة و تدوين الملاحظات."
+        "en": "A premium leather journal for writing and note-taking.",
+        "ar": "دفتر يوميات جلدي فاخر للكتابة و تدوين الملاحظات."
       },
       "colorIds": [
         "navy-blue",
@@ -451,22 +263,22 @@
       ],
       "images": [
         {
-          "url": "images/chatgpt-image-jun-1-2026-06-22-44-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-06-22-44-pm.jpg",
           "colorId": "navy-blue"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-06-23-22-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-06-23-22-pm.jpg",
           "colorId": "black"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-06-24-07-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-06-24-07-pm.jpg",
           "colorId": "dark-green"
         }
-      ],
-      "itemCode": "SJ-011"
+      ]
     },
     {
-      "id": "pz0jns2",
+      "id": "p17zf2k",
+      "itemCode": "SJ-007",
       "sectionId": "corporate-gifts",
       "typeId": "customized-gifts",
       "subtypeId": "st-notebooks",
@@ -485,32 +297,32 @@
       ],
       "images": [
         {
-          "url": "images/chatgpt-image-jun-1-2026-06-25-13-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-06-25-13-pm.jpg",
           "colorId": "gray"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-06-26-08-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-06-26-08-pm.jpg",
           "colorId": "black"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-06-27-13-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-06-27-13-pm.jpg",
           "colorId": "white"
         }
-      ],
-      "itemCode": "SJ-012"
+      ]
     },
     {
-      "id": "pabqta0",
+      "id": "pm7v30j",
+      "itemCode": "SJ-008",
       "sectionId": "corporate-gifts",
       "typeId": "customized-gifts",
       "subtypeId": "st-notebooks",
       "name": {
-        "en": "Notebook",
-        "ar": "دفتر "
+        "en": "Canvas and Leather Notebook",
+        "ar": "دفتر قماشي وجلد"
       },
       "description": {
-        "en": "A sleek and modern notebook perfect for writing and note-taking.",
-        "ar": "دفتر أنيق وعصري مثالي للكتابة و تدوين الملاحظات."
+        "en": "A stylish notebook with a canvas and leather cover",
+        "ar": "دفتر أنيق غطاء قماشي وجلدي"
       },
       "colorIds": [
         "black",
@@ -521,30 +333,30 @@
       ],
       "images": [
         {
-          "url": "images/chatgpt-image-jun-1-2026-06-28-00-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-06-28-00-pm.jpg",
           "colorId": "black"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-06-28-36-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-06-28-36-pm.jpg",
           "colorId": "dark-green"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-06-30-27-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-06-30-27-pm.jpg",
           "colorId": "royal-blue"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-06-31-12-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-06-31-12-pm.jpg",
           "colorId": "gray"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-06-31-55-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-06-31-55-pm.jpg",
           "colorId": "white"
         }
-      ],
-      "itemCode": "SJ-013"
+      ]
     },
     {
-      "id": "pd22m9s",
+      "id": "pfrufmc",
+      "itemCode": "SJ-009",
       "sectionId": "corporate-gifts",
       "typeId": "customized-gifts",
       "subtypeId": "st-notebooks",
@@ -554,7 +366,7 @@
       },
       "description": {
         "en": "A sustainable notebook made from natural materials",
-        "ar": "دفتر مصنوع من مواد طبيعية"
+        "ar": "دفتر مصنوع من مواد طبيعية ودية للبيئة"
       },
       "colorIds": [
         "black",
@@ -565,30 +377,30 @@
       ],
       "images": [
         {
-          "url": "images/chatgpt-image-jun-1-2026-06-34-07-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-06-34-07-pm.jpg",
           "colorId": "black"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-06-35-56-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-06-35-56-pm.jpg",
           "colorId": "dark-green"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-06-36-53-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-06-36-53-pm.jpg",
           "colorId": "white"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-06-38-12-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-06-38-12-pm.jpg",
           "colorId": "gray"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-06-40-07-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-06-40-07-pm.jpg",
           "colorId": "navy-blue"
         }
-      ],
-      "itemCode": "SJ-014"
+      ]
     },
     {
-      "id": "pafwyqb",
+      "id": "pl4qw2s",
+      "itemCode": "SJ-010",
       "sectionId": "corporate-gifts",
       "typeId": "customized-gifts",
       "subtypeId": "st-notebooks",
@@ -597,8 +409,8 @@
         "ar": "دفتر ملاحظات لاصقة"
       },
       "description": {
-        "en": "A sleek notebook with colorful sticky notes",
-        "ar": "دفتر ملاحظات أنيق مع ملاحظات لاصقة ملونة"
+        "en": "A practical notebook with sticky notes",
+        "ar": "دفتر عملي مع ملاحظات لاصقة"
       },
       "colorIds": [
         "black",
@@ -608,32 +420,32 @@
       ],
       "images": [
         {
-          "url": "images/chatgpt-image-jun-1-2026-06-43-20-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-06-43-20-pm.jpg",
           "colorId": "black"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-06-44-24-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-06-44-24-pm.jpg",
           "colorId": "dark-green"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-06-44-53-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-06-44-53-pm.jpg",
           "colorId": "white"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-06-45-36-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-06-45-36-pm.jpg",
           "colorId": "navy-blue"
         }
-      ],
-      "itemCode": "SJ-015"
+      ]
     },
     {
-      "id": "pawndmd",
+      "id": "pn0o46w",
+      "itemCode": "SJ-011",
       "sectionId": "corporate-gifts",
       "typeId": "customized-gifts",
       "subtypeId": "st-mugs-bottles",
       "name": {
-        "en": "Matte Water Bottle (Bowling)",
-        "ar": "زجاجة مياه غير لامعة (بولينج)"
+        "en": "Matte Water Bottle",
+        "ar": "زجاجة مياه غير لامعة"
       },
       "description": {
         "en": "Sleek water bottle with a matte finish",
@@ -645,64 +457,64 @@
         "navy-blue",
         "gray",
         "green",
-        "purple",
-        "orange",
-        "red",
         "royal-blue",
-        "dark-green"
+        "red",
+        "purple",
+        "dark-green",
+        "orange"
       ],
       "images": [
         {
-          "url": "images/chatgpt-image-jun-1-2026-06-47-00-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-06-47-00-pm.jpg",
           "colorId": "black"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-06-51-01-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-06-51-01-pm.jpg",
           "colorId": "white"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-06-56-56-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-06-56-56-pm.jpg",
           "colorId": "navy-blue"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-07-01-01-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-07-01-01-pm.jpg",
           "colorId": "gray"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-07-03-08-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-07-03-08-pm.jpg",
           "colorId": "green"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-07-09-31-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-07-09-31-pm.jpg",
           "colorId": "purple"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-07-10-03-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-07-10-03-pm.jpg",
           "colorId": "orange"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-07-11-15-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-07-11-15-pm.jpg",
           "colorId": "red"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-07-12-39-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-07-12-39-pm.jpg",
           "colorId": "royal-blue"
         }
-      ],
-      "itemCode": "SJ-016"
+      ]
     },
     {
-      "id": "pvn0hp9",
+      "id": "p5r44rm",
+      "itemCode": "SJ-012",
       "sectionId": "corporate-gifts",
       "typeId": "customized-gifts",
       "subtypeId": "st-mugs-bottles",
       "name": {
         "en": "Water Bottle",
-        "ar": "قارورة ماء"
+        "ar": "زجاجة مياه "
       },
       "description": {
-        "en": "Reusable and eco-friendly water bottle",
-        "ar": "زجاجة مياه قابلة لإعادة الاستخدام وصديقة للبيئة"
+        "en": "A sleek and modern water bottle",
+        "ar": "زجاجة مياه أنيقة وعصرية"
       },
       "colorIds": [
         "white",
@@ -710,58 +522,58 @@
         "gray",
         "royal-blue",
         "green",
+        "red",
         "orange",
-        "purple",
-        "red"
+        "purple"
       ],
       "images": [
         {
-          "url": "images/chatgpt-image-jun-1-2026-07-13-38-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-07-13-38-pm.jpg",
           "colorId": "white"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-07-15-09-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-07-15-09-pm.jpg",
           "colorId": "black"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-07-17-15-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-07-17-15-pm.jpg",
           "colorId": "gray"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-07-19-10-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-07-19-10-pm.jpg",
           "colorId": "royal-blue"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-07-19-56-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-07-19-56-pm.jpg",
           "colorId": "green"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-07-21-16-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-07-21-16-pm.jpg",
           "colorId": "purple"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-07-22-17-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-07-22-17-pm.jpg",
           "colorId": "red"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-07-24-04-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-07-24-04-pm.jpg",
           "colorId": "orange"
         }
-      ],
-      "itemCode": "SJ-017"
+      ]
     },
     {
-      "id": "pyk5don",
+      "id": "puoqfsh",
+      "itemCode": "SJ-013",
       "sectionId": "corporate-gifts",
       "typeId": "customized-gifts",
       "subtypeId": "st-mugs-bottles",
       "name": {
         "en": "Travel Mug",
-        "ar": "كوب سفر "
+        "ar": "كوب السفر "
       },
       "description": {
-        "en": "Reusable travel mug with lid",
-        "ar": "كوب سفر قابل لإعادة الاستخدام مع غطاء"
+        "en": "Durable travel mug with lid",
+        "ar": "كوب سفر متين مع غطاء"
       },
       "colorIds": [
         "black",
@@ -771,23 +583,281 @@
       ],
       "images": [
         {
-          "url": "images/chatgpt-image-jun-1-2026-07-25-46-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-07-25-46-pm.jpg",
           "colorId": "black"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-07-29-19-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-07-29-19-pm.jpg",
           "colorId": "white"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-07-30-11-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-07-30-11-pm.jpg",
           "colorId": "navy-blue"
         },
         {
-          "url": "images/chatgpt-image-jun-1-2026-07-35-31-pm.png",
+          "url": "images/chatgpt-image-jun-1-2026-07-35-31-pm.jpg",
           "colorId": "dark-green"
         }
+      ]
+    },
+    {
+      "id": "pmht934",
+      "itemCode": "SJ-014",
+      "sectionId": "corporate-gifts",
+      "typeId": "customized-gifts",
+      "subtypeId": "st-mugs-bottles",
+      "name": {
+        "en": "Travel Mug",
+        "ar": "كوب سفر"
+      },
+      "description": {
+        "en": "Reusable travel mug with lid",
+        "ar": "كوب سفر مع غطاء قابل لإعادة الاستخدام"
+      },
+      "colorIds": [
+        "white",
+        "navy-blue",
+        "green",
+        "purple",
+        "orange",
+        "royal-blue",
+        "gray",
+        "red"
       ],
-      "itemCode": "SJ-018"
+      "images": [
+        {
+          "url": "images/chatgpt-image-jun-1-2026-07-35-41-pm.jpg",
+          "colorId": "white"
+        },
+        {
+          "url": "images/chatgpt-image-jun-1-2026-07-37-31-pm.jpg",
+          "colorId": "navy-blue"
+        },
+        {
+          "url": "images/chatgpt-image-jun-1-2026-07-41-38-pm.jpg",
+          "colorId": "green"
+        },
+        {
+          "url": "images/chatgpt-image-jun-1-2026-07-43-39-pm.jpg",
+          "colorId": "purple"
+        },
+        {
+          "url": "images/chatgpt-image-jun-1-2026-07-44-41-pm.jpg",
+          "colorId": "orange"
+        },
+        {
+          "url": "images/chatgpt-image-jun-1-2026-07-47-32-pm.jpg",
+          "colorId": "royal-blue"
+        },
+        {
+          "url": "images/chatgpt-image-jun-1-2026-07-48-49-pm.jpg",
+          "colorId": "red"
+        },
+        {
+          "url": "images/chatgpt-image-jun-1-2026-07-49-45-pm.jpg",
+          "colorId": "gray"
+        }
+      ]
+    },
+    {
+      "id": "phy7qug",
+      "itemCode": "SJ-015",
+      "sectionId": "corporate-gifts",
+      "typeId": "customized-gifts",
+      "subtypeId": "st-mugs-bottles",
+      "name": {
+        "en": "Tumbler with Wooden Wrap",
+        "ar": "كوب مع غلاف خشبي"
+      },
+      "description": {
+        "en": "Customizable tumbler with wooden wrap and clear lid",
+        "ar": "كوب قابل للتخصيص مع غلاف خشبي وغطاء شفاف"
+      },
+      "colorIds": [
+        "green",
+        "white",
+        "black",
+        "navy-blue"
+      ],
+      "images": [
+        {
+          "url": "images/chatgpt-image-jun-1-2026-08-27-50-pm.jpg",
+          "colorId": "green"
+        },
+        {
+          "url": "images/chatgpt-image-jun-1-2026-08-28-56-pm.jpg",
+          "colorId": "white"
+        },
+        {
+          "url": "images/chatgpt-image-jun-1-2026-08-30-25-pm.jpg",
+          "colorId": "black"
+        },
+        {
+          "url": "images/chatgpt-image-jun-1-2026-08-31-49-pm.jpg",
+          "colorId": "navy-blue"
+        }
+      ]
+    },
+    {
+      "id": "pty52yi",
+      "itemCode": "SJ-016",
+      "sectionId": "corporate-gifts",
+      "typeId": "customized-gifts",
+      "subtypeId": "st-mugs-bottles",
+      "name": {
+        "en": "Stemless Tumbler",
+        "ar": "كوب بدون ساق"
+      },
+      "description": {
+        "en": "Personalized stemless tumbler with lid",
+        "ar": "كوب شخصي بدون ساق مع غطاء"
+      },
+      "colorIds": [
+        "white",
+        "black",
+        "navy-blue",
+        "green"
+      ],
+      "images": [
+        {
+          "url": "images/chatgpt-image-jun-1-2026-08-35-50-pm.jpg",
+          "colorId": "white"
+        },
+        {
+          "url": "images/chatgpt-image-jun-1-2026-08-37-02-pm.jpg",
+          "colorId": "black"
+        },
+        {
+          "url": "images/chatgpt-image-jun-1-2026-08-43-59-pm.jpg",
+          "colorId": "navy-blue"
+        },
+        {
+          "url": "images/chatgpt-image-jun-1-2026-08-46-09-pm.jpg",
+          "colorId": "green"
+        }
+      ]
+    },
+    {
+      "id": "p60b8mz",
+      "itemCode": "SJ-017",
+      "sectionId": "corporate-gifts",
+      "typeId": "customized-gifts",
+      "subtypeId": "st-pens",
+      "name": {
+        "en": "Dual Tip Pen",
+        "ar": "قلم رصاص وحبر طرفين"
+      },
+      "description": {
+        "en": "A pen with two tips, one for pencil and one for ink",
+        "ar": "قلم ذو طرفين، طرف للرصاص وطرف للحبر"
+      },
+      "colorIds": [
+        "green",
+        "gray",
+        "navy-blue",
+        "black",
+        "white"
+      ],
+      "images": [
+        {
+          "url": "images/chatgpt-image-jun-2-2026-01-03-32-pm.jpg",
+          "colorId": "green"
+        },
+        {
+          "url": "images/chatgpt-image-jun-2-2026-01-05-18-pm.jpg",
+          "colorId": "gray"
+        },
+        {
+          "url": "images/chatgpt-image-jun-2-2026-01-06-32-pm.jpg",
+          "colorId": "navy-blue"
+        },
+        {
+          "url": "images/chatgpt-image-jun-2-2026-01-08-36-pm.jpg",
+          "colorId": "black"
+        },
+        {
+          "url": "images/chatgpt-image-jun-2-2026-01-10-37-pm.jpg",
+          "colorId": "white"
+        }
+      ]
+    },
+    {
+      "id": "pyvyezv",
+      "itemCode": "SJ-018",
+      "sectionId": "corporate-gifts",
+      "typeId": "customized-gifts",
+      "subtypeId": "st-desk-items",
+      "name": {
+        "en": "Wooden Mobile Stand",
+        "ar": "حامل هاتف خشبي"
+      },
+      "description": {
+        "en": "Elevate your mobile viewing experience with this sturdy wooden stand.",
+        "ar": "ارفع تجربة مشاهدة هاتفك بهذا الحامل الخشبي المتين."
+      },
+      "colorIds": [
+        "gold"
+      ],
+      "images": [
+        {
+          "url": "images/chatgpt-image-jun-2-2026-01-14-13-pm.jpg",
+          "colorId": "gold"
+        }
+      ]
+    },
+    {
+      "id": "pg88a7v",
+      "itemCode": "SJ-019",
+      "sectionId": "corporate-gifts",
+      "typeId": "customized-gifts",
+      "subtypeId": "st-desk-items",
+      "name": {
+        "en": "Metal Card Holder.",
+        "ar": "حامل بطاقات معدني"
+      },
+      "description": {
+        "en": "A stylish Metal Card Holder.",
+        "ar": "حامل بطاقات معدني انيق."
+      },
+      "colorIds": [
+        "purple",
+        "red",
+        "royal-blue",
+        "gold",
+        "white",
+        "gray",
+        "black"
+      ],
+      "images": [
+        {
+          "url": "images/chatgpt-image-jun-2-2026-01-19-20-pm.jpg",
+          "colorId": "purple"
+        },
+        {
+          "url": "images/chatgpt-image-jun-2-2026-01-22-15-pm.jpg",
+          "colorId": "red"
+        },
+        {
+          "url": "images/chatgpt-image-jun-2-2026-01-22-34-pm.jpg",
+          "colorId": "royal-blue"
+        },
+        {
+          "url": "images/chatgpt-image-jun-2-2026-01-24-49-pm.jpg",
+          "colorId": "gold"
+        },
+        {
+          "url": "images/chatgpt-image-jun-2-2026-01-26-21-pm.jpg",
+          "colorId": "white"
+        },
+        {
+          "url": "images/chatgpt-image-jun-2-2026-01-28-56-pm.jpg",
+          "colorId": "black"
+        },
+        {
+          "url": "images/chatgpt-image-jun-2-2026-01-30-49-pm.jpg",
+          "colorId": "gray"
+        }
+      ]
     }
   ],
   "config": {
