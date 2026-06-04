@@ -29,8 +29,7 @@
         "green",
         "gray",
         "royal-blue",
-        "black",
-        "white"
+        "black"
       ],
       "images": [
         {
@@ -48,10 +47,6 @@
         {
           "url": "images/chatgpt-image-jun-1-2026-05-34-51-pm.jpg",
           "colorId": "black"
-        },
-        {
-          "url": "images/chatgpt-image-jun-1-2026-05-22-02-pm.jpg",
-          "colorId": "white"
         }
       ]
     },
@@ -863,1029 +858,6 @@
           "colorId": "gray"
         }
       ]
-    },
-    {
-      "id": "pn9jyam",
-      "itemCode": "SJ-020",
-      "sectionId": "events-materials",
-      "typeId": "badges-lanyards",
-      "subtypeId": "st-badge-holders",
-      "name": {
-        "en": "ID Card Holder",
-        "ar": "حامل بطاقة الهوية"
-      },
-      "description": {
-        "en": "Durable and sleek ID card holder",
-        "ar": "حامل بطاقة الهوية متين وعصري"
-      },
-      "colorIds": [
-        "black",
-        "royal-blue"
-      ],
-      "images": [
-        {
-          "url": "images/chatgpt-image-jun-2-2026-01-32-46-pm.jpg",
-          "colorId": "black"
-        },
-        {
-          "url": "images/chatgpt-image-jun-2-2026-01-34-24-pm.jpg",
-          "colorId": "royal-blue"
-        }
-      ]
-    },
-    {
-      "id": "pd5e2y5",
-      "itemCode": "SJ-021",
-      "sectionId": "corporate-gifts",
-      "typeId": "customized-gifts",
-      "subtypeId": "st-mugs-bottles",
-      "name": {
-        "en": "Insulated Tumbler with Wooden Lid",
-        "ar": "كوب حراري بغطاء خشبي"
-      },
-      "description": {
-        "en": "A practical tumbler with a sleek design, ideal for everyday use. It helps keep beverages enjoyable while on the go or at the workplace. A great choice for corporate gifts and promotional events, with customization options for logos and brand identity.",
-        "ar": "كوب عملي بتصميم أنيق ومناسب للاستخدام اليومي، يساعد على الحفاظ على المشروبات أثناء التنقل أو في بيئة العمل. يعد خيارًا مثاليًا للهدايا المؤسسية والفعاليات الترويجية مع إمكانية تخصيصه بالشعار أو الهوية البصرية."
-      },
-      "colorIds": [
-        "white",
-        "black",
-        "navy-blue"
-      ],
-      "images": [
-        {
-          "url": "images/chatgpt-image-jun-2-2026-10-16-06-am.jpg",
-          "colorId": "white"
-        },
-        {
-          "url": "images/chatgpt-image-jun-2-2026-10-17-50-am.jpg",
-          "colorId": "black"
-        },
-        {
-          "url": "images/chatgpt-image-jun-2-2026-10-18-45-am.jpg",
-          "colorId": "navy-blue"
-        }
-      ]
-    },
-    {
-      "id": "polz5nu",
-      "itemCode": "SJ-022",
-      "sectionId": "corporate-gifts",
-      "typeId": "customized-gifts",
-      "subtypeId": "st-mugs-bottles",
-      "name": {
-        "en": "Double-Wall Espresso Cup",
-        "ar": "فنجان إسبريسو مزدوج الجدار"
-      },
-      "description": {
-        "en": "A modern and elegant espresso cup designed for serving coffee in offices, cafés, and events. Its practical construction offers a comfortable drinking experience, making it an excellent choice for corporate gifts and branded promotions with logo customization options.",
-        "ar": "فنجان إسبريسو بتصميم عصري وأنيق، مناسب لتقديم القهوة بأسلوب راقٍ في المكاتب، والمقاهي، والفعاليات. يتميز ببنية عملية تمنح تجربة استخدام مريحة، ويعد خيارًا مثاليًا للهدايا المؤسسية مع إمكانية تخصيصه بالشعار أو الهوية البصرية."
-      },
-      "colorIds": [
-        "black",
-        "white",
-        "navy-blue",
-        "dark-green"
-      ],
-      "images": [
-        {
-          "url": "images/chatgpt-image-jun-2-2026-10-22-42-am.jpg",
-          "colorId": "white"
-        },
-        {
-          "url": "images/chatgpt-image-jun-2-2026-10-23-15-am.jpg",
-          "colorId": "navy-blue"
-        },
-        {
-          "url": "images/chatgpt-image-jun-2-2026-10-24-20-am.jpg",
-          "colorId": "dark-green"
-        },
-        {
-          "url": "images/chatgpt-image-jun-2-2026-10-25-42-am.jpg",
-          "colorId": "black"
-        }
-      ]
-    },
-    {
-      "id": "p5y91pf",
-      "itemCode": "SJ-023",
-      "sectionId": "corporate-gifts",
-      "typeId": "customized-gifts",
-      "subtypeId": "st-mugs-bottles",
-      "name": {
-        "en": "Eco-Friendly Mug with Cork Base",
-        "ar": "كوب صديق للبيئة بقاعدة فلين"
-      },
-      "description": {
-        "en": "A practical mug that combines modern design with sustainable materials, featuring a cork base for an enhanced user experience. Ideal for offices, meetings, and everyday use, it is a distinctive choice for corporate gifts and promotional branding with logo customization options.",
-        "ar": "كوب عملي يجمع بين التصميم العصري والمواد المستدامة، مزود بقاعدة فلين تساعد على توفير تجربة استخدام مريحة. مناسب للمكاتب والاجتماعات والاستخدام اليومي، ويعد خيارًا مميزًا للهدايا المؤسسية مع إمكانية تخصيصه بالشعار أو الهوية البصرية."
-      },
-      "colorIds": [
-        "black",
-        "white",
-        "navy-blue",
-        "dark-green",
-        "gray"
-      ],
-      "images": [
-        {
-          "url": "images/chatgpt-image-jun-2-2026-10-30-23-am.jpg",
-          "colorId": "black"
-        },
-        {
-          "url": "images/chatgpt-image-jun-2-2026-10-33-24-am.jpg",
-          "colorId": "white"
-        },
-        {
-          "url": "images/chatgpt-image-jun-2-2026-10-49-47-am.jpg",
-          "colorId": "dark-green"
-        },
-        {
-          "url": "images/chatgpt-image-jun-2-2026-11-01-01-am.jpg",
-          "colorId": "navy-blue"
-        },
-        {
-          "url": "images/chatgpt-image-jun-2-2026-11-02-57-am.jpg",
-          "colorId": "gray"
-        }
-      ]
-    },
-    {
-      "id": "pjpexxk",
-      "itemCode": "SJ-024",
-      "sectionId": "corporate-gifts",
-      "typeId": "customized-gifts",
-      "subtypeId": "st-mugs-bottles",
-      "name": {
-        "en": "Infuser Water Bottle",
-        "ar": "زجاجة مياه بمصفاة فواكه"
-      },
-      "description": {
-        "en": "A practical water bottle featuring an integrated infuser chamber for adding fruits or herbs, allowing refreshing beverages to be prepared with ease. Ideal for daily use, fitness activities, and workplace environments, it is an excellent choice for promotional and corporate gifting with logo and branding customization options.",
-        "ar": "زجاجة مياه عملية مزودة بحجرة داخلية مخصصة لإضافة الفواكه أو الأعشاب، مما يتيح تحضير مشروبات منعشة بسهولة. مناسبة للاستخدام اليومي، والأنشطة الرياضية، وبيئات العمل، وتعد خيارًا مميزًا للهدايا الترويجية والمؤسسية مع إمكانية تخصيصها بالشعار أو الهوية البصرية."
-      },
-      "colorIds": [
-        "black",
-        "white",
-        "navy-blue",
-        "gray",
-        "red"
-      ],
-      "images": [
-        {
-          "url": "images/chatgpt-image-jun-2-2026-11-11-48-am.jpg",
-          "colorId": "black"
-        },
-        {
-          "url": "images/chatgpt-image-jun-2-2026-11-13-07-am.jpg",
-          "colorId": "white"
-        },
-        {
-          "url": "images/chatgpt-image-jun-2-2026-11-14-39-am.jpg",
-          "colorId": "gray"
-        },
-        {
-          "url": "images/chatgpt-image-jun-2-2026-11-15-56-am.jpg",
-          "colorId": "red"
-        },
-        {
-          "url": "images/chatgpt-image-jun-2-2026-11-19-58-am.jpg",
-          "colorId": "navy-blue"
-        }
-      ]
-    },
-    {
-      "id": "pxvikt9",
-      "itemCode": "SJ-025",
-      "sectionId": "corporate-gifts",
-      "typeId": "customized-gifts",
-      "subtypeId": "st-pens",
-      "name": {
-        "en": "Premium Metal Pen",
-        "ar": "قلم معدني فاخر"
-      },
-      "description": {
-        "en": "An elegant pen with a professional design, ideal for daily use in offices, meetings, and events. It offers a comfortable writing experience and is one of the most popular corporate and promotional gift items, with customization options for logos and brand identity.",
-        "ar": "قلم أنيق بتصميم احترافي يناسب الاستخدام اليومي في بيئات العمل والاجتماعات والفعاليات. يوفر تجربة كتابة مريحة ويُعد من أكثر الهدايا الترويجية والمؤسسية استخدامًا، مع إمكانية تخصيصه بالشعار أو الهوية البصرية."
-      },
-      "colorIds": [
-        "black",
-        "white"
-      ],
-      "images": [
-        {
-          "url": "images/chatgpt-image-jun-2-2026-11-21-46-am.jpg",
-          "colorId": "black"
-        },
-        {
-          "url": "images/chatgpt-image-jun-2-2026-11-22-45-am.jpg",
-          "colorId": "white"
-        }
-      ]
-    },
-    {
-      "id": "pxmo3xo",
-      "itemCode": "SJ-026",
-      "sectionId": "corporate-gifts",
-      "typeId": "customized-gifts",
-      "subtypeId": "st-pens",
-      "name": {
-        "en": "Office Pen with Metal Accents",
-        "ar": "قلم مكتبي بلمسات معدنية"
-      },
-      "description": {
-        "en": "A practical pen with a modern design that combines elegance and ease of use. Ideal for offices, meetings, and various events, it offers a comfortable writing experience and serves as an excellent choice for corporate gifts and promotional campaigns with logo and branding customization options.",
-        "ar": "قلم عملي بتصميم عصري يجمع بين الأناقة وسهولة الاستخدام، مناسب للمكاتب والاجتماعات والفعاليات المختلفة. يوفر تجربة كتابة مريحة ويعد خيارًا مثاليًا للهدايا المؤسسية والحملات الترويجية مع إمكانية تخصيصه بالشعار أو الهوية البصرية."
-      },
-      "colorIds": [
-        "black",
-        "white",
-        "navy-blue",
-        "royal-blue",
-        "red",
-        "dark-green",
-        "gray",
-        "purple",
-        "orange"
-      ],
-      "images": [
-        {
-          "url": "images/chatgpt-image-jun-2-2026-11-24-06-am.jpg",
-          "colorId": "navy-blue"
-        },
-        {
-          "url": "images/chatgpt-image-jun-2-2026-11-26-23-am.jpg",
-          "colorId": "gray"
-        },
-        {
-          "url": "images/chatgpt-image-jun-2-2026-11-28-12-am.jpg",
-          "colorId": "white"
-        },
-        {
-          "url": "images/chatgpt-image-jun-2-2026-11-29-45-am.jpg",
-          "colorId": "black"
-        },
-        {
-          "url": "images/chatgpt-image-jun-2-2026-11-31-19-am.jpg",
-          "colorId": "royal-blue"
-        },
-        {
-          "url": "images/chatgpt-image-jun-2-2026-11-32-49-am.jpg",
-          "colorId": "dark-green"
-        },
-        {
-          "url": "images/chatgpt-image-jun-2-2026-11-34-19-am.jpg",
-          "colorId": "purple"
-        },
-        {
-          "url": "images/chatgpt-image-jun-2-2026-11-39-01-am.jpg",
-          "colorId": "red"
-        },
-        {
-          "url": "images/chatgpt-image-jun-2-2026-11-40-09-am.jpg",
-          "colorId": "orange"
-        }
-      ]
-    },
-    {
-      "id": "po0zgm0",
-      "itemCode": "SJ-027",
-      "sectionId": "corporate-gifts",
-      "typeId": "customized-gifts",
-      "subtypeId": "st-pens",
-      "name": {
-        "en": "Multi-Function Pen",
-        "ar": "قلم متعدد الوظائف"
-      },
-      "description": {
-        "en": "A practical pen that combines writing functionality with touchscreen compatibility in a single design, making it ideal for daily use in offices and meetings. It is an excellent choice for corporate gifts and promotional campaigns, with customization options for logos and brand identity.",
-        "ar": "قلم عملي يجمع بين الكتابة والتفاعل مع الشاشات الذكية في تصميم واحد، مما يجعله مناسبًا للاستخدام اليومي في بيئات العمل والاجتماعات. يعد خيارًا مميزًا للهدايا المؤسسية والحملات الترويجية مع إمكانية تخصيصه بالشعار أو الهوية البصرية."
-      },
-      "colorIds": [
-        "black",
-        "white",
-        "navy-blue",
-        "dark-green"
-      ],
-      "images": [
-        {
-          "url": "images/chatgpt-image-jun-2-2026-11-41-16-am.jpg",
-          "colorId": "navy-blue"
-        },
-        {
-          "url": "images/chatgpt-image-jun-2-2026-11-47-56-am.jpg",
-          "colorId": "white"
-        },
-        {
-          "url": "images/chatgpt-image-jun-2-2026-11-48-04-am.jpg",
-          "colorId": "dark-green"
-        },
-        {
-          "url": "images/chatgpt-image-jun-2-2026-11-48-12-am.jpg",
-          "colorId": "black"
-        }
-      ]
-    },
-    {
-      "id": "p71hw8e",
-      "itemCode": "SJ-028",
-      "sectionId": "corporate-gifts",
-      "typeId": "customized-gifts",
-      "subtypeId": "st-pens",
-      "name": {
-        "en": "Executive Premium Pen",
-        "ar": "قلم تنفيذي فاخر"
-      },
-      "description": {
-        "en": "An elegant pen designed for business environments and formal meetings, combining a professional appearance with everyday practicality. It is an ideal choice for corporate gifting, recognition programs, and events, with customization options for logos and brand identity.",
-        "ar": "قلم أنيق مصمم لبيئات الأعمال والاجتماعات الرسمية، يجمع بين المظهر الاحترافي وسهولة الاستخدام. يعد خيارًا مثاليًا للهدايا المؤسسية وبرامج التكريم والفعاليات، مع إمكانية تخصيصه بالشعار أو الهوية البصرية للجهات والشركات."
-      },
-      "colorIds": [
-        "black",
-        "white",
-        "navy-blue"
-      ],
-      "images": [
-        {
-          "url": "images/chatgpt-image-jun-2-2026-12-03-27-pm.jpg",
-          "colorId": "navy-blue"
-        },
-        {
-          "url": "images/chatgpt-image-jun-2-2026-12-03-30-pm.jpg",
-          "colorId": "white"
-        },
-        {
-          "url": "images/chatgpt-image-jun-2-2026-12-03-33-pm.jpg",
-          "colorId": "black"
-        }
-      ]
-    },
-    {
-      "id": "pnop0dn",
-      "itemCode": "SJ-029",
-      "sectionId": "corporate-gifts",
-      "typeId": "customized-gifts",
-      "subtypeId": "st-pens",
-      "name": {
-        "en": "Premium Signature Pen",
-        "ar": "قلم توقيع فاخر"
-      },
-      "description": {
-        "en": "An elegant pen designed for signatures and professional daily use, offering a refined presence in meetings and formal occasions. It is an ideal choice for executive and corporate gifting, with customization options for logos and brand identity.",
-        "ar": "قلم أنيق بتصميم راقٍ يناسب التوقيع والاستخدام المهني اليومي، ويمنح حضورًا احترافيًا في الاجتماعات والمناسبات الرسمية. يعد خيارًا مثاليًا للهدايا المؤسسية والتنفيذية مع إمكانية تخصيصه بالشعار أو الهوية البصرية."
-      },
-      "colorIds": [
-        "black",
-        "navy-blue",
-        "white"
-      ],
-      "images": [
-        {
-          "url": "images/chatgpt-image-jun-2-2026-12-21-54-pm.jpg",
-          "colorId": "black"
-        },
-        {
-          "url": "images/chatgpt-image-jun-2-2026-12-24-05-pm.jpg",
-          "colorId": "navy-blue"
-        },
-        {
-          "url": "images/chatgpt-image-jun-2-2026-12-25-30-pm.jpg",
-          "colorId": "white"
-        }
-      ]
-    },
-    {
-      "id": "phar6p0",
-      "itemCode": "SJ-030",
-      "sectionId": "corporate-gifts",
-      "typeId": "customized-gifts",
-      "subtypeId": "st-pens",
-      "name": {
-        "en": "Modern Plastic Pen",
-        "ar": "قلم بلاستيكي بتصميم عصري"
-      },
-      "description": {
-        "en": "\nA lightweight and practical pen designed for everyday use in offices, events, and exhibitions. Its sleek and portable design makes it an ideal choice for promotional giveaways and marketing campaigns, with customization options for logos and brand identity.",
-        "ar": "قلم خفيف وعملي مصمم للاستخدام اليومي في المكاتب والفعاليات والمعارض. يتميز بتصميم أنيق وسهل الحمل، مما يجعله خيارًا مناسبًا للهدايا الترويجية والحملات التسويقية مع إمكانية تخصيصه بالشعار أو الهوية البصرية."
-      },
-      "colorIds": [
-        "black",
-        "white",
-        "navy-blue",
-        "royal-blue",
-        "green",
-        "gray",
-        "purple"
-      ],
-      "images": [
-        {
-          "url": "images/chatgpt-image-jun-2-2026-12-32-05-pm.jpg",
-          "colorId": "royal-blue"
-        },
-        {
-          "url": "images/chatgpt-image-jun-2-2026-12-35-51-pm.jpg",
-          "colorId": "black"
-        },
-        {
-          "url": "images/chatgpt-image-jun-2-2026-12-35-55-pm.jpg",
-          "colorId": "white"
-        },
-        {
-          "url": "images/chatgpt-image-jun-2-2026-12-39-23-pm.jpg",
-          "colorId": "navy-blue"
-        },
-        {
-          "url": "images/chatgpt-image-jun-2-2026-12-41-08-pm.jpg",
-          "colorId": "gray"
-        },
-        {
-          "url": "images/chatgpt-image-jun-2-2026-12-42-45-pm.jpg",
-          "colorId": "purple"
-        },
-        {
-          "url": "images/chatgpt-image-jun-2-2026-12-48-07-pm.jpg",
-          "colorId": "green"
-        }
-      ]
-    },
-    {
-      "id": "p6do26i",
-      "itemCode": "SJ-031",
-      "sectionId": "corporate-gifts",
-      "typeId": "customized-gifts",
-      "subtypeId": "st-pens",
-      "name": {
-        "en": "Business Executive Pen",
-        "ar": "قلم أعمال أنيق"
-      },
-      "description": {
-        "en": "A professionally designed pen ideal for business environments and daily meetings, combining elegance with practicality. It is a suitable choice for corporate gifts, events, and exhibitions, with customization options for logos and brand identity.",
-        "ar": "قلم بتصميم احترافي يناسب بيئات العمل والاجتماعات اليومية، ويجمع بين الأناقة والعملية في الاستخدام. يعد خيارًا مناسبًا للهدايا المؤسسية والفعاليات والمعارض، مع إمكانية تخصيصه بالشعار أو الهوية البصرية للعلامات التجارية."
-      },
-      "colorIds": [
-        "black",
-        "white",
-        "navy-blue"
-      ],
-      "images": [
-        {
-          "url": "images/chatgpt-image-jun-2-2026-12-54-05-pm.jpg",
-          "colorId": "navy-blue"
-        },
-        {
-          "url": "images/chatgpt-image-jun-2-2026-12-57-19-pm.jpg",
-          "colorId": "white"
-        },
-        {
-          "url": "images/chatgpt-image-jun-2-2026-12-58-57-pm.jpg",
-          "colorId": "black"
-        }
-      ]
-    },
-    {
-      "id": "pi9aftg",
-      "itemCode": "SJ-032",
-      "sectionId": "corporate-gifts",
-      "typeId": "customized-gifts",
-      "subtypeId": "st-notebooks",
-      "name": {
-        "en": "Smart Notebook with Wireless Charger",
-        "ar": "دفتر ذكي مع شاحن لاسلكي"
-      },
-      "description": {
-        "en": "A practical notebook that combines note-taking and device charging in a single design, making it ideal for meetings, business environments, and travel. It offers an elegant solution for daily organization and is a distinctive corporate gift with customization options for logos and brand identity.",
-        "ar": "دفتر عملي يجمع بين تدوين الملاحظات وشحن الأجهزة في تصميم واحد، مما يجعله خيارًا مثاليًا للاجتماعات وبيئات العمل والتنقل. يوفر حلاً أنيقًا لتنظيم المهام اليومية، ويعد من الهدايا المؤسسية المميزة مع إمكانية تخصيصه بالشعار أو الهوية البصرية."
-      },
-      "colorIds": [
-        "black",
-        "navy-blue",
-        "dark-green",
-        "gray"
-      ],
-      "images": [
-        {
-          "url": "images/chatgpt-image-jun-1-2026-02-46-39-pm.jpg",
-          "colorId": "navy-blue"
-        },
-        {
-          "url": "images/chatgpt-image-jun-1-2026-02-47-03-pm.jpg",
-          "colorId": "dark-green"
-        },
-        {
-          "url": "images/chatgpt-image-jun-1-2026-02-47-07-pm.jpg",
-          "colorId": "black"
-        },
-        {
-          "url": "images/chatgpt-image-jun-1-2026-02-48-48-pm.jpg",
-          "colorId": "gray"
-        }
-      ]
-    },
-    {
-      "id": "puc2s0m",
-      "itemCode": "SJ-033",
-      "sectionId": "corporate-gifts",
-      "typeId": "customized-gifts",
-      "subtypeId": "st-notebooks",
-      "name": {
-        "en": "Note Book With Smart Business Organizer with Wireless Charger",
-        "ar": "دفتر مع منظم أعمال ذكي مع شاحن لاسلكي"
-      },
-      "description": {
-        "en": "A multifunctional business organizer that combines note-taking, document organization, and device charging in one professional design. Ideal for meetings, conferences, and daily business use, it serves as a premium executive gift with customization options for logos and brand identity.",
-        "ar": "منظم أعمال متعدد الوظائف يجمع بين تدوين الملاحظات وتنظيم المستندات وشحن الأجهزة في تصميم احترافي واحد. مناسب للاجتماعات، والمؤتمرات، والتنقلات اليومية، ويعد من الهدايا التنفيذية المميزة مع إمكانية تخصيصه بالشعار أو الهوية البصرية."
-      },
-      "colorIds": [
-        "black",
-        "dark-green"
-      ],
-      "images": [
-        {
-          "url": "images/chatgpt-image-jun-1-2026-03-06-46-pm.jpg",
-          "colorId": "black"
-        },
-        {
-          "url": "images/chatgpt-image-jun-1-2026-03-07-26-pm.jpg",
-          "colorId": "dark-green"
-        }
-      ]
-    },
-    {
-      "id": "p2fctyg",
-      "itemCode": "SJ-034",
-      "sectionId": "corporate-gifts",
-      "typeId": "customized-gifts",
-      "subtypeId": "st-notebooks",
-      "name": {
-        "en": "Smart Conference Folder with Wireless Charger",
-        "ar": "ملف اجتماعات ذكي مع شاحن لاسلكي"
-      },
-      "description": {
-        "en": "A comprehensive business folder designed to organize documents and notes during meetings and conferences, featuring smart functionalities that enhance productivity and convenience. Combining elegance and practicality, it is an ideal choice for executive and corporate gifts with customization options for logos and brand identity.",
-        "ar": "ملف أعمال متكامل مصمم لتنظيم المستندات والملاحظات أثناء الاجتماعات والمؤتمرات، مع مزايا تقنية تعزز الإنتاجية وسهولة الاستخدام. يجمع بين الأناقة والعملية، ويعد خيارًا مثاليًا للهدايا التنفيذية والمؤسسية مع إمكانية تخصيصه بالشعار أو الهوية البصرية."
-      },
-      "colorIds": [
-        "black",
-        "royal-blue",
-        "dark-green",
-        "gray"
-      ],
-      "images": [
-        {
-          "url": "images/chatgpt-image-jun-1-2026-04-28-07-pm.jpg",
-          "colorId": "gray"
-        },
-        {
-          "url": "images/chatgpt-image-jun-1-2026-04-28-09-pm.jpg",
-          "colorId": "black"
-        },
-        {
-          "url": "images/chatgpt-image-jun-1-2026-04-28-10-pm.jpg",
-          "colorId": "dark-green"
-        },
-        {
-          "url": "images/chatgpt-image-jun-1-2026-04-45-05-pm.jpg",
-          "colorId": "royal-blue"
-        }
-      ]
-    },
-    {
-      "id": "p5owkwj",
-      "itemCode": "SJ-035",
-      "sectionId": "corporate-gifts",
-      "typeId": "customized-gifts",
-      "subtypeId": "st-notebooks",
-      "name": {
-        "en": "Smart Business Organizer with Wireless Charger & USB Drive",
-        "ar": "منظم أعمال ذكي مع شاحن لاسلكي وذاكرة USB"
-      },
-      "description": {
-        "en": "A multifunctional business organizer that combines note-taking, document organization, device charging, and digital file storage in one practical solution. Ideal for meetings, conferences, and daily business use, it is a premium executive gift with customization options for logos and brand identity.",
-        "ar": "منظم أعمال متعدد الوظائف يجمع بين تدوين الملاحظات، وتنظيم المستندات، وشحن الأجهزة، وحفظ الملفات الرقمية في تصميم عملي واحد. مناسب للاجتماعات والمؤتمرات والاستخدام اليومي، ويعد خيارًا مميزًا للهدايا التنفيذية والمؤسسية مع إمكانية تخصيصه بالشعار أو الهوية البصرية."
-      },
-      "colorIds": [
-        "black",
-        "dark-green",
-        "gray",
-        "royal-blue"
-      ],
-      "images": [
-        {
-          "url": "images/chatgpt-image-jun-1-2026-05-05-58-pm.jpg",
-          "colorId": "royal-blue"
-        },
-        {
-          "url": "images/chatgpt-image-jun-1-2026-05-08-29-pm.jpg",
-          "colorId": "dark-green"
-        },
-        {
-          "url": "images/chatgpt-image-jun-1-2026-05-10-32-pm.jpg",
-          "colorId": "black"
-        },
-        {
-          "url": "images/chatgpt-image-jun-1-2026-05-11-36-pm.jpg",
-          "colorId": "gray"
-        }
-      ]
-    },
-    {
-      "id": "p55kkov",
-      "itemCode": "SJ-036",
-      "sectionId": "corporate-gifts",
-      "typeId": "luxury-gifts",
-      "subtypeId": "st-executive-sets",
-      "name": {
-        "en": "Premium Business Gift Set",
-        "ar": "طقم هدايا أعمال فاخر"
-      },
-      "description": {
-        "en": "A complete gift set featuring a selection of practical essentials designed for everyday business use. Combining elegance and functionality in a premium presentation, it is an ideal choice for corporate gifting, recognition programs, and special occasions, with customization options available for all items with logos and brand identity.",
-        "ar": "طقم هدايا متكامل يضم مجموعة من المستلزمات العملية المصممة للاستخدام اليومي في بيئات العمل. يجمع بين الأناقة والفائدة في تقديم احترافي، مما يجعله خيارًا مثاليًا للهدايا المؤسسية، وبرامج التكريم، والمناسبات الخاصة، مع إمكانية تخصيص جميع العناصر بالشعار أو الهوية البصرية."
-      },
-      "colorIds": [
-        "royal-blue",
-        "navy-blue",
-        "dark-green",
-        "white"
-      ],
-      "images": [
-        {
-          "url": "images/chatgpt-image-jun-1-2026-05-16-16-pm.jpg",
-          "colorId": "royal-blue"
-        },
-        {
-          "url": "images/chatgpt-image-jun-1-2026-05-17-32-pm.jpg",
-          "colorId": "navy-blue"
-        },
-        {
-          "url": "images/chatgpt-image-jun-1-2026-05-19-26-pm.jpg",
-          "colorId": "dark-green"
-        },
-        {
-          "url": "images/chatgpt-image-jun-1-2026-05-20-17-pm.jpg",
-          "colorId": "white"
-        }
-      ]
-    },
-    {
-      "id": "pfp6w2c",
-      "itemCode": "SJ-037",
-      "sectionId": "corporate-gifts",
-      "typeId": "customized-gifts",
-      "subtypeId": "st-mugs-bottles",
-      "name": {
-        "en": "Insulated Travel Mug",
-        "ar": "كوب سفر حراري"
-      },
-      "description": {
-        "en": "A practical travel mug designed for daily commuting and workplace use, featuring a convenient lid for a comfortable drinking experience. Ideal for offices, travel, and events, it is one of the most popular corporate gift items and can be customized with logos and brand identity.",
-        "ar": "كوب عملي مصمم للاستخدام أثناء التنقل والعمل اليومي، مزود بغطاء يسهل الشرب ويحافظ على تجربة استخدام مريحة. مناسب للمكاتب، والرحلات، والفعاليات المختلفة، ويعد من أكثر الهدايا المؤسسية طلبًا مع إمكانية تخصيصه بالشعار أو الهوية البصرية."
-      },
-      "colorIds": [
-        "navy-blue",
-        "black"
-      ],
-      "images": [
-        {
-          "url": "images/cf5fdcad-e12a-4f6a-8737-0535a0def944.jpg",
-          "colorId": "navy-blue"
-        },
-        {
-          "url": "images/eb979d06-ff2c-4bee-bed5-90a6fbe11148.jpg",
-          "colorId": "black"
-        }
-      ]
-    },
-    {
-      "id": "pqb47kc",
-      "itemCode": "SJ-038",
-      "sectionId": "corporate-gifts",
-      "typeId": "customized-gifts",
-      "subtypeId": "st-tech-gifts",
-      "name": {
-        "en": "3-in-1 Magnetic Power Bank",
-        "ar": "بطارية محمولة مغناطيسية 3 في 1"
-      },
-      "description": {
-        "en": "A multifunctional power bank designed to charge multiple devices conveniently while on the go, featuring magnetic charging support and a digital battery display. Ideal for tech and corporate gifts, with customization options for logos and brand identity.",
-        "ar": "بنك طاقة متعدد الاستخدامات مصمم لشحن عدة أجهزة بطريقة عملية أثناء التنقل، مع دعم الشحن المغناطيسي ومؤشر رقمي لمتابعة مستوى الطاقة. مناسب للهدايا التقنية والمؤسسية مع إمكانية تخصيصه بالشعار أو الهوية البصرية."
-      },
-      "colorIds": [
-        "black",
-        "white"
-      ],
-      "images": [
-        {
-          "url": "images/a7fd382e-f4d7-4499-a360-3088b08e519a.jpg",
-          "colorId": "white"
-        },
-        {
-          "url": "images/a0091268-cdb1-45a4-abc1-af9f258ceafe.jpg",
-          "colorId": "black"
-        }
-      ]
-    },
-    {
-      "id": "pazgr9s",
-      "itemCode": "SJ-039",
-      "sectionId": "corporate-gifts",
-      "typeId": "customized-gifts",
-      "subtypeId": "st-tech-gifts",
-      "name": {
-        "en": "Eco-Friendly Wireless Charger",
-        "ar": "شاحن لاسلكي صديق للبيئة"
-      },
-      "description": {
-        "en": "An eco-friendly wireless charger made from sustainable materials, offering a convenient way to charge compatible devices without cables. Combining modern design with environmental responsibility, it is an excellent choice for corporate and promotional tech gifts, with customization options for logos and brand identity.",
-        "ar": "شاحن لاسلكي عملي مصنوع من مواد صديقة للبيئة، يوفر طريقة مريحة لشحن الأجهزة المتوافقة دون الحاجة إلى الكابلات. يجمع بين التصميم العصري والاستدامة، مما يجعله خيارًا مثاليًا للهدايا التقنية والمؤسسية مع إمكانية تخصيصه بالشعار أو الهوية البصرية."
-      },
-      "colorIds": [
-        "white",
-        "gold"
-      ],
-      "images": [
-        {
-          "url": "images/68f907a5-8195-4d00-8910-f6cc038549d2.jpg",
-          "colorId": "white"
-        },
-        {
-          "url": "images/82532827-0b97-40a7-a33e-47946a169c74.jpg",
-          "colorId": "gold"
-        }
-      ]
-    },
-    {
-      "id": "pachlma",
-      "itemCode": "SJ-040",
-      "sectionId": "corporate-gifts",
-      "typeId": "customized-gifts",
-      "subtypeId": "st-tech-gifts",
-      "name": {
-        "en": "3-in-1 Wireless Power Bank",
-        "ar": "بطارية محمولة لاسلكية 3 في 1"
-      },
-      "description": {
-        "en": "A multifunctional power bank designed to charge multiple devices conveniently while on the go. It supports wireless charging and features a digital battery display, making it a suitable choice for corporate and tech gifts with logo and branding customization options.",
-        "ar": "بنك طاقة متعدد الاستخدامات مصمم لشحن أكثر من جهاز بطريقة عملية أثناء التنقل. يدعم الشحن اللاسلكي ويأتي بمؤشر رقمي لعرض مستوى الطاقة، مما يجعله خيارًا مناسبًا للهدايا التقنية والمؤسسية مع إمكانية تخصيصه بالشعار أو الهوية البصرية."
-      },
-      "colorIds": [
-        "gray"
-      ],
-      "images": [
-        {
-          "url": "images/f61bb8e1-eda5-4996-bc31-8a33d32f0686.jpg",
-          "colorId": "gray"
-        }
-      ]
-    },
-    {
-      "id": "pzrqiis",
-      "itemCode": "SJ-041",
-      "sectionId": "corporate-gifts",
-      "typeId": "customized-gifts",
-      "subtypeId": "st-tech-gifts",
-      "name": {
-        "en": "Eco-Friendly Wireless Power Bank with Stand",
-        "ar": "بنك طاقة لاسلكي صديق للبيئة مع حامل"
-      },
-      "description": {
-        "en": "A multifunctional power bank that combines wireless charging with a built-in device stand, offering added convenience for work and travel. Made from eco-friendly materials and designed for everyday use, it is an excellent choice for corporate and promotional tech gifts, with customization options for logos and brand identity.",
-        "ar": "بنك طاقة متعدد الاستخدامات يجمع بين الشحن اللاسلكي وإمكانية استخدامه كحامل للأجهزة، مما يوفر تجربة عملية أثناء العمل أو التنقل. مصنوع من مواد صديقة للبيئة ويتميز بتصميم عصري يناسب الاستخدام اليومي، ويعد خيارًا مميزًا للهدايا التقنية والمؤسسية مع إمكانية تخصيصه بالشعار أو الهوية البصرية."
-      },
-      "colorIds": [
-        "white"
-      ],
-      "images": [
-        {
-          "url": "images/2d3ed940-462c-4215-8851-3d35ce185f28.jpg",
-          "colorId": "white"
-        }
-      ]
-    },
-    {
-      "id": "pn00byl",
-      "itemCode": "SJ-042",
-      "sectionId": "corporate-gifts",
-      "typeId": "customized-gifts",
-      "subtypeId": "st-desk-items",
-      "name": {
-        "en": "Smart Desk Organizer with Wireless Charger",
-        "ar": "منظم مكتب ذكي مع شاحن لاسلكي"
-      },
-      "description": {
-        "en": "A multifunctional desk organizer that combines stationery organization, note storage, and a dedicated wireless charging area for compatible devices. Designed to keep workspaces neat and efficient, it is an excellent choice for executive and corporate gifts with customization options for logos and brand identity.",
-        "ar": "منظم مكتبي متعدد الوظائف يجمع بين تنظيم الأدوات المكتبية وحفظ الملاحظات وتوفير مساحة مخصصة لشحن الأجهزة لاسلكيًا. يساعد على ترتيب مساحة العمل بشكل أنيق وعملي، ويعد خيارًا مميزًا للهدايا المؤسسية والتنفيذية مع إمكانية تخصيصه بالشعار أو الهوية البصرية."
-      },
-      "colorIds": [
-        "black"
-      ],
-      "images": [
-        {
-          "url": "images/966b1f23-aca3-4fd1-9de9-d96eb0e9c885.jpg",
-          "colorId": "black"
-        }
-      ]
-    },
-    {
-      "id": "pusmf9p",
-      "itemCode": "SJ-043",
-      "sectionId": "corporate-gifts",
-      "typeId": "customized-gifts",
-      "subtypeId": "st-desk-items",
-      "name": {
-        "en": "Eco-Friendly Mouse Pad with Wireless Charger",
-        "ar": "ماوس باد مع شاحن لاسلكي صديق للبيئة"
-      },
-      "description": {
-        "en": "A practical mouse pad that combines a comfortable working surface with an integrated wireless charging area for compatible devices. Made from eco-friendly materials, it adds organization and functionality to any workspace, making it an excellent choice for corporate and promotional tech gifts with logo and branding customization options.",
-        "ar": "ماوس باد عملي يجمع بين مساحة عمل مريحة للفأرة ومنطقة شحن لاسلكي مدمجة للأجهزة المتوافقة. مصنوع من مواد صديقة للبيئة ويضيف لمسة منظمة وعصرية إلى المكتب، مما يجعله خيارًا مميزًا للهدايا التقنية والمؤسسية مع إمكانية تخصيصه بالشعار أو الهوية البصرية."
-      },
-      "colorIds": [
-        "gold"
-      ],
-      "images": [
-        {
-          "url": "images/722eca56-332d-4926-9337-e85e635fb25e.jpg",
-          "colorId": "gold"
-        }
-      ]
-    },
-    {
-      "id": "p4rrxvc",
-      "itemCode": "SJ-044",
-      "sectionId": "corporate-gifts",
-      "typeId": "customized-gifts",
-      "subtypeId": "st-tech-gifts",
-      "name": {
-        "en": "Eco-Friendly Power Bank",
-        "ar": "بطارية محمولة صديقة للبيئة"
-      },
-      "description": {
-        "en": "A practical power bank designed for charging devices on the go, combining everyday performance with a sustainable design. Ideal for work, travel, and events, it is an excellent choice for corporate and promotional tech gifts with logo and branding customization options.",
-        "ar": "بنك طاقة عملي مصمم لشحن الأجهزة أثناء التنقل، يجمع بين الأداء اليومي والتصميم المستدام. مناسب للاستخدام في العمل والسفر والفعاليات، ويعد خيارًا مميزًا للهدايا التقنية والمؤسسية مع إمكانية تخصيصه بالشعار أو الهوية البصرية."
-      },
-      "colorIds": [
-        "gold"
-      ],
-      "images": [
-        {
-          "url": "images/5ae7b8c4-b609-4ab0-b95f-1dc6bc14c5a6.jpg",
-          "colorId": "gold"
-        }
-      ]
-    },
-    {
-      "id": "pxyetr1",
-      "itemCode": "SJ-045",
-      "sectionId": "corporate-gifts",
-      "typeId": "customized-gifts",
-      "subtypeId": "st-desk-items",
-      "name": {
-        "en": "Smart Desk Clock with Wireless Charger",
-        "ar": "ساعة المكتب الذكية مع شاحن لاسلكي"
-      },
-      "description": {
-        "en": "A multifunctional desk clock that combines time display, temperature monitoring, and wireless charging in an elegant natural-finish design. It adds a modern touch to any workspace or home and serves as a practical corporate tech gift with branding customization options.",
-        "ar": "ساعة مكتبية متعددة الوظائف تجمع بين عرض الوقت ودرجة الحرارة والشحن اللاسلكي في تصميم أنيق بلمسة طبيعية. تضيف مظهراً عصرياً لمساحة العمل أو المنزل، وتعد خياراً عملياً للهدايا التقنية والمؤسسية مع إمكانية تخصيصها بالهوية البصرية."
-      },
-      "colorIds": [
-        "gold"
-      ],
-      "images": [
-        {
-          "url": "images/bf796328-7314-4440-bbb8-d6b424960e99.jpg",
-          "colorId": "gold"
-        }
-      ]
-    },
-    {
-      "id": "pr4fe9g",
-      "itemCode": "SJ-046",
-      "sectionId": "corporate-gifts",
-      "typeId": "customized-gifts",
-      "subtypeId": "st-tech-gifts",
-      "name": {
-        "en": "Harmony Eco Speaker",
-        "ar": "سماعة Harmony البيئية"
-      },
-      "description": {
-        "en": "A portable speaker with a modern design inspired by natural materials, combining quality sound and portability in a compact form. Ideal for daily use at the office, home, or on the go, making it a stylish and sustainable tech gift option.",
-        "ar": "سماعة محمولة بتصميم عصري مستوحى من المواد الطبيعية، تجمع بين جودة الصوت وسهولة الحمل في حجم مدمج. مناسبة للاستخدام اليومي في المكتب أو المنزل أو أثناء التنقل، وتُعد خياراً أنيقاً للهدايا التقنية ذات الطابع المستدام."
-      },
-      "colorIds": [
-        "white"
-      ],
-      "images": [
-        {
-          "url": "images/a5114d29-6528-42a5-88a3-70ae3647bcbe.jpg",
-          "colorId": "white"
-        }
-      ]
-    },
-    {
-      "id": "po2pofe",
-      "itemCode": "SJ-047",
-      "sectionId": "corporate-gifts",
-      "typeId": "customized-gifts",
-      "subtypeId": "st-desk-items",
-      "name": {
-        "en": "Smart Desk Organizer with Mouse Pad",
-        "ar": "منظم المكتب الذكي مع قاعدة ماوس"
-      },
-      "description": {
-        "en": "A practical desk organizer that combines a comfortable mouse pad, phone holder, and dedicated compartments for pens and cards in an elegant natural-inspired design. It helps keep workspaces organized and efficient, making it an excellent corporate gift that can be customized with company branding.",
-        "ar": "منظم مكتبي عملي يجمع بين قاعدة ماوس مريحة وحامل للهاتف ومكان مخصص للأقلام والبطاقات في تصميم أنيق بلمسات طبيعية. يساعد على ترتيب مساحة العمل وتحسين التنظيم اليومي، ويُعد هدية مكتبية مميزة قابلة للتخصيص بالهوية البصرية للشركات."
-      },
-      "colorIds": [
-        "black"
-      ],
-      "images": [
-        {
-          "url": "images/f47938c4-b27f-4dc7-9548-be96aad71094.jpg",
-          "colorId": "black"
-        }
-      ]
-    },
-    {
-      "id": "pcx97ba",
-      "itemCode": "SJ-048",
-      "sectionId": "corporate-gifts",
-      "typeId": "customized-gifts",
-      "subtypeId": "st-tech-gifts",
-      "name": {
-        "en": "Wireless Power Bank",
-        "ar": "باور بنك لاسلكي"
-      },
-      "description": {
-        "en": "A sleek power bank that combines wired and wireless charging in a slim, modern design with a digital battery-level display. It provides reliable power on the go for work, travel, and daily use, making it an excellent customizable corporate tech gift.",
-        "ar": "باور بنك أنيق يجمع بين الشحن السلكي واللاسلكي في تصميم نحيف وعصري مع شاشة رقمية لعرض مستوى البطارية. يوفر طاقة موثوقة للأجهزة أثناء العمل أو السفر، ويُعد خياراً مثالياً للهدايا التقنية المميزة مع إمكانية تخصيصه بالهوية البصرية."
-      },
-      "colorIds": [
-        "black",
-        "green",
-        "gray"
-      ],
-      "images": [
-        {
-          "url": "images/chatgpt-image-jun-4-2026-03-17-40-pm.jpg",
-          "colorId": "gray"
-        },
-        {
-          "url": "images/chatgpt-image-jun-4-2026-03-20-43-pm.jpg",
-          "colorId": "green"
-        },
-        {
-          "url": "images/chatgpt-image-jun-4-2026-03-20-46-pm.jpg",
-          "colorId": "black"
-        }
-      ]
-    },
-    {
-      "id": "pgvksgh",
-      "itemCode": "SJ-049",
-      "sectionId": "corporate-gifts",
-      "typeId": "customized-gifts",
-      "subtypeId": "st-desk-items",
-      "name": {
-        "en": "Bamboo Desk Organizer with Wireless Charger",
-        "ar": "منظم المكتب الخيزراني مع شاحن لاسلكي"
-      },
-      "description": {
-        "en": "An elegant bamboo desk organizer that combines a phone stand, pen holder, and wireless charging area in a practical and organized design. It helps keep workspaces tidy while keeping essential devices within reach, making it an ideal eco-friendly corporate desk gift.",
-        "ar": "منظم مكتبي أنيق مصنوع من الخيزران الطبيعي، يجمع بين حامل الهاتف، وحافظة الأقلام، ومنطقة شحن لاسلكي في تصميم عملي ومنظم. يساعد على ترتيب مساحة العمل مع إبقاء الأجهزة الأساسية في متناول اليد، ويُعد خياراً مثالياً للهدايا المكتبية الصديقة للبيئة."
-      },
-      "colorIds": [
-        "gold"
-      ],
-      "images": [
-        {
-          "url": "images/c501ef41-3836-4c56-80df-7ecc8d429925.jpg"
-        }
-      ]
-    },
-    {
-      "id": "p6dbwn5",
-      "itemCode": "SJ-050",
-      "sectionId": "corporate-gifts",
-      "typeId": "employee-gifts",
-      "subtypeId": "",
-      "name": {
-        "en": "Executive Laptop Backpack",
-        "ar": "حقيبة أعمال احترافية"
-      },
-      "description": {
-        "en": "A professional laptop backpack designed for business and daily use. It offers organized storage for laptops and essentials while maintaining a clean and modern appearance, making it ideal for work, meetings, and corporate gifting.",
-        "ar": "حقيبة لابتوب بتصميم احترافي وأنيق، توفر مساحة منظمة لحمل جهاز الكمبيوتر والمستلزمات اليومية. مناسبة للعمل والاجتماعات والسفر القصير، وتتميز بمظهر عصري يناسب بيئات الأعمال والهدايا المؤسسية."
-      },
-      "colorIds": [
-        "black"
-      ],
-      "images": [
-        {
-          "url": "images/05362628-546a-4f21-a249-7f8081f03fb2.jpg",
-          "colorId": "black"
-        }
-      ]
     }
   ],
   "config": {
@@ -2083,6 +1055,14 @@
         }
       },
       {
+        "id": "bags-totes",
+        "sectionId": "corporate-gifts",
+        "name": {
+          "en": "Bags & Totes",
+          "ar": "شنط وحقائب"
+        }
+      },
+      {
         "id": "event-booths-stands",
         "sectionId": "events-materials",
         "name": {
@@ -2144,6 +1124,14 @@
         "name": {
           "en": "Event Packaging",
           "ar": "تغليف الفعاليات"
+        }
+      },
+      {
+        "id": "event-bags",
+        "sectionId": "events-materials",
+        "name": {
+          "en": "Event Bags",
+          "ar": "شنط الفعاليات"
         }
       },
       {
@@ -3314,6 +2302,70 @@
         "name": {
           "en": "Growth Plan",
           "ar": "خطة النمو"
+        }
+      },
+      {
+        "id": "st-tote-bags",
+        "typeId": "bags-totes",
+        "name": {
+          "en": "Tote Bags",
+          "ar": "شنط قماشية"
+        }
+      },
+      {
+        "id": "st-backpacks",
+        "typeId": "bags-totes",
+        "name": {
+          "en": "Backpacks",
+          "ar": "حقائب ظهر"
+        }
+      },
+      {
+        "id": "st-duffel-bags",
+        "typeId": "bags-totes",
+        "name": {
+          "en": "Duffel Bags",
+          "ar": "حقائب رياضية"
+        }
+      },
+      {
+        "id": "st-cosmetic-bags",
+        "typeId": "bags-totes",
+        "name": {
+          "en": "Cosmetic Bags",
+          "ar": "شنط مكياج"
+        }
+      },
+      {
+        "id": "st-laptop-bags",
+        "typeId": "bags-totes",
+        "name": {
+          "en": "Laptop Bags",
+          "ar": "حقائب لابتوب"
+        }
+      },
+      {
+        "id": "st-conference-bags",
+        "typeId": "event-bags",
+        "name": {
+          "en": "Conference Bags",
+          "ar": "شنط مؤتمرات"
+        }
+      },
+      {
+        "id": "st-exhibition-bags",
+        "typeId": "event-bags",
+        "name": {
+          "en": "Exhibition Bags",
+          "ar": "شنط معارض"
+        }
+      },
+      {
+        "id": "st-welcome-bags",
+        "typeId": "event-bags",
+        "name": {
+          "en": "Welcome Bags",
+          "ar": "شنط ترحيب"
         }
       }
     ]
