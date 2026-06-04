@@ -298,6 +298,7 @@ function renderProducts(data){
     // Stash images on card for interactions
     card._images = images;
     grid.appendChild(card);
+    startAutoSlide(card);
   });
   // Re-apply current language
   const lang = document.documentElement.getAttribute('lang') || 'en';
@@ -453,6 +454,29 @@ function swapMainImage(card, idx){
   }, 150);
   // Update active thumbnail
   card.querySelectorAll('.product-card__thumb').forEach((t, i) => t.classList.toggle('is-active', i === idx));
+  // Track current index for auto-slide
+  card._slideIdx = idx;
+}
+
+function startAutoSlide(card){
+  if (card._slideInterval) clearInterval(card._slideInterval);
+  card._slideActive = true;
+  card._slideIdx = 0;
+  const imgs = card._images || [];
+  if (imgs.length <= 1) return;
+  card._slideInterval = setInterval(() => {
+    if (!card._slideActive || card.offsetParent === null) return; // skip if hidden by filters
+    card._slideIdx = (card._slideIdx + 1) % imgs.length;
+    swapMainImage(card, card._slideIdx);
+  }, 2500);
+}
+
+function stopAutoSlide(card){
+  card._slideActive = false;
+  if (card._slideInterval){
+    clearInterval(card._slideInterval);
+    card._slideInterval = null;
+  }
 }
 
 grid.addEventListener('click', (e) => {
@@ -464,6 +488,7 @@ grid.addEventListener('click', (e) => {
     picker.dataset.selected = sw.dataset.color;
     // Swap main image if any image is bound to this color
     const card = sw.closest('.product-card');
+    stopAutoSlide(card); // user picked a color — stop slideshow
     const cid = sw.dataset.colorId;
     if (cid && card._images){
       const idx = card._images.findIndex(im => im.colorId === cid);
@@ -473,6 +498,7 @@ grid.addEventListener('click', (e) => {
   const thumb = e.target.closest('.product-card__thumb');
   if (thumb){
     const card = thumb.closest('.product-card');
+    stopAutoSlide(card); // user clicked a thumbnail — stop slideshow
     swapMainImage(card, +thumb.dataset.idx);
     // If this thumbnail is bound to a color, also select that swatch
     const cid = thumb.dataset.colorId;
