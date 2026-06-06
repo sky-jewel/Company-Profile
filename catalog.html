@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sky Jewel — Gift Catalog</title>
+<meta name="description" content="Browse and download Sky Jewel's complete gift catalog featuring premium corporate gifts, event materials, and promotional solutions." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+<style>
+.catalog-hero {
+  padding: 120px var(--pad-x) 80px;
+  text-align: center;
+  background: linear-gradient(135deg, var(--teal-soft) 0%, #fff 50%, var(--teal-soft) 100%);
+  position: relative;
+  overflow: hidden;
+}
+.catalog-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="%23C5A059" stroke-width="0.5" opacity="0.1"/></svg>');
+  background-size: 80px 80px;
+  opacity: 0.3;
+}
+.catalog-hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.catalog-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  background: var(--teal-deep);
+  color: #fff;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.catalog-hero__title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 24px;
+}
+.catalog-hero__desc {
+  font-size: 1.125rem;
+  color: var(--ink-muted);
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+.catalog-hero__actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.btn-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 32px;
+  background: var(--teal-deep);
+  color: #fff;
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s var(--ease);
+  border: 2px solid var(--teal-deep);
+}
+.btn-download:hover {
+  background: transparent;
+  color: var(--teal-deep);
+  transform: translateY(-2px);
+}
+.btn-download svg {
+  width: 20px;
+  height: 20px;
+}
+.catalog-section {
+  padding: 80px var(--pad-x);
+}
+.catalog-section__header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+.catalog-section__title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+.catalog-section__subtitle {
+  font-size: 1.125rem;
+  color: var(--ink-muted);
+}
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 32px;
+  max-width: var(--container);
+  margin: 0 auto;
+}
+.catalog-item {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all 0.4s var(--ease);
+  box-shadow: var(--shadow-sm);
+}
+.catalog-item:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+.catalog-item__media {
+  position: relative;
+  aspect-ratio: 4/3;
+  background: var(--teal-soft);
+  overflow: hidden;
+}
+.catalog-item__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s var(--ease);
+}
+.catalog-item:hover .catalog-item__img {
+  transform: scale(1.05);
+}
+.catalog-item__badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 6px 12px;
+  background: rgba(13, 20, 20, 0.9);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+}
+.catalog-item__body {
+  padding: 20px;
+}
+.catalog-item__code {
+  display: inline-block;
+  padding: 4px 10px;
+  background: var(--teal-soft);
+  color: var(--teal-deep);
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+.catalog-item__name {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+.catalog-item__desc {
+  font-size: 0.875rem;
+  color: var(--ink-muted);
+  line-height: 1.6;
+  margin-bottom: 16px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.catalog-item__colors {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.catalog-item__color {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid var(--line);
+  flex-shrink: 0;
+}
+.catalog-item__color:hover {
+  transform: scale(1.1);
+}
+.catalog-footer {
+  padding: 60px var(--pad-x);
+  text-align: center;
+  background: var(--teal-soft);
+}
+.catalog-footer__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+.catalog-footer__text {
+  color: var(--ink-muted);
+  margin-bottom: 24px;
+}
+[dir="rtl"] .catalog-item__badge {
+  right: auto;
+  left: 12px;
+}
+</style>
+</head>
+<body>
+
+<!-- Scroll progress -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Decorative pattern layers -->
+<div class="pattern-layer pattern-layer--fixed" aria-hidden="true"></div>
+
+<!-- Language toggle / Nav -->
+<header class="nav" id="nav">
+  <a href="index.html" class="nav__brand" aria-label="Sky Jewel home">
+    <img src="assets/logo.svg" alt="Sky Jewel" class="nav__logo" />
+  </a>
+  <nav class="nav__links" aria-label="Primary">
+    <a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a>
+    <a href="products.html" data-en="Products" data-ar="المنتجات">Products</a>
+    <a href="catalog.html" class="active" data-en="Catalog" data-ar="الكاتلوج">Catalog</a>
+    <a href="index.html#contact" data-en="Contact" data-ar="تواصل">Contact</a>
+  </nav>
+  <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+    <span class="lang-toggle__en">EN</span>
+    <span class="lang-toggle__sep">/</span>
+    <span class="lang-toggle__ar">ع</span>
+  </button>
+</header>
+
+<!-- ======================= CATALOG HERO ======================= -->
+<section class="catalog-hero">
+  <div class="catalog-hero__inner">
+    <div class="catalog-hero__badge reveal">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+      </svg>
+      <span data-en="2025 Collection" data-ar="مجموعة 2025">2025 Collection</span>
+    </div>
+    <h1 class="catalog-hero__title reveal" data-en="Gift Catalog" data-ar="كاتلوج الهدايا">Gift Catalog</h1>
+    <p class="catalog-hero__desc reveal" data-en="Explore our complete collection of premium corporate gifts, event materials, and promotional solutions. Download the PDF catalog for offline browsing." data-ar="استكشف مجموعتنا الكاملة من الهدايا المؤسسية الفاخرة ومواد الفعاليات والحلول الترويجية. حمل الكاتلوج بصيغة PDF للتصفح دون اتصال.">
+      Explore our complete collection of premium corporate gifts, event materials, and promotional solutions. Download the PDF catalog for offline browsing.
+    </p>
+    <div class="catalog-hero__actions reveal">
+      <a href="catalog.pdf" class="btn-download" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        <span data-en="Download PDF Catalog" data-ar="تحميل الكاتلوج PDF">Download PDF Catalog</span>
+      </a>
+      <a href="products.html" class="btn btn--ghost">
+        <span data-en="Browse Online" data-ar="تصفح أونلاين">Browse Online</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CATALOG GRID ======================= -->
+<section class="catalog-section" id="catalogGrid">
+  <div class="catalog-section__header">
+    <h2 class="catalog-section__title" data-en="Complete Collection" data-ar="المجموعة الكاملة">Complete Collection</h2>
+    <p class="catalog-section__subtitle" data-en="All products available for customization with your brand identity" data-ar="جميع المنتجات متاحة للتخصيص بهويتك البصرية">
+      All products available for customization with your brand identity
+    </p>
+  </div>
+  <div class="catalog-grid" id="catalogGridContainer">
+    <!-- Products will be loaded here -->
+  </div>
+</section>
+
+<!-- ======================= CATALOG FOOTER ======================= -->
+<section class="catalog-footer">
+  <h2 class="catalog-footer__title" data-en="Need Custom Solutions?" data-ar="تحتاج حلول مخصصة؟">Need Custom Solutions?</h2>
+  <p class="catalog-footer__text" data-en="Contact us for bespoke gift sets, bulk orders, and tailored branding solutions." data-ar="تواصل معنا للحصول على مجموعات هدايا مخصصة، وطلبات الجملة، وحلول الهوية المتكاملة.">
+    Contact us for bespoke gift sets, bulk orders, and tailored branding solutions.
+  </p>
+  <a href="https://wa.me/966583801179" class="btn btn--primary" target="_blank">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    <span data-en="Contact on WhatsApp" data-ar="تواصل عبر واتساب">Contact on WhatsApp</span>
+  </a>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <img src="assets/logo.svg" alt="Sky Jewel" class="footer__logo" />
+        <p class="footer__tagline" data-en="Crafted with refinement. Delivered with intent." data-ar="نصنع بأناقة، ونسلّم بدقة.">Crafted with refinement. Delivered with intent.</p>
+      </div>
+      <div>
+        <h4 class="footer__heading" data-en="Quick Links" data-ar="روابط سريعة">Quick Links</h4>
+        <ul class="footer__links">
+          <li><a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a></li>
+          <li><a href="products.html" data-en="Products" data-ar="المنتجات">Products</a></li>
+          <li><a href="catalog.html" data-en="Catalog" data-ar="الكاتلوج">Catalog</a></li>
+          <li><a href="index.html#contact" data-en="Contact" data-ar="تواصل">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer__heading" data-en="Contact" data-ar="تواصل">Contact</h4>
+        <ul class="footer__links">
+          <li><a href="https://wa.me/966583801179" target="_blank">WhatsApp: +966 58 380 1179</a></li>
+          <li><a href="mailto:info@skyjewel.sa">info@skyjewel.sa</a></li>
+          <li><span data-en="Riyadh, Saudi Arabia" data-ar="الرياض، المملكة العربية السعودية">Riyadh, Saudi Arabia</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p data-en="© 2025 Sky Jewel. All rights reserved." data-ar="© 2025 سكاي جول. جميع الحقوق محفوظة.">© 2025 Sky Jewel. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Load products.json and render catalog
+const COLOR_MAP = new Map();
+const SECTION_MAP = new Map();
+const TYPE_MAP = new Map();
+
+async function loadCatalog() {
+  try {
+    const res = await fetch('products.json');
+    const data = await res.json();
+    
+    // Build color map
+    if (data.config?.colors) {
+      data.config.colors.forEach(c => COLOR_MAP.set(c.id, c));
+    }
+    
+    // Build section/type maps
+    if (data.config?.sections) {
+      data.config.sections.forEach(s => SECTION_MAP.set(s.id, s.name?.en || s.id));
+    }
+    if (data.config?.types) {
+      data.config.types.forEach(t => TYPE_MAP.set(t.id, t.name?.en || t.id));
+    }
+    
+    const container = document.getElementById('catalogGridContainer');
+    
+    data.products.forEach(p => {
+      const colors = (p.colorIds || []).map(id => COLOR_MAP.get(id)).filter(Boolean);
+      const mainImg = (p.images || [])[0]?.url || '';
+      const sectionName = SECTION_MAP.get(p.sectionId) || '';
+      
+      const item = document.createElement('div');
+      item.className = 'catalog-item reveal';
+      item.innerHTML = `
+        <div class="catalog-item__media">
+          <img src="${mainImg}" alt="${p.name?.en || ''}" class="catalog-item__img" loading="lazy" onerror="this.style.background='var(--teal-soft)';this.removeAttribute('src');" />
+          <span class="catalog-item__badge">${sectionName}</span>
+        </div>
+        <div class="catalog-item__body">
+          ${p.itemCode ? `<span class="catalog-item__code">${p.itemCode}</span>` : ''}
+          <h3 class="catalog-item__name" data-en="${p.name?.en || ''}" data-ar="${p.name?.ar || ''}">${p.name?.en || ''}</h3>
+          <p class="catalog-item__desc" data-en="${p.description?.en || ''}" data-ar="${p.description?.ar || ''}">${p.description?.en || ''}</p>
+          <div class="catalog-item__colors">
+            ${colors.map(c => `<span class="catalog-item__color" style="background:${c.hex}" title="${c.name?.en || ''}"></span>`).join('')}
+          </div>
+        </div>
+      `;
+      container.appendChild(item);
+    });
+    
+    // Apply language
+    applyLanguage();
+    
+    // Trigger reveal animations
+    setTimeout(() => {
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
+    }, 100);
+    
+  } catch (err) {
+    console.error('Failed to load catalog:', err);
+    document.getElementById('catalogGridContainer').innerHTML = '<p style="text-align:center;padding:40px;color:var(--ink-muted)">Failed to load catalog. Please try again later.</p>';
+  }
+}
+
+function applyLanguage() {
+  const lang = document.documentElement.getAttribute('lang') || 'en';
+  document.querySelectorAll('[data-en],[data-ar]').forEach(el => {
+    const v = el.getAttribute(lang === 'ar' ? 'data-ar' : 'data-en');
+    if (v != null) el.textContent = v;
+  });
+  document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+}
+
+// Language toggle
+document.getElementById('langToggle').addEventListener('click', () => {
+  const current = document.documentElement.getAttribute('lang') || 'en';
+  const next = current === 'en' ? 'ar' : 'en';
+  document.documentElement.setAttribute('lang', next);
+  applyLanguage();
+});
+
+// Scroll progress
+window.addEventListener('scroll', () => {
+  const winScroll = document.documentElement.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (winScroll / height) * 100;
+  document.getElementById('scrollProgress').style.width = scrolled + '%';
+});
+
+// Load catalog on page load
+loadCatalog();
+</script>
+</body>
+</html>
