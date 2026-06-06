@@ -99,6 +99,47 @@
   height: 20px;
 }
 
+.catalog-preview {
+  padding: 70px var(--pad-x);
+  background: #fff;
+}
+
+.catalog-preview__inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.catalog-preview__title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.catalog-preview__text {
+  font-size: 1rem;
+  color: var(--ink-muted);
+  margin-bottom: 32px;
+}
+
+.catalog-preview__frame {
+  width: 100%;
+  height: 720px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 32px;
+  background: var(--teal-soft);
+}
+
+.catalog-preview__frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
 .catalog-section {
   padding: 80px var(--pad-x);
 }
@@ -221,10 +262,6 @@
   flex-shrink: 0;
 }
 
-.catalog-item__color:hover {
-  transform: scale(1.1);
-}
-
 .catalog-products-action {
   text-align: center;
   margin-top: 44px;
@@ -251,6 +288,16 @@
 [dir="rtl"] .catalog-item__badge {
   right: auto;
   left: 12px;
+}
+
+@media (max-width: 768px) {
+  .catalog-hero {
+    padding: 145px var(--pad-x) 60px;
+  }
+
+  .catalog-preview__frame {
+    height: 520px;
+  }
 }
 </style>
 </head>
@@ -292,25 +339,48 @@
 
     <h1 class="catalog-hero__title reveal" data-en="Gift Catalog" data-ar="كاتلوج الهدايا">Gift Catalog</h1>
 
-    <p class="catalog-hero__desc reveal" data-en="Explore our complete collection of premium corporate gifts, event materials, and promotional solutions. Download the PDF catalog for offline browsing." data-ar="استكشف مجموعتنا الكاملة من الهدايا المؤسسية الفاخرة ومواد الفعاليات والحلول الترويجية. حمل الكاتلوج بصيغة PDF للتصفح دون اتصال.">
-      Explore our complete collection of premium corporate gifts, event materials, and promotional solutions. Download the PDF catalog for offline browsing.
+    <p class="catalog-hero__desc reveal" data-en="Explore our complete collection of premium corporate gifts, event materials, and promotional solutions. Browse the catalog online or download the PDF version." data-ar="استكشف مجموعتنا الكاملة من الهدايا المؤسسية ومواد الفعاليات والحلول الترويجية. تصفح الكاتلوج مباشرة أو حمّل نسخة PDF.">
+      Explore our complete collection of premium corporate gifts, event materials, and promotional solutions. Browse the catalog online or download the PDF version.
     </p>
 
     <div class="catalog-hero__actions reveal">
+      <a href="#catalogPreview" class="btn btn--primary">
+        <span data-en="Browse Catalog" data-ar="استعراض الكاتلوج">Browse Catalog</span>
+        <i class="btn__arrow">↓</i>
+      </a>
+
       <a href="https://drive.google.com/uc?export=download&id=1H2V6cjNuWt5NJ1dJDfKduwbtRYG9h6BZ" class="btn-download" target="_blank" rel="noopener noreferrer">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
           <polyline points="7 10 12 15 17 10"></polyline>
           <line x1="12" y1="15" x2="12" y2="3"></line>
         </svg>
-        <span data-en="Download PDF Catalog" data-ar="تحميل الكاتلوج PDF">Download PDF Catalog</span>
-      </a>
-
-      <a href="products.html" class="btn btn--ghost">
-        <span data-en="Browse Online" data-ar="تصفح أونلاين">Browse Online</span>
+        <span data-en="Download PDF" data-ar="تحميل PDF">Download PDF</span>
       </a>
     </div>
 
+  </div>
+</section>
+
+<section class="catalog-preview" id="catalogPreview">
+  <div class="catalog-preview__inner">
+    <h2 class="catalog-preview__title" data-en="Browse Catalog Online" data-ar="تصفح الكاتلوج مباشرة">Browse Catalog Online</h2>
+
+    <p class="catalog-preview__text" data-en="View the catalog directly in your browser without downloading." data-ar="استعرض الكاتلوج مباشرة من المتصفح بدون تحميل.">
+      View the catalog directly in your browser without downloading.
+    </p>
+
+    <div class="catalog-preview__frame">
+      <iframe
+        src="https://drive.google.com/file/d/1H2V6cjNuWt5NJ1dJDfKduwbtRYG9h6BZ/preview"
+        allow="autoplay"
+        loading="lazy">
+      </iframe>
+    </div>
+
+    <a href="https://drive.google.com/uc?export=download&id=1H2V6cjNuWt5NJ1dJDfKduwbtRYG9h6BZ" class="btn-download" target="_blank" rel="noopener noreferrer">
+      <span data-en="Download PDF Catalog" data-ar="تحميل الكاتلوج PDF">Download PDF Catalog</span>
+    </a>
   </div>
 </section>
 
@@ -336,6 +406,7 @@
 
 <section class="catalog-footer">
   <h2 class="catalog-footer__title" data-en="Need Custom Solutions?" data-ar="تحتاج حلول مخصصة؟">Need Custom Solutions?</h2>
+
   <p class="catalog-footer__text" data-en="Contact us for bespoke gift sets, bulk orders, and tailored branding solutions." data-ar="تواصل معنا للحصول على مجموعات هدايا مخصصة، وطلبات الجملة، وحلول الهوية المتكاملة.">
     Contact us for bespoke gift sets, bulk orders, and tailored branding solutions.
   </p>
