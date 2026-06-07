@@ -1886,6 +1886,882 @@
           "colorId": "black"
         }
       ]
+    },
+    {
+      "id": "pyi44sg",
+      "itemCode": "SJ-051",
+      "sectionId": "corporate-gifts",
+      "typeId": "luxury-gifts",
+      "subtypeId": "st-vip-gift-sets",
+      "name": {
+        "en": "Executive Desk Set",
+        "ar": "مجموعة مكتب تنفيذية"
+      },
+      "description": {
+        "en": "Elevate your workspace with our premium executive desk set, complete with a notebook, pen, usb, card holder, powerbank.",
+        "ar": "ارفع مستوى مكتبك مع مجموعة مكتبية تنفيذية ممتازة، تشمل دفتر، قلم، فلاش و حامل بطاقات و بطارية متنقلة."
+      },
+      "colorIds": [
+        "dark-green",
+        "navy-blue",
+        "black",
+        "white",
+        "gray"
+      ],
+      "images": [
+        {
+          "url": "images/chatgpt-image-jun-7-2026-02-25-46-pm.jpg",
+          "colorId": "dark-green"
+        },
+        {
+          "url": "images/chatgpt-image-jun-7-2026-02-26-55-pm.jpg",
+          "colorId": "navy-blue"
+        },
+        {
+          "url": "images/chatgpt-image-jun-7-2026-02-28-11-pm.jpg",
+          "colorId": "black"
+        },
+        {
+          "url": "images/chatgpt-image-jun-7-2026-02-28-24-pm.jpg",
+          "colorId": "white"
+        },
+        {
+          "url": "images/chatgpt-image-jun-7-2026-02-29-50-pm.jpg",
+          "colorId": "gray"
+        }
+      ]
+    },
+    {
+      "id": "p8c6x8u",
+      "itemCode": "SJ-052",
+      "sectionId": "corporate-gifts",
+      "typeId": "welcome-kits",
+      "subtypeId": "st-emp-welcome",
+      "name": {
+        "en": "Employee Welcome Kit",
+        "ar": "حزمة الترحيب للموظفين"
+      },
+      "description": {
+        "en": "A comprehensive welcome kit for new employees",
+        "ar": "حزمة ترحيب شاملة للموظفين الجدد"
+      },
+      "colorIds": [
+        "purple",
+        "gray",
+        "dark-green",
+        "royal-blue",
+        "black"
+      ],
+      "images": [
+        {
+          "url": "images/chatgpt-image-jun-7-2026-02-32-02-pm.jpg",
+          "colorId": "purple"
+        },
+        {
+          "url": "images/chatgpt-image-jun-7-2026-02-34-41-pm.jpg",
+          "colorId": "gray"
+        },
+        {
+          "url": "images/chatgpt-image-jun-7-2026-02-39-22-pm.jpg",
+          "colorId": "dark-green"
+        },
+        {
+          "url": "images/chatgpt-image-jun-7-2026-02-42-27-pm.jpg",
+          "colorId": "royal-blue"
+        },
+        {
+          "url": "images/chatgpt-image-jun-7-2026-02-45-00-pm.jpg",
+          "colorId": "black"
+        }
+      ]
+    },
+    {
+      "id": "pqbegqp",
+      "itemCode": "SJ-053",
+      "sectionId": "corporate-gifts",
+      "typeId": "luxury-gifts",
+      "subtypeId": "st-premium-boxes",
+      "name": {
+        "en": "Corporate Gift Box",
+        "ar": "صندوق هدايا الشركات"
+      },
+      "description": {
+        "en": "Elevate your corporate gifting with our premium gift box, complete with a selection of high-quality items.",
+        "ar": "ارفع مستوى هدايا الشركات الخاصة بك مع صندوق الهدايا الممتاز الخاص بنا، المكتمل بمجموعة من العناصر عالية الجودة."
+      },
+      "colorIds": [
+        "gray",
+        "white",
+        "green",
+        "navy-blue",
+        "black"
+      ],
+      "images": [
+        {
+          "url": "images/chatgpt-image-jun-7-2026-02-55-53-pm.jpg",
+          "colorId": "gray"
+        },
+        {
+          "url": "images/chatgpt-image-jun-7-2026-02-58-48-pm.jpg",
+          "colorId": "white"
+        },
+        {
+          "url": "images/chatgpt-image-jun-7-2026-02-59-59-pm.jpg",
+          "colorId": "green"
+        },
+        {
+          "url": "images/chatgpt-image-jun-7-2026-03-01-40-pm.jpg",
+          "colorId": "navy-blue"
+        },
+        {
+          "url": "images/chatgpt-image-jun-7-2026-03-03-00-pm.jpg",
+          "colorId": "black"
+        }
+      ]
+    },
+    {
+      "id": "pzeyjqx",
+      "itemCode": "SJ-054",
+      "sectionId": "corporate-gifts",
+      "typeId": "luxury-gifts",
+      "subtypeId": "st-executive-sets",
+      "name": {
+        "en": "Luxury Gift Set",
+        "ar": "طقم هدايا فاخر"
+      },
+      "description": {
+        "en": "Elevate your gifting with our luxurious gift set",
+        "ar": "ارفع مستوى الهدايا الخاصة بك مع طقم الهدايا الفاخر"
+      },
+      "colorIds": [
+        "purple",
+        "white",
+        "dark-green",
+        "black",
+        "navy-blue"
+      ],
+      "images": [
+        {
+          "url": "images/chatgpt-image-jun-7-2026-03-04-51-pm.jpg",
+          "colorId": "purple"
+        },
+        {
+          "url": "images/chatgpt-image-jun-7-2026-03-10-24-pm.jpg",
+          "colorId": "white"
+        },
+        {
+          "url": "images/chatgpt-image-jun-7-2026-03-10-30-pm.jpg",
+          "colorId": "dark-green"
+        },
+        {
+          "url": "images/chatgpt-image-jun-7-2026-03-11-58-pm.jpg",
+          "colorId": "black"
+        },
+        {
+          "url": "images/chatgpt-image-jun-7-2026-03-20-12-pm.jpg",
+          "colorId": "navy-blue"
+        }
+      ]
+    },
+    {
+      "id": "p2uipow",
+      "itemCode": "SJ-055",
+      "sectionId": "corporate-gifts",
+      "typeId": "luxury-gifts",
+      "subtypeId": "st-executive-sets",
+      "name": {
+        "en": "Gift Set",
+        "ar": "طقم هدايا"
+      },
+      "description": {
+        "en": "Elegant pink gift set with notebook, pen, usb and card holder",
+        "ar": "طقم هدايا أنيق يتضمن دفتر ملاحظات، قلم، فلاشة وحامل بطاقة"
+      },
+      "colorIds": [
+        "white",
+        "red",
+        "navy-blue",
+        "purple",
+        "black",
+        "dark-green"
+      ],
+      "images": [
+        {
+          "url": "images/chatgpt-image-jun-7-2026-03-22-35-pm.jpg",
+          "colorId": "white"
+        },
+        {
+          "url": "images/chatgpt-image-jun-7-2026-03-41-50-pm.jpg",
+          "colorId": "red"
+        },
+        {
+          "url": "images/chatgpt-image-jun-7-2026-03-55-04-pm.jpg",
+          "colorId": "navy-blue"
+        },
+        {
+          "url": "images/chatgpt-image-jun-7-2026-03-56-31-pm.jpg",
+          "colorId": "purple"
+        },
+        {
+          "url": "images/chatgpt-image-jun-7-2026-03-58-11-pm.jpg",
+          "colorId": "black"
+        },
+        {
+          "url": "images/chatgpt-image-jun-7-2026-03-59-36-pm.jpg",
+          "colorId": "dark-green"
+        },
+        {
+          "url": "images/chatgpt-image-jun-7-2026-04-01-19-pm.jpg",
+          "colorId": "white"
+        }
+      ]
+    },
+    {
+      "id": "px9r76m",
+      "itemCode": "SJ-056",
+      "sectionId": "corporate-gifts",
+      "typeId": "luxury-gifts",
+      "subtypeId": "st-executive-sets",
+      "name": {
+        "en": "Executive Gift Set",
+        "ar": "مجموعة هدايا تنفيذية"
+      },
+      "description": {
+        "en": "Elevate your corporate gifting with our premium gift set",
+        "ar": "ارفع مستوى هداياك التجارية مع مجموعتنا المميزة"
+      },
+      "colorIds": [
+        "red",
+        "white",
+        "dark-green",
+        "purple",
+        "gray",
+        "black",
+        "navy-blue"
+      ],
+      "images": [
+        {
+          "url": "images/chatgpt-image-jun-7-2026-04-04-41-pm.jpg",
+          "colorId": "red"
+        },
+        {
+          "url": "images/chatgpt-image-jun-7-2026-04-05-46-pm.jpg",
+          "colorId": "white"
+        },
+        {
+          "url": "images/chatgpt-image-jun-7-2026-04-21-10-pm.jpg",
+          "colorId": "dark-green"
+        },
+        {
+          "url": "images/chatgpt-image-jun-7-2026-04-24-56-pm.jpg",
+          "colorId": "purple"
+        },
+        {
+          "url": "images/chatgpt-image-jun-7-2026-04-26-57-pm.jpg",
+          "colorId": "gray"
+        },
+        {
+          "url": "images/chatgpt-image-jun-7-2026-04-29-02-pm.jpg",
+          "colorId": "black"
+        },
+        {
+          "url": "images/chatgpt-image-jun-7-2026-04-30-50-pm.jpg",
+          "colorId": "navy-blue"
+        }
+      ]
+    },
+    {
+      "id": "p61qwm6",
+      "itemCode": "SJ-057",
+      "sectionId": "corporate-gifts",
+      "typeId": "luxury-gifts",
+      "subtypeId": "st-executive-sets",
+      "name": {
+        "en": "Executive Gift Box",
+        "ar": "صندوق هدايا تنفيذي"
+      },
+      "description": {
+        "en": "Luxury gift box with pen and notebook",
+        "ar": "صندوق هدايا فاخر مع قلم ومفكرة"
+      },
+      "colorIds": [
+        "purple",
+        "navy-blue",
+        "dark-green",
+        "gray",
+        "black",
+        "white"
+      ],
+      "images": [
+        {
+          "url": "images/chatgpt-image-jun-7-2026-04-33-12-pm.jpg",
+          "colorId": "purple"
+        },
+        {
+          "url": "images/chatgpt-image-jun-7-2026-04-39-25-pm.jpg",
+          "colorId": "navy-blue"
+        },
+        {
+          "url": "images/chatgpt-image-jun-7-2026-04-40-30-pm.jpg",
+          "colorId": "dark-green"
+        },
+        {
+          "url": "images/chatgpt-image-jun-7-2026-04-41-50-pm.jpg",
+          "colorId": "gray"
+        },
+        {
+          "url": "images/chatgpt-image-jun-7-2026-04-42-32-pm.jpg",
+          "colorId": "black"
+        },
+        {
+          "url": "images/chatgpt-image-jun-7-2026-04-43-17-pm.jpg",
+          "colorId": "white"
+        }
+      ]
+    },
+    {
+      "id": "pqdhd6l",
+      "itemCode": "SJ-058",
+      "sectionId": "corporate-gifts",
+      "typeId": "promotional-giveaways",
+      "subtypeId": "st-eco-giveaways",
+      "name": {
+        "en": "Bamboo Gift Set",
+        "ar": "طقم هدايا من الخيزران"
+      },
+      "description": {
+        "en": "Elevate your corporate gifts with our bamboo executive gift set, complete with a notebook and pen.",
+        "ar": "ارفع هداياك التجارية مع طقم الهدايا التنفيذية من الخيزران، مكتمل بمفكرة وقلم."
+      },
+      "colorIds": [
+        "gold"
+      ],
+      "images": [
+        {
+          "url": "images/chatgpt-image-jun-7-2026-04-45-48-pm.jpg",
+          "colorId": "gold"
+        }
+      ]
+    },
+    {
+      "id": "pix294w",
+      "itemCode": "SJ-059",
+      "sectionId": "corporate-gifts",
+      "typeId": "promotional-giveaways",
+      "subtypeId": "st-eco-giveaways",
+      "name": {
+        "en": "Eco-Friendly Cork Notebook and Pen Set",
+        "ar": "مجموعة دفتر وقلم صديق للبيئة من الفلين"
+      },
+      "description": {
+        "en": "Elevate your brand with our eco-friendly cork notebook and pen set, perfect for sustainable gifting.",
+        "ar": "ارفع علامتك التجارية مع مجموعة دفتر وقلم صديق للبيئة من الفلين، مثالية للهدايا المستدامة."
+      },
+      "colorIds": [
+        "gold"
+      ],
+      "images": [
+        {
+          "url": "images/chatgpt-image-jun-7-2026-04-46-46-pm.jpg",
+          "colorId": "gold"
+        }
+      ]
+    },
+    {
+      "id": "p6zsy6a",
+      "itemCode": "SJ-060",
+      "sectionId": "corporate-gifts",
+      "typeId": "customized-gifts",
+      "subtypeId": "st-pens",
+      "name": {
+        "en": "Executive Pen",
+        "ar": "قلم تنفيذي"
+      },
+      "description": {
+        "en": "Premium pen with sleek design",
+        "ar": "قلم فاخر بتصميم أنيق"
+      },
+      "colorIds": [
+        "gray",
+        "black",
+        "royal-blue",
+        "dark-green"
+      ],
+      "images": [
+        {
+          "url": "images/5d3ba310-b017-448b-b32d-9ab052912547.jpg",
+          "colorId": "gray"
+        },
+        {
+          "url": "images/c54959c1-bba5-4c2d-9836-125b3217cdf9.jpg",
+          "colorId": "black"
+        },
+        {
+          "url": "images/e8e546f9-9597-4376-bc5a-0f91e0855ee8.jpg",
+          "colorId": "royal-blue"
+        },
+        {
+          "url": "images/fea4b70d-0883-4925-bc57-a10d4a80b0ca.jpg",
+          "colorId": "dark-green"
+        }
+      ]
+    },
+    {
+      "id": "p07gbjs",
+      "itemCode": "SJ-061",
+      "sectionId": "corporate-gifts",
+      "typeId": "customized-gifts",
+      "subtypeId": "st-pens",
+      "name": {
+        "en": "Ballpoint Pen",
+        "ar": "قلم حبر كروي"
+      },
+      "description": {
+        "en": "Sleek ballpoint pen for everyday writing",
+        "ar": "قلم حبر كروي أنيق للكتابة اليومية"
+      },
+      "colorIds": [
+        "black",
+        "royal-blue",
+        "white",
+        "green"
+      ],
+      "images": [
+        {
+          "url": "images/3744e5f6-6f62-4188-97f2-2dc04a2524e9.jpg",
+          "colorId": "black"
+        },
+        {
+          "url": "images/a2b68082-e2ed-4f41-a3f2-285574d89028.jpg",
+          "colorId": "royal-blue"
+        },
+        {
+          "url": "images/d7c8a9f0-8e4a-4b10-8555-c0e101116bd6.jpg",
+          "colorId": "white"
+        },
+        {
+          "url": "images/fd27ba4a-6d43-4145-97fb-4705b6ec5658.jpg",
+          "colorId": "green"
+        }
+      ]
+    },
+    {
+      "id": "p6mtdt5",
+      "itemCode": "SJ-062",
+      "sectionId": "corporate-gifts",
+      "typeId": "customized-gifts",
+      "subtypeId": "st-pens",
+      "name": {
+        "en": "Metallic Pen",
+        "ar": "قلم معدني "
+      },
+      "description": {
+        "en": "Elegant pen with metallic finish",
+        "ar": "قلم أنيق بلمسة معدنية"
+      },
+      "colorIds": [
+        "green",
+        "black",
+        "white",
+        "navy-blue"
+      ],
+      "images": [
+        {
+          "url": "images/3a6225d7-87b2-4565-8a12-a998977d9e7d.jpg",
+          "colorId": "green"
+        },
+        {
+          "url": "images/026317cf-04ed-46a3-b388-0e205c5c0702.jpg",
+          "colorId": "black"
+        },
+        {
+          "url": "images/c1aa215c-438c-4bb4-8da3-7ca350186924.jpg",
+          "colorId": "white"
+        },
+        {
+          "url": "images/cd80a04d-7eb2-413c-abbf-d064564fa2b6.jpg",
+          "colorId": "navy-blue"
+        }
+      ]
+    },
+    {
+      "id": "pxaoiht",
+      "itemCode": "SJ-063",
+      "sectionId": "corporate-gifts",
+      "typeId": "customized-gifts",
+      "subtypeId": "st-pens",
+      "name": {
+        "en": "Executive Pen",
+        "ar": "قلم تنفيذي"
+      },
+      "description": {
+        "en": "Premium quality pen for corporate gifts",
+        "ar": "قلم ذو جودة عالية كهدية للشركات"
+      },
+      "colorIds": [
+        "navy-blue",
+        "white",
+        "black"
+      ],
+      "images": [
+        {
+          "url": "images/7dd5ae04-ad00-4c58-8b2a-b93f702d0b03.jpg",
+          "colorId": "navy-blue"
+        },
+        {
+          "url": "images/9df7cd8e-52fd-4a4c-9251-ab8b7852cb22.jpg",
+          "colorId": "white"
+        },
+        {
+          "url": "images/7541ebd0-95a3-4f6f-99a4-b094989d8d60.jpg",
+          "colorId": "black"
+        }
+      ]
+    },
+    {
+      "id": "p5j54re",
+      "itemCode": "SJ-064",
+      "sectionId": "corporate-gifts",
+      "typeId": "customized-gifts",
+      "subtypeId": "st-pens",
+      "name": {
+        "en": "Metallic Pen",
+        "ar": "قلم معدني"
+      },
+      "description": {
+        "en": "Sleek pen with silver accents",
+        "ar": "قلم أنيق مع حواف فضية"
+      },
+      "colorIds": [
+        "white",
+        "royal-blue",
+        "black",
+        "green"
+      ],
+      "images": [
+        {
+          "url": "images/62d377bf-cf11-4bad-8c53-0c8891b27807.jpg",
+          "colorId": "white"
+        },
+        {
+          "url": "images/442b07e1-b336-4366-a8e8-e7bd27fa07cd.jpg",
+          "colorId": "royal-blue"
+        },
+        {
+          "url": "images/d34a2d19-2122-4134-953d-b8c26c69fcd0.jpg",
+          "colorId": "black"
+        },
+        {
+          "url": "images/e1701a05-23e0-458c-bc30-86b8ddeca9a3.jpg",
+          "colorId": "green"
+        }
+      ]
+    },
+    {
+      "id": "p72mnlb",
+      "itemCode": "SJ-065",
+      "sectionId": "corporate-gifts",
+      "typeId": "customized-gifts",
+      "subtypeId": "st-tech-gifts",
+      "name": {
+        "en": "Stylus Pen",
+        "ar": "قلم ستايلس"
+      },
+      "description": {
+        "en": "A premium pen with a touch screen tip",
+        "ar": "قلم فاخر بنهاية ستايلس للشاشات اللمس"
+      },
+      "colorIds": [
+        "green",
+        "black",
+        "navy-blue"
+      ],
+      "images": [
+        {
+          "url": "images/9e09d581-87d3-4372-9b94-68e0df5d41e1.jpg",
+          "colorId": "green"
+        },
+        {
+          "url": "images/b4a2f276-62b1-47ec-abf3-0921a19091b4.jpg",
+          "colorId": "black"
+        },
+        {
+          "url": "images/f4fe5554-051e-41ce-b3e1-b2cb82596c22.jpg",
+          "colorId": "navy-blue"
+        }
+      ]
+    },
+    {
+      "id": "p331pj4",
+      "itemCode": "SJ-066",
+      "sectionId": "corporate-gifts",
+      "typeId": "customized-gifts",
+      "subtypeId": "st-pens",
+      "name": {
+        "en": "Ballpoint Pen",
+        "ar": "قلم حبر كروي"
+      },
+      "description": {
+        "en": "A stylish ballpoint pen with silver accents",
+        "ar": "قلم حبر كروي أنيق مع حواف فضية"
+      },
+      "colorIds": [
+        "royal-blue",
+        "gray",
+        "black",
+        "dark-green"
+      ],
+      "images": [
+        {
+          "url": "images/8d62b4d3-f30c-4679-b264-80cab63798d0.jpg",
+          "colorId": "royal-blue"
+        },
+        {
+          "url": "images/33557fab-9f8a-4e17-96e7-a3e97959079f.jpg",
+          "colorId": "gray"
+        },
+        {
+          "url": "images/a54f9613-5baf-47c0-a90b-15288c7f3758.jpg",
+          "colorId": "black"
+        },
+        {
+          "url": "images/b2567f77-9d69-4975-939b-3ea1f4d0c9d2.jpg",
+          "colorId": "dark-green"
+        }
+      ]
+    },
+    {
+      "id": "p79lzah",
+      "itemCode": "SJ-067",
+      "sectionId": "corporate-gifts",
+      "typeId": "customized-gifts",
+      "subtypeId": "st-pens",
+      "name": {
+        "en": "Ballpoint Pen",
+        "ar": "قلم حبر كروي"
+      },
+      "description": {
+        "en": "Premium quality ballpoint pen",
+        "ar": "قلم حبر كروي ذو جودة عالية"
+      },
+      "colorIds": [
+        "navy-blue",
+        "green",
+        "black",
+        "white"
+      ],
+      "images": [
+        {
+          "url": "images/3bf00c66-7bd1-404e-ba1e-eb41a6f65c68.jpg",
+          "colorId": "navy-blue"
+        },
+        {
+          "url": "images/8e90dbdf-fd86-4a31-82a4-37ed10d6c4d5.jpg",
+          "colorId": "green"
+        },
+        {
+          "url": "images/c483f41b-7977-4d6e-96ab-5c07872f6bda.jpg",
+          "colorId": "black"
+        },
+        {
+          "url": "images/e0fcf98f-ed81-4390-bc76-538316333cd1.jpg",
+          "colorId": "white"
+        }
+      ]
+    },
+    {
+      "id": "pj5eyul",
+      "itemCode": "SJ-068",
+      "sectionId": "corporate-gifts",
+      "typeId": "customized-gifts",
+      "subtypeId": "st-notebooks",
+      "name": {
+        "en": "Smart Notebook",
+        "ar": "دفتر ملاحظات ذكي"
+      },
+      "description": {
+        "en": "Elevate your note-taking with our smart notebook.",
+        "ar": "ارفع مستوى تدوين ملاحظاتك مع دفتر الملاحظات الذكي الخاص بنا."
+      },
+      "colorIds": [
+        "navy-blue",
+        "black"
+      ],
+      "images": [
+        {
+          "url": "images/c9bf5465-85ed-433f-8861-5074910fdc47.jpg",
+          "colorId": "navy-blue"
+        },
+        {
+          "url": "images/f5e910a9-5855-483b-ab4d-9099804fced1.jpg",
+          "colorId": "black"
+        }
+      ]
+    },
+    {
+      "id": "p1h1bgx",
+      "itemCode": "SJ-069",
+      "sectionId": "corporate-gifts",
+      "typeId": "customized-gifts",
+      "subtypeId": "st-notebooks",
+      "name": {
+        "en": "Smart Notebook",
+        "ar": "دفتر ملاحظات ذكي"
+      },
+      "description": {
+        "en": "A sleek and modern smart notebook",
+        "ar": "دفتر ملاحظات ذكي أنيق وحديث"
+      },
+      "colorIds": [
+        "navy-blue",
+        "black"
+      ],
+      "images": [
+        {
+          "url": "images/58de5014-daa1-449f-9248-d2a5f1f46941.jpg",
+          "colorId": "black"
+        },
+        {
+          "url": "images/c08ec83d-f4c5-4c82-b7f2-2aa0ccd93aba.jpg",
+          "colorId": "navy-blue"
+        }
+      ]
+    },
+    {
+      "id": "p4zr9a3",
+      "itemCode": "SJ-070",
+      "sectionId": "corporate-gifts",
+      "typeId": "customized-gifts",
+      "subtypeId": "st-notebooks",
+      "name": {
+        "en": "Leather Notebook",
+        "ar": "دفتر جلد جلدي"
+      },
+      "description": {
+        "en": "High-quality leather notebook for a professional look",
+        "ar": "دفتر جلد جلدي عالي الجودة لمظهر محترف"
+      },
+      "colorIds": [
+        "navy-blue",
+        "white",
+        "dark-green"
+      ],
+      "images": [
+        {
+          "url": "images/0115bf00-9d1d-473a-ba5c-244b6f092651.jpg",
+          "colorId": "dark-green"
+        },
+        {
+          "url": "images/269be780-12f5-4bd3-9511-3a94d52b4c83.jpg",
+          "colorId": "navy-blue"
+        },
+        {
+          "url": "images/fd5db731-89e5-486d-b0dc-0286bbb4c94a.jpg",
+          "colorId": "white"
+        }
+      ]
+    },
+    {
+      "id": "pcwrp7v",
+      "itemCode": "SJ-071",
+      "sectionId": "corporate-gifts",
+      "typeId": "customized-gifts",
+      "subtypeId": "st-notebooks",
+      "name": {
+        "en": "Notebook",
+        "ar": "دفتر"
+      },
+      "description": {
+        "en": "High-quality notebook for writing and note-taking.",
+        "ar": "دفتر عالي الجودة للكتابة و تدوين الملاحظات"
+      },
+      "colorIds": [
+        "white",
+        "black",
+        "navy-blue"
+      ],
+      "images": [
+        {
+          "url": "images/762ddede-4a63-4152-afd7-5db2a3e21dfd.jpg",
+          "colorId": "white"
+        },
+        {
+          "url": "images/982649dc-4d87-43f8-96c2-adba77ce02cb.jpg",
+          "colorId": "black"
+        },
+        {
+          "url": "images/a2349e47-3f26-4a13-90b7-db2d79db6700.jpg",
+          "colorId": "navy-blue"
+        }
+      ]
+    },
+    {
+      "id": "p0705n8",
+      "itemCode": "SJ-072",
+      "sectionId": "corporate-gifts",
+      "typeId": "customized-gifts",
+      "subtypeId": "st-notebooks",
+      "name": {
+        "en": "Modern Leather Notebook",
+        "ar": "دفتر جلدي عصري"
+      },
+      "description": {
+        "en": "A stylish and modern leather notebook",
+        "ar": "دفتر جلدي عصري أنيق"
+      },
+      "colorIds": [
+        "black",
+        "green",
+        "white",
+        "navy-blue"
+      ],
+      "images": [
+        {
+          "url": "images/10454e1a-66c1-4b29-bd03-794405dbbcb8.jpg",
+          "colorId": "black"
+        },
+        {
+          "url": "images/68648cb1-479a-4b26-b77e-5303541dcd5f.jpg",
+          "colorId": "green"
+        },
+        {
+          "url": "images/76503fc9-e3de-4e95-945c-9d38201a2e40.jpg",
+          "colorId": "white"
+        },
+        {
+          "url": "images/bb68958e-bb1c-4c87-a674-f057c71f09b7.jpg",
+          "colorId": "navy-blue"
+        }
+      ]
+    },
+    {
+      "id": "pf2ro87",
+      "itemCode": "SJ-073",
+      "sectionId": "corporate-gifts",
+      "typeId": "customized-gifts",
+      "subtypeId": "st-notebooks",
+      "name": {
+        "en": "Leather Notebook with fabric touch",
+        "ar": "دفتر ملاحظات جلدي بلمسة قماشية"
+      },
+      "description": {
+        "en": "A stylish and modern notebook with a leather-like texture and a fabric finish.",
+        "ar": "دفتر ملاحظات انيق و حديث بملمس جلدي بلمسة قماشية."
+      },
+      "colorIds": [
+        "navy-blue",
+        "green"
+      ],
+      "images": [
+        {
+          "url": "images/053bc84f-4879-49d5-b56a-df23e24a8d2d.jpg",
+          "colorId": "navy-blue"
+        },
+        {
+          "url": "images/126975b8-cd74-4f18-a54a-86386ff9251d.jpg",
+          "colorId": "green"
+        }
+      ]
     }
   ],
   "config": {
